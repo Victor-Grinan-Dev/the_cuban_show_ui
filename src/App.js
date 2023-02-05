@@ -2,6 +2,7 @@ import { HashRouter , Routes, Route } from 'react-router-dom';
 import Layout from "./pages/Layout";
 import Homepage from './components/views/Homepage';
 import NotFound from './components/NotFound';
+import './style/app.css';
 
 function App() {
   return (

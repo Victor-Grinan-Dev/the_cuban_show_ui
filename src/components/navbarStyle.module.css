@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 .navbar{
-    background-color: aqua;
+    background-color: rgb(243, 247, 247);
     display: flex;
-    height: 5vh;
+    height: 10vh;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 0 20px;
 }
 .logo{
     /*background*/
@@ -14,8 +16,8 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 10px;
     border-style: solid;
     border-color: white;
@@ -25,34 +27,21 @@
     align-items: center;
     box-shadow: 0 0 5px black;
 }
-@media (max-width: 400px){
+.title{
+    font-family: 'Staatliches', cursive;
+}
+
+@media (min-width: 415px){
     .title{
-        font-size: 20px;
+        font-size: 40px;
     }
 }
 
-@media (max-width: 500px){
-    .title{
-        font-size: 25px;
-    }
-}
-
-@media (max-width: 600px){
-    .title{
-        font-size: 30px;
-    }
-}
-
-@media (min-width: 700px){
-    .title{
-        font-size: 50px;
-    }
-}
 
 .menu{
-    background-color: rgb(21, 132, 132);
-    height: 50px;
-    width: 50px;
+    background-color: rgb(0, 0, 0);
+    height: 60px;
+    width: 60px;
     display: flex;
     justify-content: center;
     align-items: center;

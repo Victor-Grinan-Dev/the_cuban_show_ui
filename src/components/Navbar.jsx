@@ -1,9 +1,13 @@
 import React from 'react';
-
+import style from './navbarStyle.module.css';
 const Navbar = () => {
   return (
-    <div className='navbar'>
-        Navbar
+    <div className={style.navbar}>
+      <div className={style.logo} />
+      <div className={style.title}>
+      The Cuban Show
+      </div>
+      <div className={style.menu}>Menu</div>
     </div>
   )
 }

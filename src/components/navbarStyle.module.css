@@ -7,7 +7,13 @@
     padding: 20px;
 }
 .logo{
-    background-color: rgb(21, 132, 132);
+    /*background*/
+    background-Image: url('../assets/logo-black.jpg');
+    object-fit: cover;
+    background-size: 160%;
+    background-repeat: no-repeat;
+    background-position: center;
+
     height: 50px;
     width: 50px;
     border-radius: 10px;

@@ -3,7 +3,7 @@ import style from './navbarStyle.module.css';
 const Navbar = () => {
   return (
     <div className={style.navbar}>
-      <div className={style.logo}>Logo</div>
+      <div className={style.logo} />
       <div className={style.title}>
       The Cuban Show
       </div>

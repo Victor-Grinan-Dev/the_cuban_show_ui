@@ -4,9 +4,10 @@
     background-color: rgb(243, 247, 247);
     display: flex;
     height: 10vh;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
-    padding: 0 20px;
+    position: fixed;
 }
 .logo{
     /*background*/
@@ -29,13 +30,15 @@
 }
 .title{
     font-family: 'Staatliches', cursive;
+    font-size: x-small;
 }
 
-@media (min-width: 415px){
+@media (min-width: 600px){
     .title{
         font-size: 40px;
     }
 }
+
 
 
 .menu{

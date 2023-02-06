@@ -1,4 +1,60 @@
 .footer{
-    background-color: cadetblue;
-    height: 9.3vh;
+    padding: 20px;
+    background-color: rgb(241, 244, 244);
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.some{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90vw;
+}
+
+
+.someIcon{
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+
+.f,
+.ig,
+.yt,
+.twitter,
+.img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/*
+.f{
+    background-Image: url('../assets/someIcons/f_logo_RGB-Blue_512.png');
+}
+
+.ig{
+    background-Image: url('../assets/someIcons/Instagram_Glyph_Gradient.png');
+}
+
+.yt{
+    background-Image: url('../assets/someIcons/yt_icon_rgb.png');
+}
+
+.twitter{
+    background-Image: url('../assets/someIcons/2021\ Twitter\ logo\ -\ blue.png');
+}
+*/

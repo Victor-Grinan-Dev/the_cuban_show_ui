@@ -16,14 +16,6 @@
     width: 90vw;
 }
 
-
-.someIcon{
-    height: 50px;
-    width: 50px;
-    background-color: black;
-    overflow: hidden;
-}
-
 .f,
 .ig,
 .yt,
@@ -38,21 +30,3 @@
     overflow: hidden;
     border-radius: 10px;
 }
-
-/*
-.f{
-    background-Image: url('../assets/someIcons/f_logo_RGB-Blue_512.png');
-}
-
-.ig{
-    background-Image: url('../assets/someIcons/Instagram_Glyph_Gradient.png');
-}
-
-.yt{
-    background-Image: url('../assets/someIcons/yt_icon_rgb.png');
-}
-
-.twitter{
-    background-Image: url('../assets/someIcons/2021\ Twitter\ logo\ -\ blue.png');
-}
-*/

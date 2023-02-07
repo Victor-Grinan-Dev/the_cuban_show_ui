@@ -1,0 +1,13 @@
+.newsCard{
+    width: 95%;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blue;
+    padding-right: 20px;
+}
+
+.newsCardImg{
+    width: 25vw;
+}

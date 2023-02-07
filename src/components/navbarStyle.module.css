@@ -3,12 +3,52 @@
 .navbar{
     background-color: rgb(243, 247, 247);
     display: flex;
-    height: 10vh;
+    flex-direction: column;
+    height: 15vh;
     width: 100%;
     justify-content: space-around;
     align-items: center;
     position: fixed;
 }
+
+.navbarContainer{
+    background-color: rgb(243, 247, 247);
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigator{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: aliceblue;
+    width: 100%;
+    list-style-type: none;
+    
+}
+
+.navigator a{
+    text-decoration: none;
+    color:rgb(8, 8, 8);
+    padding: 0 5px;
+    
+    /*
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    */
+}
+
+.navigator a:hover{
+    background-color:rgb(4, 7, 173);
+    color: aliceblue;
+    text-shadow: 0 0 5 rgb(0, 0, 7);
+}
+
 .logo{
     /*background*/
     background-Image: url('../assets/logo-black.jpg');

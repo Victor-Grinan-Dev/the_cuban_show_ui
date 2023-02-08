@@ -6,6 +6,7 @@
     flex-direction: column;
     height: 15vh;
     width: 100%;
+    max-width: 800px;
     justify-content: space-around;
     align-items: center;
     position: fixed;

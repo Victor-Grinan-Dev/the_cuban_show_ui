@@ -8,9 +8,17 @@ import {contents} from '../../fakeDB';
 const Homepage = () => {
   return (
     <div className={style.homepage}>
-      <img src={image} alt="banner" className={style.bannerImg}/>
+      <div className={style.bannerContainer}>
+        <img src={image} alt="banner" className={style.bannerImg}/>
+      </div>
+      
+      <div className={style.latest}>
+        <NewsCard props={contents[0]}/>
+        <NewsCard props={contents[1]}/>
+        <NewsCard props={contents[2]}/>
+      </div>
 
-      <NewsCard props={contents[0]}/>
+
     </div>
   )
 }

@@ -1,13 +1,35 @@
 .newsCard{
-    width: 95%;
-    margin: 20px;
+    max-width: 800px;
+    min-width: 260px;
+    max-height: 25vw;
+    min-height: 15vw;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: blue;
+    /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
+    background-image: linear-gradient(45deg, #d80101, white, #2e02a8);
     padding-right: 20px;
 }
 
 .newsCardImg{
-    width: 25vw;
+    /* max-height: 100%; */
+    width: 30%;
+}
+
+.contentContainer{
+    padding: 10px;
+}
+
+.newsCardTitle{
+    font-size: small;
+}
+
+.line{
+    border-style: solid;
+    border-color: rgb(161, 2, 2);
+    border-width: 3px;
+}
+
+.date{
+    font-size: x-small;
 }

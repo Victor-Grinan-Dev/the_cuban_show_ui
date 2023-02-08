@@ -1,13 +1,42 @@
 .homepage{
-    min-height: 50vh;
-    margin-top: 17vh;
-    padding: 25px;
+    height: 70vh;
+    margin-top: 15vh;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content:flex-start;
+    /* background-color: brown; */
+    overflow: scroll;
+}
+
+.bannerContainer{
+    height: 50vh;
+    max-height: 400px;
+    max-width: 800px;   
+    overflow: hidden;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-image: url('../../assets/logo-texture.jpg');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat; */
 }
 
 .bannerImg{
     width: 100%;
+    
 }
+
+.latest{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+

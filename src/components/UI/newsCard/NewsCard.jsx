@@ -3,9 +3,9 @@ import style from './newsCard.module.css';
 import testImg from '../../../assets/logo-black.jpg';
 
 
-
-const NewsCard = ({title, image, body, date}) => {
-
+const NewsCard = ({props}) => { 
+  const {title, image, body, date} = props;
+  console.log(props.title)
   return (
     <div className={style.newsCard}>
         <img 
@@ -14,16 +14,14 @@ const NewsCard = ({title, image, body, date}) => {
         alt="newsImage" 
         />
 
-        <div>
+        <div className={style.contentContainer}>
             <h3 className={style.newsCardTitle}>
                 {title || 'test title'}
             </h3>
-            <p>{body}</p>
-            <p>Published: {date || Date.now()}</p>
+            <hr className={style.line}/>
+            {/* <p>{body}</p> */}
+            <p className={style.date}>Published: {date || Date.now()}</p>
         </div>
-        
-        <button>See More</button>
-
     </div>
   )
 }

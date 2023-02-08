@@ -4,7 +4,7 @@ import testImg from '../../../assets/logo-black.jpg';
 
 
 const NewsCard = ({props}) => { 
-  const {title, image, body, date} = props;
+  const {title, image, date} = props;
   console.log(props.title)
   return (
     <div className={style.newsCard}>

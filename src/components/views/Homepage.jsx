@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './homepage.module.css';
 import image from '../../assets/logo-texture.jpg';
-
+import genStyle from '../../style/styleGeneral.module.css';
 const Homepage = () => {
   return (
-    <div className={style.homepage}>
+    <div className={genStyle.view}>
       <div className={style.bannerContainer}>
         <img src={image} alt="banner" className={style.bannerImg}/>
       </div>

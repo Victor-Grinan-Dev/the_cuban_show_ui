@@ -1,14 +1,3 @@
-.homepage{
-    height: 70vh;
-    margin-top: 15vh;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content:center;
-    /* background-color: brown; */
-    overflow: scroll;
-}
 
 .bannerContainer{
     height: 50vh;

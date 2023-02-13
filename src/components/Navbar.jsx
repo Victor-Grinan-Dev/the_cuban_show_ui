@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className={style.navbarContainer}>
         <div className={style.logo} />
             <div className={style.title}>
-                <h1>The Cuban Show</h1>
+                <h1>Nothing but the truth</h1>
             </div>
         <div className={style.menu}>Menu</div>
       </div>

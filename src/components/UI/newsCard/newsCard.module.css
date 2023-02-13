@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
-    background-image: linear-gradient(45deg, #d80101, white, #2e02a8);
+    background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
     padding-right: 20px;
 }
 
@@ -22,6 +22,8 @@
 
 .newsCardTitle{
     font-size: small;
+    color: black;
+    text-shadow: 0 0 5px rgb(252, 252, 252);
 }
 
 .line{

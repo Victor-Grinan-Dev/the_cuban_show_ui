@@ -3,14 +3,10 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-
 import NewsCard from '../../UI/newsCard/NewsCard';
-//import { contents } from '../../../fakeDB';
-// import style from './styleContent.module.css';
 import genStyle from '../../../style/styleGeneral.module.css';
 import { useEffect, useState } from 'react';
-import { db } from '../../../firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { getContents } from '../../../services/firebaseService';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -22,17 +18,14 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Content = () => {
   const [content, setcontent] = useState([]);
-  const contentCollectionRef = collection(db, "content");
-  /* read the data */
   useEffect(() => {
-    const getContents = async () => {
-      const data = await getDocs(contentCollectionRef);
-      setcontent(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    }
-    getContents();
+    getContents().then((data) => setcontent(data))
+    setcontent();
   // eslint-disable-next-line
   }, []);
-
+  if(!content){
+    return <h1>LOADING...</h1>
+  }
   return (
     <div className={genStyle.view}>        
         <Box sx={{ width: '100%' }}>
@@ -45,7 +38,6 @@ const Content = () => {
             </Stack>
         </Box>
     </div>
-
   )
 }
 

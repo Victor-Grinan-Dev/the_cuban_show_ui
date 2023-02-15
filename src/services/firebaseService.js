@@ -4,8 +4,8 @@ import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase
 
 const contentCollectionRef = collection(db, "content");
 
-export const createContent = async (newTitle, newBody) => {
-    await addDoc(contentCollectionRef, {title:newTitle, body: newBody});
+export const createContent = async (content) => {
+    await addDoc(contentCollectionRef, content);
 } 
 
 export const getContents = async () => {

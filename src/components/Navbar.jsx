@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className={style.title}>
                 <h1>Nothing but the truth</h1>
             </div>
-        <div className={style.menu}>Menu</div>
+        <div className={style.menu}></div>
       </div>
       <ul className={style.navigator}>
           <li><Link to="/">Content</Link></li>

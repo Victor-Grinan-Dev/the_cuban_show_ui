@@ -39,6 +39,8 @@ const AddContent = () => {
         
         <input name='title' className={style.input} type="text" placeholder='Title' onChange={(e)=>changeHandler(e)}/>
 
+        <input type="file" className={style.fileInput} name="image" onChange={(e) => e.target.files[0] }/>
+
         <input name='image' className={style.input} type="text" placeholder='Image Url' onChange={(e)=>changeHandler(e)}/>
         <input name='heading' className={style.input} type="text" placeholder='Heading' onChange={(e)=>changeHandler(e)}/>
         <textarea className={style.textarea} name="body" id="body"  placeholder='Body' onChange={(e)=>changeHandler(e)}></textarea>

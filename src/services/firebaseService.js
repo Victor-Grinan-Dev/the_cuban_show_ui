@@ -1,9 +1,7 @@
 
-import { db, storage } from '../firebase';
+import { db } from '../firebase';
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
-
-import { ref } from 'firebase/storage';
-import { v4 } from "uuid";
+import { uploadBytes } from 'firebase/storage';
 
 const contentCollectionRef = collection(db, "content");
 
@@ -26,7 +24,11 @@ export const deleteContent = async (id) => {
     await deleteDoc(contentDoc);
 }
 
-export const uploadImage = (image) => {
-    if(!image) return;
-    const imageRef = ref(storage, `${image.name + v4()}`)
+export const uploadImage = (imageRef, image) => {
+    console.log(image && imageRef)
+    if(!image || !imageRef) return;
+    uploadBytes(imageRef, image).then(()=>{
+        alert("image uploaded succesfully!")
+    });
+    return imageRef;
 }

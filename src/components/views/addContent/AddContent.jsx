@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { createContent, uploadImage } from '../../../services/firebaseService';
 import genStyle from '../../../style/styleGeneral.module.css';
 import style from './addContent.module.css';
@@ -14,18 +14,6 @@ const AddContent = () => {
     const [content, setContent] = useState(emptyContent);
     const [imageFile, setImageFile] = useState(null);
     const [imageRef, setImageRef] = useState(null);
-    
-    useEffect(() => {
-        if(imageFile){
-            console.log("imageFile", imageFile.name);
-        }
-        if(imageRef){
-            console.log('imageRef',imageRef);
-        }
-        if(content){
-            console.log("content", content);
-        }
-    }, [imageFile, imageRef]);
 
     const changeHandler = (e) => {
         if(e.target.name === "tags"){ 

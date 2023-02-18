@@ -1,6 +1,7 @@
 
 import { db } from '../firebase';
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { uploadBytes } from 'firebase/storage';
 
 const contentCollectionRef = collection(db, "content");
 
@@ -21,4 +22,13 @@ export const updateContent = async (id, content) => {
 export const deleteContent = async (id) => {
     const contentDoc = doc(db, "content", id);
     await deleteDoc(contentDoc);
+}
+
+export const uploadImage = (imageRef, image) => {
+    console.log(image && imageRef)
+    if(!image || !imageRef) return;
+    uploadBytes(imageRef, image).then(()=>{
+        alert("image uploaded succesfully!")
+    });
+    return imageRef;
 }

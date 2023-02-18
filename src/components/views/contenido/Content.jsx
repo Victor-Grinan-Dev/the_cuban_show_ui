@@ -24,7 +24,12 @@ const Content = () => {
   // eslint-disable-next-line
   }, []);
   if(!content){
-    return <h1>LOADING...</h1>
+    return (
+      <div className={genStyle.view}>
+        <h1>LOADING...</h1>
+      </div>
+    )
+    
   }
   return (
     <div className={genStyle.view}>        

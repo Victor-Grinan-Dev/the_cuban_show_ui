@@ -3,7 +3,7 @@
     margin-bottom: 8px;
     width: 90vw;
     max-width: 780px;
-    height: 50vh;
+    height: 25vh;
     max-height: 400px;
 }
 
@@ -12,3 +12,9 @@
     margin-bottom: 8px;
     width: 70%;
 }
+.fileInput{
+    margin: 8px;
+    padding-bottom: 10px;
+    width: 70%;
+}
+

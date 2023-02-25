@@ -1,3 +1,4 @@
+//import { serverTimestamp } from "firebase/firestore";
 export class Content {
     tags = [];
     constructor(title, heading, image, body, isVideo=false, tags=null){
@@ -5,13 +6,13 @@ export class Content {
         this.heading = heading;
         this.image = image;
         this.body = body;
-        // this.date = new Date.now();
         this.isVideo = isVideo;
         if(tags){
             this.tags = this.createTags(tags);
         }
+        //this.date = serverTimestamp();
     }
-
+  
     createTags(tags){
         if( tags && typeof tags === "string"){
             if (tags.includes(",")){

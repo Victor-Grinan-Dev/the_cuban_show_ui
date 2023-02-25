@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { createContent, uploadImage } from '../../../services/firebaseService';
 import genStyle from '../../../style/styleGeneral.module.css';
 import style from './addContent.module.css';
-import { Content} from '../../../classes/content';
 import { storage } from '../../../firebase';
 import { ref } from 'firebase/storage';
 import { v4 } from "uuid";
@@ -11,7 +10,7 @@ import { setContent } from '../../../app/appSlice';
 
 import defaultImg from '../../../assets/logo-black.jpg'
 
-const emptyContent = new Content("", "", "", "");
+//const emptyContent = new Content("", "", "", "");
 
 const AddContent = () => {
     const dispatch = useDispatch();
@@ -62,7 +61,7 @@ const AddContent = () => {
                 setImageFile(e.target.files[0]);        
         }}/>
 
-        <img id='preview' className={style.previewImg} src={defaultImg} alt="my image" />
+        <img id='preview' className={style.previewImg} src={defaultImg} alt="newsPortrait" />
 
         <input name='heading' className={style.input} type="text" placeholder='Heading' onChange={(e)=>changeHandler(e)}/>
         <textarea className={style.textarea} name="body" id="body"  placeholder='Body' onChange={(e)=>changeHandler(e)}></textarea>

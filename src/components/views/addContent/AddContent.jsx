@@ -56,7 +56,7 @@ const AddContent = () => {
         {error && <span>{error}</span>}
         <input name='title' className={style.input} type="text" placeholder='Title' onChange={(e)=>changeHandler(e)}/>
 
-        <input type="file" className={style.fileInput} name="image" accept="image/*" onChange={(e) => {
+        <input type="file" className={style.fileInput} name="image" accept="image/png, image/jpg, image/*" onChange={(e) => {
                 changeHandler(e);
                 setImageFile(e.target.files[0]);        
         }}/>

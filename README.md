@@ -7,7 +7,7 @@ the cuban show in youtube: https://www.youtube.com/channel/UCzjcr4N5avBbjEcywqVa
 firebase: https://www.youtube.com/watch?v=jCY6DH8F4oc&t=930s
 
 firebase: Auth & CRUD: https://www.youtube.com/watch?v=jCY6DH8F4oc&t=930s
-
+custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 google  adsense: https://www.youtube.com/watch?v=W7r2w0aq3kE
 
 monetization plan: https://www.youtube.com/watch?v=TlhuljEYBMk

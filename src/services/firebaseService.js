@@ -1,12 +1,16 @@
 
 import { db } from '../firebase';
-import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc, serverTimestamp } from 'firebase/firestore';
 import { uploadBytes } from 'firebase/storage';
 
 const contentCollectionRef = collection(db, "content");
 
 export const createContent = async (content) => {
-    await addDoc(contentCollectionRef, content);
+    try {
+        await addDoc(contentCollectionRef, {...content, "date":serverTimestamp()});
+    } catch (error) {
+        console.log(error);
+    }
 } 
 
 export const getContents = async () => {

@@ -5,8 +5,10 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import NewsCard from '../../UI/newsCard/NewsCard';
 import genStyle from '../../../style/styleGeneral.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getContents } from '../../../services/firebaseService';
+import { useDispatch, useSelector } from 'react-redux';
+import { setContents } from '../../../app/appSlice';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,13 +19,15 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 const Content = () => {
-  const [content, setcontent] = useState([]);
+  const dispatch = useDispatch()
+  const contents = useSelector((state) => state.app.contents);
+
   useEffect(() => {
-    getContents().then((data) => setcontent(data))
-    setcontent();
+    getContents().then((data) => dispatch(setContents(data)))
+    
   // eslint-disable-next-line
   }, []);
-  if(!content){
+  if(!contents){
     return (
       <div className={genStyle.view}>
         <h1>LOADING...</h1>
@@ -36,7 +40,7 @@ const Content = () => {
         <Box sx={{ width: '100%' }}>
             <Stack spacing={2}>
                 {
-                    content && content.map((c, i) => (
+                    contents && contents.map((c, i) => (
                         <Item key={i}><NewsCard props={c}/></Item>
                     ))
                 }

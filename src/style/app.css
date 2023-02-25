@@ -16,16 +16,17 @@ body{
     
     /*background-color: rgb(160, 99, 181);*/
 }
-
-.layout{
-    min-height: 70vh;
-    min-width: 360px;
+main{
+    min-height: 100%;
+    width: 100%;
     max-width: 800px;
+}
+.layout{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     position: relative;
-
 }
 /* 
     background-image: url('../assets/backgroundFlags.jpg');

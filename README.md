@@ -11,4 +11,4 @@ google  adsense: https://www.youtube.com/watch?v=W7r2w0aq3kE
 
 monetization plan: https://www.youtube.com/watch?v=TlhuljEYBMk
 
-
+meanless change 1

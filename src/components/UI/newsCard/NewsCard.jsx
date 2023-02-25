@@ -3,8 +3,8 @@ import style from './newsCard.module.css';
 import testImg from '../../../assets/logo-black.jpg';
 
 const NewsCard = ({props}) => { 
-  const {title, image, date} = props;
-  console.log(date)
+  const {title, image} = props;
+  //date?
   return (
     <div className={style.newsCard}>
         <img 

@@ -8,7 +8,6 @@ import Content from './components/views/contenido/Content';
 import About from './components/views/about/About';
 import Contact from './components/views/conctact/Contact';
 
-
 /* erase this */
 import AddContent from './components/views/addContent/AddContent';
 

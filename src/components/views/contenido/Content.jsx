@@ -8,7 +8,7 @@ import genStyle from '../../../style/styleGeneral.module.css';
 import { useEffect } from 'react';
 import { getContents } from '../../../services/firebaseService';
 import { useDispatch, useSelector } from 'react-redux';
-import { setContents } from '../../../app/appSlice';
+import { setContents, setIsLoading } from '../../../app/appSlice';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -21,13 +21,18 @@ const Item = styled(Paper)(({ theme }) => ({
 const Content = () => {
   const dispatch = useDispatch()
   const contents = useSelector((state) => state.app.contents);
+  const isLoading = useSelector(state => state.app.isLoading)
 
   useEffect(() => {
-    getContents().then((data) => dispatch(setContents(data)))
+    setIsLoading(true);
+    getContents().then((data) => dispatch(setContents(data))).then(
+      dispatch(setIsLoading(false))
+    )
     
   // eslint-disable-next-line
   }, []);
-  if(!contents){
+
+  if(isLoading){
     return (
       <div className={genStyle.view}>
         <h1>LOADING...</h1>

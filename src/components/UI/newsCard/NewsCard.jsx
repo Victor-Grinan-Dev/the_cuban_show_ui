@@ -3,7 +3,8 @@ import style from './newsCard.module.css';
 import testImg from '../../../assets/logo-black.jpg';
 
 const NewsCard = ({props}) => { 
-  const {title, image, date} = props;
+  const {title, image} = props;
+  //date?
   return (
     <div className={style.newsCard}>
         <img 
@@ -17,7 +18,7 @@ const NewsCard = ({props}) => {
             </h3>
             <hr className={style.line}/>
             {/* <p>{body}</p> */}
-            <p className={style.date}>Published: {date || Date.now()}</p>
+            <p className={style.date}>Published: {Date.now()}</p>
         </div>
     </div>
   )

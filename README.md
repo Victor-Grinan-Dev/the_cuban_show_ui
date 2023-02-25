@@ -1,5 +1,6 @@
 # This is the Cuban Show UI
 live: https://thecubanshow.netlify.app/
+development site: https://the-cuban-show-development.netlify.app/
 
 the cuban show in youtube: https://www.youtube.com/channel/UCzjcr4N5avBbjEcywqVax_Q
 

@@ -4,16 +4,16 @@ import genStyle from '../../../style/styleGeneral.module.css';
 import style from './addContent.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContent, setImageUrl } from '../../../app/appSlice';
-import defaultImg from '../../../assets/logo-black.jpg'
+//import defaultImg from '../../../assets/logo-black.jpg'
 
 const AddContent = () => {
     const dispatch = useDispatch();
 
-    const imageUrl = useSelector(state => state.app.imageUrl);
+    //const imageUrl = useSelector(state => state.app.imageUrl);
     const content = useSelector((state) => state.app.content);
     const error = useSelector(state => state.app.error);
     const message = useSelector(state => state.app.message);
-    const taggs = useSelector(state => state.app.taggs);
+    //const taggs = useSelector(state => state.app.taggs);
 
     useEffect(() => {
         console.log("content", content);

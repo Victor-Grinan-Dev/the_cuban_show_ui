@@ -3,13 +3,13 @@ import style from './newsCard.module.css';
 import testImg from '../../../assets/logo-black.jpg';
 
 const NewsCard = ({props}) => { 
-  const {title, image} = props;
+  const {title} = props;
   //date?
   return (
     <div className={style.newsCard}>
         <img 
         className={style.newsCardImg}
-        src={image || testImg} 
+        src={props?.image || testImg} 
         alt="newsImage" 
         />
         <div className={style.contentContainer}>

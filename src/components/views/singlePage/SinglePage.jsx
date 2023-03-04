@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { getReadableTime } from '../../../functions/time';
 import globalStyle from '../../../style/styleGeneral.module.css';
-
+import defaultImage from '../../../assets/logo-black.jpg';
 import style from './singlePage.module.css';
 
 const SinglePage = () => {
@@ -10,17 +11,15 @@ const SinglePage = () => {
     body,
     date,
     heading,
-    id,
     image,
     tags,
     title,
   } =  location.state;
-
+  const readableDate = getReadableTime(date);
   return (
     <div className={globalStyle.view}>
-      <p>Article id: {id}</p>
-      <p>Published: {date?.seconds || date} </p>
-      <img src={image} alt="singleImgage" className={style.singleImage} />
+      <p>Published: {readableDate.toDateString()} </p>
+      <img src={image ? image : defaultImage} alt="singleImgage" className={style.singleImage} />
       <h2>"{title}"</h2>
       <h3>{heading}</h3>
       <p>{body}</p>

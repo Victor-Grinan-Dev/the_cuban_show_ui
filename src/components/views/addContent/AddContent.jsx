@@ -34,7 +34,7 @@ const AddContent = () => {
     };
 
     const submitHandler = () => {
-        createContent({...content, date: Date.now()});
+        createContent(content);
     };
  
     /* handle tags */

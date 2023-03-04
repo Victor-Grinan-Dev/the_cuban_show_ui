@@ -1,3 +1,8 @@
+export const getReadableTime = (timestamp) => {
+    //console.log(new Date(timestamp.seconds*1000));
+    return new Date(timestamp.seconds*1000);
+};
+
 // const START_YEAR = 1970;
 
 // const minutesfromSeconds = (seconds) => {
@@ -20,7 +25,8 @@
 
 // }
 
-export const parseTimeInSecondsToString = (timestamp) => {
+export const createReadableTime = () => {
+    const timestamp = new Date();
     const month = timestamp.getMonth() + 1;
     const day = timestamp.getDate();
     const year = timestamp.getFullYear()

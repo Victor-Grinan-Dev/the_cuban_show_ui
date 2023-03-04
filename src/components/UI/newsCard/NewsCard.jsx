@@ -2,11 +2,12 @@ import React from 'react';
 import style from './newsCard.module.css';
 import testImg from '../../../assets/logo-black.jpg';
 import { Link } from 'react-router-dom';
+import { getReadableTime } from '../../../functions/time';
 
 const NewsCard = ({props}) => { 
   const {id, title, image, date} = props;
-  //const published = date.seconds;
-  //date?
+  const readableDate = getReadableTime(date);
+
   return (
     <Link
       to={`article/${id}`} 
@@ -23,7 +24,7 @@ const NewsCard = ({props}) => {
                   {title || 'test title'}
               </h3>
               <hr className={style.line}/>
-              <p className={style.date}>Published: {date?.seconds ? date.seconds : date}</p>
+              <p className={style.date}>Published: {readableDate.toDateString()}</p>
           </div>
       </div>
     </Link>

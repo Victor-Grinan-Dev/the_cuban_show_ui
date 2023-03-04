@@ -15,3 +15,5 @@ monetization plan: https://www.youtube.com/watch?v=TlhuljEYBMk
 meanless change 1
 
 imgur upload img: https://www.youtube.com/watch?v=uJnf0mKswVA 
+
+auto embed videos from youtube: https://www.youtube.com/watch?v=Ib1W1nZbzKc

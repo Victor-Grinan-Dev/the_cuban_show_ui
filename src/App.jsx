@@ -10,6 +10,7 @@ import Contact from './components/views/conctact/Contact';
 
 /* erase this */
 import AddContent from './components/views/addContent/AddContent';
+import SinglePage from './components/views/singlePage/SinglePage';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='contact' element={<Contact />}/>
 
         <Route path='addcontent' element={<AddContent />}/>
+        <Route path="article/:single" element={<SinglePage />} />
 
         {/* FINALLY */}
         <Route path="*" element={<NotFound/>}/>

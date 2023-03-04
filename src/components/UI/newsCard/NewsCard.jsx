@@ -4,17 +4,18 @@ import testImg from '../../../assets/logo-black.jpg';
 import { Link } from 'react-router-dom';
 
 const NewsCard = ({props}) => { 
-  const {id, title, data} = props;
+  const {id, title, image, date} = props;
+  //const published = date.seconds;
   //date?
   return (
     <Link
-      to={`articleId/${id}`} 
-      state={{data:data}}
+      to={`article/${id}`} 
+      state={props}
       >
       <div className={style.newsCard}>
           <img 
           className={style.newsCardImg}
-          src={props?.image || testImg} 
+          src={image || testImg} 
           alt="newsImage" 
           />
           <div className={style.contentContainer}>
@@ -22,8 +23,7 @@ const NewsCard = ({props}) => {
                   {title || 'test title'}
               </h3>
               <hr className={style.line}/>
-              {/* <p>{body}</p> */}
-              <p className={style.date}>Published: {Date.now()}</p>
+              <p className={style.date}>Published: {date?.seconds ? date.seconds : date}</p>
           </div>
       </div>
     </Link>

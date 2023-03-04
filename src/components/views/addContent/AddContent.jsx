@@ -16,7 +16,7 @@ const AddContent = () => {
     //const taggs = useSelector(state => state.app.taggs);
 
     useEffect(() => {
-        console.log("content", content);
+        //console.log("content", content);
     }, [content]);
 
     const changeHandler = (e) => {
@@ -34,7 +34,7 @@ const AddContent = () => {
     };
 
     const submitHandler = () => {
-        createContent(content);
+        createContent({...content, date: Date.now()});
     };
  
     /* handle tags */

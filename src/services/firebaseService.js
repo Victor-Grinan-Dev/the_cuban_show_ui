@@ -5,8 +5,10 @@ import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc, serverTimestamp
 const contentCollectionRef = collection(db, "content");
 
 export const createContent = async (content) => {
+    // const date = `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`;
     try {
         await addDoc(contentCollectionRef, {...content, "date":serverTimestamp()});
+        //await addDoc(contentCollectionRef, {...content, "date":date});
     } catch (error) {
         console.log(error);
     }

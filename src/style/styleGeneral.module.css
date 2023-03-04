@@ -9,3 +9,11 @@
     /* background-color: brown; */
     overflow-y: scroll;
 }
+
+.hidden{
+    visibility: hidden;
+}
+
+.show{
+    visibility: visible;
+}

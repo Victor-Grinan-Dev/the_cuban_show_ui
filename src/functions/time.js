@@ -1,6 +1,6 @@
 export const getReadableTime = (timestamp) => {
     //console.log(new Date(timestamp.seconds*1000));
-    return new Date(timestamp.seconds*1000);
+    return new Date(timestamp?.seconds*1000);
 };
 
 // const START_YEAR = 1970;

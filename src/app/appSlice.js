@@ -76,6 +76,7 @@ export const {
     //content
     setContents,
     setContent,
+    setContentsInvert,
 
     //image
     setImageList,

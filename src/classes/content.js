@@ -1,6 +1,7 @@
 //import { serverTimestamp } from "firebase/firestore";
 export class Content {
     tags = [];
+    isErased = false;
     constructor(title, heading, image, body, isVideo=false, tags=null){
         this.title = title;
         this.heading = heading;

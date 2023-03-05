@@ -1,0 +1,38 @@
+.filterSearchBar{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(248, 244, 244);
+    padding: 2px 0;
+}
+
+.filterSearchList{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    width: 90%;
+    max-width: 800px;
+
+    font-size: smaller;
+}
+
+.filterSearchCriteria:hover{
+    background-color:rgb(4, 7, 173);
+    color: aliceblue;
+    text-shadow: 0 0 5 rgb(0, 0, 7);
+}
+
+.searchInput{
+    width: 20vw;
+    font-size: smaller; 
+}
+
+.searchOptions{
+    font-size: smaller; 
+}
+
+

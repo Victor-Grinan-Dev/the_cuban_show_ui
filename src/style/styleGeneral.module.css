@@ -1,6 +1,8 @@
 .view{
-    height: 75vh;
-    margin-top: 15vh;
+    height: 78vh;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 12vh;
     padding: 0 20px;
     display: flex;
     flex-direction: column;

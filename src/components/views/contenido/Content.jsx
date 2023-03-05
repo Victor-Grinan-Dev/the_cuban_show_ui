@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { getContents } from '../../../services/firebaseService';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContents, setIsLoading } from '../../../app/appSlice';
+import FilterSearchBar from '../../UI/filterSearchBar/FilterSearchBar';
 
 /* MUI cards holder */
 const Item = styled(Paper)(({ theme }) => ({
@@ -40,9 +41,10 @@ const Content = () => {
     ) 
   }
   return (
-    <div className={genStyle.view}>        
-        <Box sx={{ width: '100%' }}>
-            <Stack spacing={2}>
+    <div className={genStyle.view}> 
+      <FilterSearchBar/>       
+        <Box sx={{ width: '100%', marginTop:'25px'}}>
+            <Stack spacing={1}>
                 {
                   contents && contents.map((c, i) => (
                     <Item key={i}><NewsCard props={c}/></Item>

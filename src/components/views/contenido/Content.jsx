@@ -7,7 +7,7 @@ import genStyle from '../../../style/styleGeneral.module.css';
 import { useEffect } from 'react';
 import { getContents } from '../../../services/firebaseService';
 import { useDispatch, useSelector } from 'react-redux';
-import { setContents, setImageList, setIsLoading } from '../../../app/appSlice';
+import { setContents, setContentsInvert, setIsLoading } from '../../../app/appSlice';
 
 /* MUI cards holder */
 const Item = styled(Paper)(({ theme }) => ({
@@ -25,7 +25,7 @@ const Content = () => {
 
   useEffect(() => {
     dispatch(setIsLoading(true));
-    dispatch(setImageList())
+    // dispatch(setImageList())
     getContents().then((data) => dispatch(setContents(data))).then(
       dispatch(setIsLoading(false))
     );

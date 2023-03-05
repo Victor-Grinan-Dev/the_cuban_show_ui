@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Content } from '../classes/content';
+import { SortRecentFirts, SortRecentLast } from '../functions/sorting';
 
 export const appSlice = createSlice({
     name:'app',
@@ -39,8 +40,12 @@ export const appSlice = createSlice({
 
         //content
         setContents(state, action){
-            state.contents = action.payload;
+            state.contents = SortRecentFirts(action.payload);
         },
+        setContentsInvert(state, action){
+            state.contents = SortRecentLast(action.payload);
+        },
+        // constent filter
         setContent(state, action){
             state.content = action.payload;
         },

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { createContent } from '../../../services/firebaseService';
 import genStyle from '../../../style/styleGeneral.module.css';
 import style from './addContent.module.css';
@@ -23,6 +23,7 @@ const AddContent = () => {
               }, 10000);
             return () => setTimer;
         }
+    // eslint-disable-next-line
     }, [error, message]);
 
     const cleanMessagge = () => {

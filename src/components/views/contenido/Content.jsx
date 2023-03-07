@@ -26,7 +26,6 @@ const Content = () => {
 
   useEffect(() => {
     dispatch(setIsLoading(true));
-    // dispatch(setImageList())
     getContents().then((data) => dispatch(setContents(data))).then(
       dispatch(setIsLoading(false))
     );

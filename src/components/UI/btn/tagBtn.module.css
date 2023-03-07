@@ -1,0 +1,22 @@
+.TagBtn{
+    font-size: xx-small;
+    width: fit-content;
+    padding: 0 5px;
+}
+
+/* .TagBtn:hover{
+    font-size: xx-small;
+    width: fit-content;
+    padding: 0 5px;
+    border: none;
+    color: white;
+    background-color: darkblue;
+}
+*/
+.selectedTagBtn{
+    font-size: xx-small;
+    width: fit-content;
+    padding: 0 5px;
+    color: white;
+    background-color: darkblue;
+} 

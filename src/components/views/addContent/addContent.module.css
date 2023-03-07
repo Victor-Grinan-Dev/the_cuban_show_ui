@@ -13,6 +13,15 @@
     max-height: 400px;
 }
 
+.tagsArea{
+    width: 80vw;
+    max-width: 600px;
+    height: 20vh;
+    max-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .input{
     margin-top: 8px;
     margin-bottom: 8px;

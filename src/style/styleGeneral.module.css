@@ -1,5 +1,5 @@
 .view{
-    height: 78vh;
+    height: 82vh;
     width: 90%;
     max-width: 800px;
     margin-top: 12vh;
@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:flex-start;
+    justify-content: flex-start;
     /* background-color: brown; */
     overflow-y: scroll;
 }
@@ -18,4 +18,8 @@
 
 .show{
     visibility: visible;
+}
+
+.scrollable{
+    overflow-y: scroll;
 }

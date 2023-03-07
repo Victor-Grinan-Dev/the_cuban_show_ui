@@ -15,7 +15,7 @@ export const appSlice = createSlice({
         //content
         contents:[],
         content: new Content("", "", "", ""),
-        taggs:[],
+        tags:[],
 
         //image
         imageList:[],
@@ -45,15 +45,14 @@ export const appSlice = createSlice({
         setContentsInvert(state, action){
             state.contents = SortRecentLast(action.payload);
         },
-        // constent filter
         setContent(state, action){
             state.content = action.payload;
         },
         addTag(state, action){
-            state.taggs = [ ...state.taggs, action.payload ];
+            state.tags = [ ...state.tags, action.payload ];
         },
-        setTaggs(state, action){
-            state.taggs = action.payload;
+        setTags(state, action){
+            state.tags = action.payload;
         },
 
         //image
@@ -77,6 +76,8 @@ export const {
     setContents,
     setContent,
     setContentsInvert,
+    addTag,
+    setTags,
 
     //image
     setImageList,

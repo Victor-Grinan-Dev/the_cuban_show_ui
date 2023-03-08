@@ -1,20 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createContent } from '../../../services/firebaseService';
 import genStyle from '../../../style/styleGeneral.module.css';
 import style from './addContent.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { setContent, setError, setImageUrl, setMessage } from '../../../app/appSlice';
+import { setContent, setError, setImageUrl, setMessage, addTag } from '../../../app/appSlice';
 import { Content } from '../../../classes/content';
-//import defaultImg from '../../../assets/logo-black.jpg'
+import { allTags } from '../../../appConfig';
+import TagBtn from '../../UI/btn/TagBtn';
+
+// import defaultImg from '../../../assets/logo-black.jpg'
 
 const AddContent = () => {
     const dispatch = useDispatch();
 
-    //const imageUrl = useSelector(state => state.app.imageUrl);
     const content = useSelector((state) => state.app.content);
     const error = useSelector(state => state.app.error);
     const message = useSelector(state => state.app.message);
-    //const taggs = useSelector(state => state.app.taggs);
+    const tags = useSelector(state => state.app.tags);
+    const [isShowTags, setIsShowTags] = useState(false);
+
+    useEffect(() => {
+        /* This tags reffers to the content being created*/
+        tags && console.log('tags', tags);
+    }, [tags]);
 
     useEffect(() => {
         if(error || message){
@@ -25,6 +33,15 @@ const AddContent = () => {
         }
     // eslint-disable-next-line
     }, [error, message]);
+
+    const showAllTasHandle = () => {
+        setIsShowTags(!isShowTags);
+    }
+    const addTagHandler = (e) => {
+        if(!tags.includes(e?.target?.innerText)){
+            dispatch(addTag(e?.target?.innerText));
+        };
+    };
 
     const cleanMessagge = () => {
         dispatch(setError(''));
@@ -83,12 +100,22 @@ const AddContent = () => {
 
             <input name='heading' className={style.input} type="text" placeholder='Heading*' onChange={(e)=>changeHandler(e)}/>
             <textarea className={style.textarea} name="body" id="body"  placeholder='Body*' onChange={(e)=>changeHandler(e)}></textarea>
+            
+            <p className={style.isShowTags} onClick={showAllTasHandle}>{isShowTags?'Hide Tags' : 'Show Tags'}</p>
+            <div className={style.tagsArea}> 
+                {
+                   (isShowTags && allTags) && allTags.map((t, i) => {
+                        return <TagBtn name={t} key={i} label={t} fxPrimary={addTagHandler} /*isSelected={t.isTagSelected}*/ />
+                    })
+                }
+            </div>
+
 
             {/* <p>Tags should be coma separated and lowercase</p>
             { taggs && <input type="text" className={style.input} name='tags'
             placeholder='Ex. politics, climate change' onChange={(e)=>changeHandler(e)}/>} */}
-
-            <button>Add</button>
+            
+            <button>Publish Content</button>
         </form>
     </div>
   )

@@ -22,7 +22,12 @@ const SinglePage = () => {
       <img src={image ? image : defaultImage} alt="singleImgage" className={style.singleImage} />
       <h2>"{title}"</h2>
       <h3>{heading}</h3>
-      <p>{body}</p>
+      <p style={{
+        display:"flex",
+        flexWrap:"wrap",
+        width:"90vw",
+
+      }}>{body}</p>
       {
         tags && tags.map((t, i) =>(
           <span key={i}>{t}</span>

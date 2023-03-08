@@ -21,8 +21,8 @@ const AddContent = () => {
 
     useEffect(() => {
         /* This tags reffers to the content being created*/
-        tags && console.log('tags', tags);
-    }, [tags]);
+        content && console.log('content', content);
+    }, [content]);
 
     useEffect(() => {
         if(error || message){
@@ -41,6 +41,7 @@ const AddContent = () => {
         if(!tags.includes(e?.target?.innerText)){
             dispatch(addTag(e?.target?.innerText));
         };
+        changeContent("tags", tags);
     };
 
     const cleanMessagge = () => {
@@ -53,10 +54,7 @@ const AddContent = () => {
     }
 
     const changeHandler = (e) => {
-        if(e.target.name === "tags"){ 
-            changeContent(e.target.name, e.target.value.split(", "));
-        }
-        if(e.target.name === "imageUrl"){
+        if(e?.target?.name === "imageUrl"){
             dispatch(setImageUrl(e.target.value))
         }
         changeContent(e.target.name, e.target.value);

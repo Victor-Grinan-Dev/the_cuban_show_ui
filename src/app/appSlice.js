@@ -11,6 +11,7 @@ export const appSlice = createSlice({
         search:'',
         error:'',
         message:'',
+        filterTags:[],
         
         //content
         contents:[],
@@ -36,6 +37,9 @@ export const appSlice = createSlice({
         },
         setMessage (state, action){
             state.message=action.payload;
+        },
+        setFilterTags (state, action){
+            state.filterTags=action.payload;
         },
 
         //content
@@ -71,6 +75,9 @@ export const {
     setSearch,
     setError,
     setMessage,
+    setFilterTags,
+    addFilterTag,
+    delFilterTag,
 
     //content
     setContents,

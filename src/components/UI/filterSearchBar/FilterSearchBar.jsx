@@ -1,33 +1,39 @@
 import React, {useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilterTags, setSearch, setTags } from '../../../app/appSlice';
 import { allTags } from '../../../appConfig';
 import style from './filterSearchBar.module.css';
 
 const FilterSearchBar = () => {
+  const dispatch = useDispatch();
   const [isShowSearchInput, setIsShowSearchInput] = useState(false);
-  const [tagsFilters, setTagsFilters] = useState([]);
+  const filterTags = useSelector(state => state.app.filterTags)
+  const search = useSelector(state => state.app.search);
 
   useEffect(() => {
-    console.log(tagsFilters);
-  }, [tagsFilters]);
+    console.log('filterTags', filterTags);
+    console.log('search', search);
+    dispatch(setTags(filterTags));
+  }, [filterTags, search, dispatch]);
 
   const addOrDelHandler = (tag) => {
-    isTagIncluded(tag) ? deleteTagFilterHandler(tag) : addTagsFiltershandler(tag)
-  }
+    isTagIncluded(tag) ? deleteTagFilterHandler(tag) : addTagsFiltershandler(tag);
+  };
 
   const addTagsFiltershandler = (tag) => {
-      setTagsFilters([...tagsFilters, tag]);
-    };
+      dispatch(setFilterTags([...filterTags, tag]));
+  };
 
   const deleteTagFilterHandler = (tag) => {   
-    setTagsFilters(tagsFilters.filter(t => {
+    dispatch(setFilterTags(filterTags.filter(t => {
         return t !== tag
       }
-    ))
+    )));
   };
 
   const isTagIncluded = (tag) => {
-    return tagsFilters.includes(tag)
-  }
+    return filterTags.includes(tag)
+  };
 
   return (
     <div className={style.filterSearchBar}>
@@ -35,9 +41,8 @@ const FilterSearchBar = () => {
             {!isShowSearchInput &&
               <>
                 <li className={style.filterSearchCriteria}
-                onClick={ ()=>setTagsFilters([]) } 
+                onClick={ ()=>setFilterTags([]) } 
                 >All</li>
-
                 <li 
                   id='cuba'
                   className={style.filterSearchCriteria} 
@@ -73,17 +78,18 @@ const FilterSearchBar = () => {
             {
               isShowSearchInput &&
               <li className={style.searchCriteriaS} >
-                <input type="text" className={style.searchInput} placeholder='Search'/>
-                <select className={style.searchOptions}>
-                    <option value="">By title</option>
-                    <option value="">By date</option>
-                </select>
+                <input type="text"
+                 className={style.searchInput} 
+                 placeholder='Search'
+                 onChange={(e)=>dispatch(setSearch(e.target.value))}
+                 value={search}
+                 />
               </li>
             }
             <li className={style.filterSearchCriteria} onClick={()=>setIsShowSearchInput(!isShowSearchInput)}>🔎</li>
         </ul>
     </div>
   )
-}
+};
 
 export default FilterSearchBar;

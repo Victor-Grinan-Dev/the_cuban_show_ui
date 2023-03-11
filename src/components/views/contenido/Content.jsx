@@ -9,6 +9,7 @@ import { getContents } from '../../../services/firebaseService';
 import { useDispatch, useSelector } from 'react-redux';
 import { setContents, setIsLoading } from '../../../app/appSlice';
 import FilterSearchBar from '../../UI/filterSearchBar/FilterSearchBar';
+import { filterByTags } from '../../../functions/filter';
 
 /* MUI cards holder */
 const Item = styled(Paper)(({ theme }) => ({
@@ -23,6 +24,22 @@ const Content = () => {
   const dispatch = useDispatch()
   const contents = useSelector((state) => state.app.contents);
   const isLoading = useSelector(state => state.app.isLoading)
+  const search = useSelector(state => state.app.search);
+  const selectedTags = useSelector(state => state.app.tags);
+
+  const contentsFilteredByTags = filterByTags(contents, selectedTags);
+
+  /**
+   * contentsFiltered : 
+   * return all objects "content" filtered by parameter tags and search-input overlaped.
+   * return all objects if search-input = '' and tags array lenght = 0
+   */
+  const  contentsFiltered = selectedTags.lenght !== 0 ? 
+    filterByTags(contents, selectedTags).filter((content) => { 
+      return content.title.toLowerCase().includes(search.toLowerCase())}) 
+    : contentsFilteredByTags.filter((content) => {
+      return content.title.toLowerCase().includes(search.toLowerCase());
+  });
 
   useEffect(() => {
     dispatch(setIsLoading(true));
@@ -35,17 +52,21 @@ const Content = () => {
   if(isLoading){
     return (
       <div className={genStyle.view}>
-        <h1>LOADING...</h1>
+        <p>LOADING...</p>
       </div>
     ) 
   }
   return (
     <div className={genStyle.view}> 
+    {console.log(contentsFilteredByTags)}
       <FilterSearchBar/>       
         <Box sx={{ width: '100%', marginTop:'25px'}}>
             <Stack spacing={1}>
                 {
-                  contents && contents.map((c, i) => (
+                  contents && console.log('contentsFiltered', contentsFiltered)
+                }
+                {
+                  contents && contentsFiltered.map((c, i) => (
                     <Item key={i}><NewsCard props={c}/></Item>
                   ))
                 }

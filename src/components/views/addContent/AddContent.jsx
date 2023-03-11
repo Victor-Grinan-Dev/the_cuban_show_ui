@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { createContent } from '../../../services/firebaseService';
 import genStyle from '../../../style/styleGeneral.module.css';
 import style from './addContent.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { setContent, setError, setImageUrl, setMessage, addTag } from '../../../app/appSlice';
+import { setContent, setError, setImageUrl, setMessage, addTag, setTags } from '../../../app/appSlice';
 import { Content } from '../../../classes/content';
 import { allTags } from '../../../appConfig';
 import TagBtn from '../../UI/btn/TagBtn';
 
 // import defaultImg from '../../../assets/logo-black.jpg'
+
+/* TODO */
+//click and unclick tags
 
 const AddContent = () => {
     const dispatch = useDispatch();
@@ -17,12 +20,12 @@ const AddContent = () => {
     const error = useSelector(state => state.app.error);
     const message = useSelector(state => state.app.message);
     const tags = useSelector(state => state.app.tags);
-    const [isShowTags, setIsShowTags] = useState(false);
+    // const [isShowTags, setIsShowTags] = useState(false);
 
     useEffect(() => {
         /* This tags reffers to the content being created*/
-        tags && console.log('tags', tags);
-    }, [tags]);
+        content && console.log('content', content);
+    }, [content]);
 
     useEffect(() => {
         if(error || message){
@@ -34,13 +37,19 @@ const AddContent = () => {
     // eslint-disable-next-line
     }, [error, message]);
 
-    const showAllTasHandle = () => {
-        setIsShowTags(!isShowTags);
-    }
+    // const showAllTasHandle = () => {
+    //     setIsShowTags(!isShowTags);
+    // }
     const addTagHandler = (e) => {
         if(!tags.includes(e?.target?.innerText)){
             dispatch(addTag(e?.target?.innerText));
+        }else{
+            console.log(tags.filter((t)=>{
+                return t !== e?.target?.innerText
+            }))
+
         };
+        changeContent("tags", tags);
     };
 
     const cleanMessagge = () => {
@@ -53,10 +62,7 @@ const AddContent = () => {
     }
 
     const changeHandler = (e) => {
-        if(e.target.name === "tags"){ 
-            changeContent(e.target.name, e.target.value.split(", "));
-        }
-        if(e.target.name === "imageUrl"){
+        if(e?.target?.name === "imageUrl"){
             dispatch(setImageUrl(e.target.value))
         }
         changeContent(e.target.name, e.target.value);
@@ -73,6 +79,7 @@ const AddContent = () => {
             document.getElementById("form").reset();
             dispatch(setMessage('Article added!'));
             resetContent();
+            dispatch(setTags([]));
         }else{
             dispatch(setError('Input fields still empty'));
         }
@@ -101,10 +108,15 @@ const AddContent = () => {
             <input name='heading' className={style.input} type="text" placeholder='Heading*' onChange={(e)=>changeHandler(e)}/>
             <textarea className={style.textarea} name="body" id="body"  placeholder='Body*' onChange={(e)=>changeHandler(e)}></textarea>
             
-            <p className={style.isShowTags} onClick={showAllTasHandle}>{isShowTags?'Hide Tags' : 'Show Tags'}</p>
+            <p className={style.isShowTags} 
+                // onClick={showAllTasHandle}
+            >
+                Tags:
+                {/* {isShowTags?'Hide Tags' : 'Show Tags'} */}
+            </p>
             <div className={style.tagsArea}> 
                 {
-                   (isShowTags && allTags) && allTags.map((t, i) => {
+                    allTags && allTags.map((t, i) => {
                         return <TagBtn name={t} key={i} label={t} fxPrimary={addTagHandler} /*isSelected={t.isTagSelected}*/ />
                     })
                 }

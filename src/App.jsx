@@ -8,7 +8,6 @@ import Content from './components/views/contenido/Content';
 import About from './components/views/about/About';
 import Contact from './components/views/conctact/Contact';
 
-/* erase this */
 import AddContent from './components/views/addContent/AddContent';
 import SinglePage from './components/views/singlePage/SinglePage';
 
@@ -16,7 +15,6 @@ function App() {
 
   return (
 <HashRouter>
-  {/* {content && console.log(content)} */}
   <Routes>
       <Route path="/" element={<Layout/>}>
         <Route index element={<Content/>}/>

@@ -11,10 +11,8 @@ const FilterSearchBar = () => {
   const search = useSelector(state => state.app.search);
 
   useEffect(() => {
-    console.log('filterTags', filterTags);
-    console.log('search', search);
     dispatch(setTags(filterTags));
-  }, [filterTags, search, dispatch]);
+  }, [filterTags, dispatch]);
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag) ? deleteTagFilterHandler(tag) : addTagsFiltershandler(tag);
@@ -40,23 +38,38 @@ const FilterSearchBar = () => {
         <ul className={style.filterSearchList} >
             {!isShowSearchInput &&
               <>
-                <li className={style.filterSearchCriteria}
-                onClick={ ()=>setFilterTags([]) } 
+                <li 
+                  id='All'
+                  className={style.filterSearchCriteria}
+                  style={filterTags.length === 0 ? {backgroundColor:"green"} : null}
+                  onClick={ ()=>{
+                    dispatch(setSearch(''))
+                    dispatch(setFilterTags([]))
+                  }} 
                 >All</li>
                 <li 
                   id='cuba'
                   className={style.filterSearchCriteria} 
-                  onClick={ (e) => addOrDelHandler(e.target.id)} 
+                  style={filterTags.includes('cuba') ? {backgroundColor:"green"} : null}
+                  onClick={ (e) => {
+                    addOrDelHandler(e.target.id)
+                  }}
                 >Cuba</li>
                 <li 
                   id='usa'
+                  style={filterTags.includes('usa') ? {backgroundColor:"green"} : null}
                   className={style.filterSearchCriteria} 
-                  onClick={ (e) => addOrDelHandler(e.target.id) }
+                  onClick={ (e) => {
+                    addOrDelHandler(e.target.id)
+                  }}
                 >Usa </li>
                 <li 
                 id='world'
+                style={filterTags.includes('world') ? {backgroundColor:"green"} : null}
                   className={style.filterSearchCriteria} 
-                  onClick={ (e) => addOrDelHandler(e.target.id) }
+                  onClick={ (e) => {
+                    addOrDelHandler(e.target.id)
+                  }}
                 >World's</li>
                 <select  
                   style={{fontSize:"14px"}}

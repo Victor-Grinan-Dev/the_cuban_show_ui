@@ -21,11 +21,6 @@
     font-size: smaller;
 }
 
-.filterSearchCriteria:hover{
-    background-color:rgb(4, 7, 173);
-    color: aliceblue;
-    text-shadow: 0 0 5 rgb(0, 0, 7);
-}
 
 .searchInput{
     width: 70%;

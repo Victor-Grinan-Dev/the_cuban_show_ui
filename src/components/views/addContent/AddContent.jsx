@@ -23,11 +23,6 @@ const AddContent = () => {
     // const [isShowTags, setIsShowTags] = useState(false);
 
     useEffect(() => {
-        /* This tags reffers to the content being created*/
-        content && console.log('content', content);
-    }, [content]);
-
-    useEffect(() => {
         if(error || message){
             const setTimer = setInterval(() => {
                 cleanMessagge();
@@ -43,12 +38,7 @@ const AddContent = () => {
     const addTagHandler = (e) => {
         if(!tags.includes(e?.target?.innerText)){
             dispatch(addTag(e?.target?.innerText));
-        }else{
-            console.log(tags.filter((t)=>{
-                return t !== e?.target?.innerText
-            }))
-
-        };
+        }
         changeContent("tags", tags);
     };
 

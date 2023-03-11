@@ -58,13 +58,9 @@ const Content = () => {
   }
   return (
     <div className={genStyle.view}> 
-    {console.log(contentsFilteredByTags)}
       <FilterSearchBar/>       
         <Box sx={{ width: '100%', marginTop:'25px'}}>
             <Stack spacing={1}>
-                {
-                  contents && console.log('contentsFiltered', contentsFiltered)
-                }
                 {
                   contents && contentsFiltered.map((c, i) => (
                     <Item key={i}><NewsCard props={c}/></Item>

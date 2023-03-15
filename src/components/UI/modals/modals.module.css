@@ -18,3 +18,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.closeX{
+    color: white;
+    position: relative;
+    right: -40%;
+}

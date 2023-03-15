@@ -119,6 +119,8 @@ const AddContent = () => {
             
             <button>Publish Content</button>
         </form>
+        
+        
     </div>
   )
 }

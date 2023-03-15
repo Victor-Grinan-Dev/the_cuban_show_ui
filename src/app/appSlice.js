@@ -12,6 +12,10 @@ export const appSlice = createSlice({
         error:'',
         message:'',
         filterTags:[],
+        showSettings:false,
+        
+        //Auth
+        user:{},
         
         //content
         contents:[],
@@ -40,6 +44,14 @@ export const appSlice = createSlice({
         },
         setFilterTags (state, action){
             state.filterTags=action.payload;
+        },
+        setShowSettings(state){
+            state.showSettings = !state.showSettings;
+        },
+
+        //Auth
+        setUser(state, action){
+            state.user = action.payload;
         },
 
         //content
@@ -78,6 +90,10 @@ export const {
     setFilterTags,
     addFilterTag,
     delFilterTag,
+    setShowSettings,
+
+    //Auth
+    setUser,
 
     //content
     setContents,

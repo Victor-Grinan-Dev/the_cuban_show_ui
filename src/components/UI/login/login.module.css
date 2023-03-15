@@ -1,0 +1,15 @@
+.login{
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.loginForm{
+    width: 90%;
+    place-self: center;
+    background-color: aliceblue;
+
+    display: flex;
+    flex-direction: column;
+   
+}

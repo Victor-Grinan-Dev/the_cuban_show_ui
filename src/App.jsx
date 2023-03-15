@@ -10,26 +10,38 @@ import Contact from './components/views/conctact/Contact';
 
 import AddContent from './components/views/addContent/AddContent';
 import SinglePage from './components/views/singlePage/SinglePage';
+import Modal1 from './components/UI/modals/Modal1';
+import Login from './components/UI/login/Login';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const auth = useSelector(state=>state.app.auth);
+  const showSettings = useSelector(state => state.app.showSettings);
+
+  const protectedRoutes = () => {
+    if(auth){
+      return <Route path='addcontent' element={<AddContent />}/>
+    }
+  };
 
   return (
-<HashRouter>
-  <Routes>
-      <Route path="/" element={<Layout/>}>
-        <Route index element={<Content/>}/>
-        <Route path='about' element={<About />}/>
-        <Route path='contact' element={<Contact />}/>
+    <HashRouter>
+      <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Content/>}/>
+            <Route path='about' element={<About />}/>
+            <Route path='contact' element={<Contact />}/>
+            <Route path="article/:single" element={<SinglePage />} />
 
-        <Route path='addcontent' element={<AddContent />}/>
-        <Route path="article/:single" element={<SinglePage />} />
+            {protectedRoutes()}
+          </Route>  
+         {/* FINALLY */}
+          <Route path="*" element={<NotFound/>}/>     
+      </Routes>
 
-        {/* FINALLY */}
-        <Route path="*" element={<NotFound/>}/>
-      </Route>       
-  </Routes>
-</HashRouter> 
-  );
-}
+      {showSettings && <Modal1 component={<Login/>}/>}
+    </HashRouter> 
+    );
+  }
 
 export default App;

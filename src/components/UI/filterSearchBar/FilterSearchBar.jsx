@@ -14,6 +14,11 @@ const FilterSearchBar = () => {
     dispatch(setTags(filterTags));
   }, [filterTags, dispatch]);
 
+  const selectedCritStyle = {
+    backgroundColor:"green", 
+    color:'white',
+  };
+
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag) ? deleteTagFilterHandler(tag) : addTagsFiltershandler(tag);
   };
@@ -41,7 +46,7 @@ const FilterSearchBar = () => {
                 <li 
                   id='All'
                   className={style.filterSearchCriteria}
-                  style={filterTags.length === 0 ? {backgroundColor:"green"} : null}
+                  style={filterTags.length === 0 ? selectedCritStyle : null}
                   onClick={ ()=>{
                     dispatch(setSearch(''))
                     dispatch(setFilterTags([]))
@@ -50,14 +55,14 @@ const FilterSearchBar = () => {
                 <li 
                   id='cuba'
                   className={style.filterSearchCriteria} 
-                  style={filterTags.includes('cuba') ? {backgroundColor:"green"} : null}
+                  style={filterTags.includes('cuba') ? selectedCritStyle : null}
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
                   }}
                 >Cuba</li>
                 <li 
                   id='usa'
-                  style={filterTags.includes('usa') ? {backgroundColor:"green"} : null}
+                  style={filterTags.includes('usa') ? selectedCritStyle : null}
                   className={style.filterSearchCriteria} 
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
@@ -65,7 +70,7 @@ const FilterSearchBar = () => {
                 >Usa </li>
                 <li 
                 id='world'
-                style={filterTags.includes('world') ? {backgroundColor:"green"} : null}
+                style={filterTags.includes('world') ? selectedCritStyle : null}
                   className={style.filterSearchCriteria} 
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)

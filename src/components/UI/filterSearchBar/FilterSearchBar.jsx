@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterTags, setSearch, setTags } from '../../../app/appSlice';
 import { allTags } from '../../../appConfig';
+import { translate } from '../../../translation/translation';
 import style from './filterSearchBar.module.css';
 
 const FilterSearchBar = () => {
@@ -9,6 +10,7 @@ const FilterSearchBar = () => {
   const [isShowSearchInput, setIsShowSearchInput] = useState(false);
   const filterTags = useSelector(state => state.app.filterTags)
   const search = useSelector(state => state.app.search);
+  const currentLang = useSelector(state => state.app.currentLang);
 
   useEffect(() => {
     dispatch(setTags(filterTags));
@@ -52,7 +54,7 @@ const FilterSearchBar = () => {
                     dispatch(setSearch(''))
                     dispatch(setFilterTags([]))
                   }} 
-                >All</li>
+                >{translate('All', currentLang)}</li>
                 <li 
                   id='cuba'
                   className={style.filterSearchCriteria} 
@@ -68,7 +70,7 @@ const FilterSearchBar = () => {
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
                   }}
-                >Usa </li>
+                >{translate('USA')} </li>
                 <li 
                 id='world'
                 style={filterTags.includes('world') ? selectedCritStyle : null}
@@ -76,12 +78,12 @@ const FilterSearchBar = () => {
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
                   }}
-                >World's</li>
+                >{translate("World's", currentLang)}</li>
                 <select  
                   style={{fontSize:"14px"}}
                   onChange={(e) => addOrDelHandler(e.target.value)}
                 >
-                  <option style={{fontSize:"10px"}} hidden>More tags</option>
+                  <option style={{fontSize:"10px"}} hidden>{translate('More tags', currentLang)}</option>
                   {allTags && allTags.map((t, i) => (
                     (t !== "usa" && t !=="cuba" && t !== "world") && <option key={i} 
                     style={{fontSize:"10px"}} 

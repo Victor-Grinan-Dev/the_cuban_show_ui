@@ -17,6 +17,7 @@ const FilterSearchBar = () => {
   const selectedCritStyle = {
     backgroundColor:"green", 
     color:'white',
+    borderColor:'darkgreen',
   };
 
   const addOrDelHandler = (tag) => {

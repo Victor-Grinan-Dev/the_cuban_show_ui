@@ -13,6 +13,7 @@ export const appSlice = createSlice({
         message:'',
         filterTags:[],
         showSettings:false,
+        currentLang:'en',
         
         //Auth
         user:{},
@@ -47,6 +48,9 @@ export const appSlice = createSlice({
         },
         setShowSettings(state){
             state.showSettings = !state.showSettings;
+        },
+        setCurrentLang(state, action){
+            state.currentLang = action.payload;
         },
 
         //Auth
@@ -91,6 +95,7 @@ export const {
     addFilterTag,
     delFilterTag,
     setShowSettings,
+    setCurrentLang,
 
     //Auth
     setUser,

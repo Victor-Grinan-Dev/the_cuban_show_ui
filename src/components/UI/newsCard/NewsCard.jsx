@@ -3,11 +3,13 @@ import style from './newsCard.module.css';
 import testImg from '../../../assets/logo-black.jpg';
 import { Link } from 'react-router-dom';
 import { getReadableTime } from '../../../functions/time';
+import { translate } from '../../../translation/translation';
+import { useSelector } from 'react-redux';
 
 const NewsCard = ({props}) => { 
   const {id, title, image, date} = props;
   const readableDate = getReadableTime(date);
-
+  const currentLang = useSelector(state => state.app.currentLang)
   return (
     <Link
       to={`article/${id}`} 
@@ -24,7 +26,7 @@ const NewsCard = ({props}) => {
                   {title || 'test title'}
               </h3>
               <hr className={style.line}/>
-              <p className={style.date}>Published: {readableDate.toDateString()}</p>
+              <p className={style.date}>{translate('Published', currentLang)}: {readableDate.toDateString()}</p>
           </div>
       </div>
     </Link>

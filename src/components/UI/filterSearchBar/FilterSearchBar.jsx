@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterTags, setSearch, setTags } from '../../../app/appSlice';
 import { allTags } from '../../../appConfig';
+import { translate } from '../../../translation/translation';
 import style from './filterSearchBar.module.css';
 
 const FilterSearchBar = () => {
@@ -9,10 +10,17 @@ const FilterSearchBar = () => {
   const [isShowSearchInput, setIsShowSearchInput] = useState(false);
   const filterTags = useSelector(state => state.app.filterTags)
   const search = useSelector(state => state.app.search);
+  const currentLang = useSelector(state => state.app.currentLang);
 
   useEffect(() => {
     dispatch(setTags(filterTags));
   }, [filterTags, dispatch]);
+
+  const selectedCritStyle = {
+    backgroundColor:"green", 
+    color:'white',
+    borderColor:'darkgreen',
+  };
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag) ? deleteTagFilterHandler(tag) : addTagsFiltershandler(tag);
@@ -41,41 +49,41 @@ const FilterSearchBar = () => {
                 <li 
                   id='All'
                   className={style.filterSearchCriteria}
-                  style={filterTags.length === 0 ? {backgroundColor:"green"} : null}
+                  style={(filterTags.length === 0 && search === '') ? selectedCritStyle : null}
                   onClick={ ()=>{
                     dispatch(setSearch(''))
                     dispatch(setFilterTags([]))
                   }} 
-                >All</li>
+                >{translate('All', currentLang)}</li>
                 <li 
                   id='cuba'
                   className={style.filterSearchCriteria} 
-                  style={filterTags.includes('cuba') ? {backgroundColor:"green"} : null}
+                  style={filterTags.includes('cuba') ? selectedCritStyle : null}
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
                   }}
                 >Cuba</li>
                 <li 
                   id='usa'
-                  style={filterTags.includes('usa') ? {backgroundColor:"green"} : null}
+                  style={filterTags.includes('usa') ? selectedCritStyle : null}
                   className={style.filterSearchCriteria} 
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
                   }}
-                >Usa </li>
+                >{translate('USA')} </li>
                 <li 
                 id='world'
-                style={filterTags.includes('world') ? {backgroundColor:"green"} : null}
+                style={filterTags.includes('world') ? selectedCritStyle : null}
                   className={style.filterSearchCriteria} 
                   onClick={ (e) => {
                     addOrDelHandler(e.target.id)
                   }}
-                >World's</li>
+                >{translate("World's", currentLang)}</li>
                 <select  
                   style={{fontSize:"14px"}}
                   onChange={(e) => addOrDelHandler(e.target.value)}
                 >
-                  <option style={{fontSize:"10px"}} hidden>More tags</option>
+                  <option style={{fontSize:"10px"}} hidden>{translate('More tags', currentLang)}</option>
                   {allTags && allTags.map((t, i) => (
                     (t !== "usa" && t !=="cuba" && t !== "world") && <option key={i} 
                     style={{fontSize:"10px"}} 
@@ -93,7 +101,7 @@ const FilterSearchBar = () => {
               <li className={style.searchCriteriaS} >
                 <input type="text"
                  className={style.searchInput} 
-                 placeholder='Search'
+                 placeholder={translate('Search', currentLang)}
                  onChange={(e)=>dispatch(setSearch(e.target.value))}
                  value={search}
                  />

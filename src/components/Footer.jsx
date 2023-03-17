@@ -5,15 +5,18 @@ import f from '../assets/someIcons/f_logo_RGB-Blue_512.png';
 import ig from '../assets/someIcons/Instagram_Glyph_Gradient.png';
 import twitter from '../assets/someIcons/2021 Twitter logo - blue.png';
 import yt from '../assets/someIcons/yt_icon_rgb.png';
+import { translate } from '../translation/translation';
+import { useSelector } from 'react-redux';
 
 const d = new Date();
 let year = d.getFullYear();
 
 const Footer = () => {
+  const currentLang = useSelector(state => state.app.currentLang);
   return (
     <div className={style.footer}>
         <div>
-          Follow us
+          {translate('Follow us', currentLang)}
         </div>
         <div className={style.some}>
         

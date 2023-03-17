@@ -31,4 +31,13 @@
     font-size: smaller; 
 }
 
+.filterSearchCriteria{
+    padding: 0 2px;
+    font-size: 14px;
+    /*selected*/
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
 
+}

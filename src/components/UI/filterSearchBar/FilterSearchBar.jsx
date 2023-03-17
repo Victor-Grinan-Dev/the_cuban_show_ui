@@ -49,7 +49,7 @@ const FilterSearchBar = () => {
                 <li 
                   id='All'
                   className={style.filterSearchCriteria}
-                  style={filterTags.length === 0 ? selectedCritStyle : null}
+                  style={(filterTags.length === 0 && search === '') ? selectedCritStyle : null}
                   onClick={ ()=>{
                     dispatch(setSearch(''))
                     dispatch(setFilterTags([]))
@@ -101,7 +101,7 @@ const FilterSearchBar = () => {
               <li className={style.searchCriteriaS} >
                 <input type="text"
                  className={style.searchInput} 
-                 placeholder='Search'
+                 placeholder={translate('Search', currentLang)}
                  onChange={(e)=>dispatch(setSearch(e.target.value))}
                  value={search}
                  />

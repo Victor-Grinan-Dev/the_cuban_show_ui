@@ -16,6 +16,7 @@ export const appSlice = createSlice({
         currentLang:'en',
         
         //Auth
+        auth:true,
         user:{},
         
         //content
@@ -54,6 +55,9 @@ export const appSlice = createSlice({
         },
 
         //Auth
+        setAuth(state, action){
+            state.auth = action.payload;
+        },
         setUser(state, action){
             state.user = action.payload;
         },
@@ -98,6 +102,7 @@ export const {
     setCurrentLang,
 
     //Auth
+    setAuth,
     setUser,
 
     //content

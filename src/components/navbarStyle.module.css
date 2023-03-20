@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Staatliches&display=swap');
 
-
 .navbar{
     background-color: rgb(206, 3, 3);
+
+    height: 12vh;
+    width: -webkit-fill-available;
+
     display: flex;
     flex-direction: column;
-    height: 12vh;
-    width: 100%;
-    max-width: 800px;
     justify-content: space-around;
     align-items: center;
     position: fixed;
@@ -78,10 +78,15 @@
     color: azure;
     text-shadow: 0 0 10px black;
 }
-
-@media (min-width: 600px){
+@media screen and (min-width: 700px){
     .title{
-        font-size: 30px;
+        font-size: 35px;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .title{
+        font-size: 20px;
     }
 }
 

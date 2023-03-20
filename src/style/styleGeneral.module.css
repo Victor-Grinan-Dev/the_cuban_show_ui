@@ -1,14 +1,14 @@
 .view{
     height: 82vh;
-    width: 90%;
-    max-width: 800px;
+    width: -webkit-fill-available;
+
     margin-top: 12vh;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* background-color: brown; */
+
     overflow-y: scroll;
 }
 

@@ -1,13 +1,36 @@
 .filterSearchBar{
-    position: fixed;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    max-width: 800px;
-    background-color: rgb(248, 244, 244);
-    padding: 2px 0;
+}
+
+@media screen and (min-width: 767){
+    .filterSearchBar{
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+    
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        background-color: rgb(248, 244, 244);
+        padding: 2px 0;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .filterSearchBar{
+        position: fixed;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        background-color: rgb(248, 244, 244);
+        padding: 2px 0;
+    }
 }
 
 .filterSearchList{
@@ -16,8 +39,6 @@
     align-items: center;
     list-style-type: none;
     width: 90%;
-    max-width: 800px;
-
     font-size: smaller;
 }
 

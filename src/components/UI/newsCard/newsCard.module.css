@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+:root{
+    --titleFont:'Roboto', sans-serif;
+    --textFont: 'EB Garamond', serif;
+}
+
 .newsCard{
     min-width: 260px;
     max-height: 100px;
@@ -20,20 +27,25 @@ a{
 
 .contentContainer{
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .newsCardTitle{
     font-size: small;
     color: black;
     text-shadow: 0 0 5px rgb(252, 252, 252);
+    text-transform: capitalize;
 }
 
 .line{
     border-style: solid;
     border-color: rgb(161, 2, 2);
     border-width: 3px;
+    width: 100%;
 }
 
 .date{
-    font-size: x-small;
+    font-size: 10px;
 }

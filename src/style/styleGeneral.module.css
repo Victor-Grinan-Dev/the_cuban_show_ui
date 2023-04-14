@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+:root{
+    --titleFont:'Roboto', sans-serif;
+    --textFont: 'EB Garamond', serif;
+}
+
 .view{
     height: 82vh;
     width: -webkit-fill-available;
@@ -11,6 +18,8 @@
     justify-content: flex-start;
     
     overflow-y: scroll;
+
+    font-family: var(--textFont);
 }
 
 .hidden{

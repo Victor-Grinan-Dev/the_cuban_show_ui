@@ -1,15 +1,47 @@
-.login{
-    width: 100%;
-    height: 100%;
-    display: grid;
+
+.view{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.loginForm{
-    width: 90%;
-    place-self: center;
-    background-color: aliceblue;
+.login{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    display: flex;
-    flex-direction: column;
-   
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.email,
+.password,
+.confirmPassword,
+.submit, input{
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 0 3px;
+}
+
+.submit{
+  border: none;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error{
+  color: red;
+  font-size: 18px;
 }

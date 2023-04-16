@@ -5,8 +5,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-
-    padding: 2px 0;
+    position: fixed;
+    background-color: rgb(23, 6, 117);
 }
 
 @media screen and (min-width: 767){
@@ -21,7 +21,7 @@
         align-items: center;
         width: 100%;
 
-        background-color: rgb(248, 244, 244);
+        background-color: rgb(23, 6, 117);
         padding: 2px 0;
     }
 }
@@ -35,7 +35,7 @@
         align-items: center;
         width: 100%;
 
-        background-color: rgb(248, 244, 244);
+        background-color: rgb(23, 6, 117);
         padding: 2px 0;
     }
 }

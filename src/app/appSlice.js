@@ -16,7 +16,7 @@ export const appSlice = createSlice({
         currentLang:'en',
         
         //Auth
-        auth:true,
+        auth:false,
         user:{},
         
         //content

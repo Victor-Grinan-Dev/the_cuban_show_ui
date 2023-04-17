@@ -37,9 +37,11 @@
 .terceary {
   padding: 0 2px;
   font-size: 14px;
-  border-color: black;
+  border-color: white;
+  color: white;
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
   margin: 17px 0;
+  background-color: rgba(2, 2, 75, 0);
 }

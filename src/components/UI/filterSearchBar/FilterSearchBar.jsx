@@ -10,6 +10,7 @@ import { translate } from "../../../translation/translation";
 import style from "./filterSearchBar.module.css";
 import AppBtn from "../appBtn/AppBtn";
 import { isTagIncluded } from "../../../functions/tags";
+import { selectedAppBtn } from "../appBtn/standardStyle";
 
 const FilterSearchBar = () => {
   const dispatch = useDispatch();
@@ -23,12 +24,6 @@ const FilterSearchBar = () => {
     dispatch(setTags(filterTags));
     // eslint-disable-next-line
   }, [filterTags]);
-
-  const selectedCritStyle = {
-    backgroundColor: "green",
-    color: "white",
-    borderColor: "darkgreen",
-  };
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag, filterTags)
@@ -74,9 +69,7 @@ const FilterSearchBar = () => {
                 dispatch(setFilterTags([]));
               }}
               style={
-                filterTags.length === 0 && search === ""
-                  ? selectedCritStyle
-                  : null
+                filterTags.length === 0 && search === "" ? selectedAppBtn : null
               }
             />
             <AppBtn
@@ -87,7 +80,7 @@ const FilterSearchBar = () => {
               fx={(e) => {
                 addOrDelHandler(e.target.name);
               }}
-              style={filterTags.includes("cuba") ? selectedCritStyle : null}
+              style={filterTags.includes("cuba") ? selectedAppBtn : null}
             />
             <AppBtn
               id="usa"
@@ -97,7 +90,7 @@ const FilterSearchBar = () => {
               fx={(e) => {
                 addOrDelHandler(e.target.name);
               }}
-              style={filterTags.includes("usa") ? selectedCritStyle : null}
+              style={filterTags.includes("usa") ? selectedAppBtn : null}
             />
             <AppBtn
               id="world"
@@ -107,12 +100,12 @@ const FilterSearchBar = () => {
               fx={(e) => {
                 addOrDelHandler(e.target.name);
               }}
-              style={filterTags.includes("world") ? selectedCritStyle : null}
+              style={filterTags.includes("world") ? selectedAppBtn : null}
             />
             <AppBtn
               id="moreTags"
               type={"terceary"}
-              style={isSecundaryTagsIncluded() ? selectedCritStyle : null}
+              style={isSecundaryTagsIncluded() ? selectedAppBtn : null}
               caption={translate("More tags", currentLang)}
               fx={() => {
                 dispatch(setShowSettings(true));

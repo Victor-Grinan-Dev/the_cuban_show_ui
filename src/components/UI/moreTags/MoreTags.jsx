@@ -7,6 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilterTags } from "../../../app/appSlice";
 import style from "./moreTags.module.css";
 import modalStyle from "../modals/modals.module.css";
+import { selectedAppBtn } from "../appBtn/standardStyle";
+
+const MoreTagsSelectedAppBtn = { ...selectedAppBtn, margin: "0 15px" };
 
 const MoreTags = () => {
   const filterTags = useSelector((state) => state.app.filterTags);
@@ -52,11 +55,7 @@ const MoreTags = () => {
                   fx={(e) => addOrDelHandler(e.target.name)}
                   style={
                     isTagIncluded(t, filterTags)
-                      ? {
-                          backgroundColor: "green",
-                          color: "white",
-                          margin: "0 15px",
-                        }
+                      ? MoreTagsSelectedAppBtn
                       : {
                           margin: "0 15px",
                         }

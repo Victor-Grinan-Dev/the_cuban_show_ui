@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
-import {
-  setAuth,
-  setCurrentLang,
-  setShowSettings,
-} from "../../../app/appSlice";
+import { setAuth, setShowSettings } from "../../../app/appSlice";
 import style from "./login.module.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import modalStyle from "../modals/modals.module.css";

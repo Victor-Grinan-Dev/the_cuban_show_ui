@@ -1,8 +1,4 @@
 ## contenido: 
-- United States
-- internationals 
-- opinion
-- cuba
 
 - imgen(videos), titulo, encabezado.
 
@@ -13,4 +9,10 @@
 - cambiar menu gear. 
     - darkmode, language;
 
-- make sure to config firebase to allow only auth user to read and write
+- make sure to config firebase to allow only auth user to read and write: - delete fuction, edit function
+
+- tags selected color doesnt work in addContent
+- tags selected color doesnt work in more tags btn
+
+- upload image from disk.
+- read image from firebase.

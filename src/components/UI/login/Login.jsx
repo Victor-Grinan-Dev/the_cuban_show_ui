@@ -56,6 +56,7 @@ const Login = () => {
           type="email"
           name="email"
           id="email"
+          placeholder={translate("Email", currentLang)}
           className={style.email}
           onChange={(e) => changeHandler(e)}
         />
@@ -63,6 +64,7 @@ const Login = () => {
           type="password"
           name="password"
           id="password"
+          placeholder={translate("Password", currentLang)}
           className={style.password}
           onChange={(e) => changeHandler(e)}
         />

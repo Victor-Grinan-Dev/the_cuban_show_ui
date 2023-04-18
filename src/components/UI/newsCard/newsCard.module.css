@@ -8,6 +8,8 @@
     /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
     background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
     padding-right: 20px;
+    position:relative;
+    
 }
 a{
     text-decoration: none;
@@ -23,9 +25,10 @@ a{
 }
 
 .newsCardTitle{
-    font-size: small;
+    font-size: 25px;
     color: black;
     text-shadow: 0 0 5px rgb(252, 252, 252);
+    text-transform: capitalize;
 }
 
 .line{
@@ -33,7 +36,21 @@ a{
     border-color: rgb(161, 2, 2);
     border-width: 3px;
 }
-
+.heading{
+    text-transform: capitalize;
+    display: flex;
+}
 .date{
-    font-size: x-small;
+    font-size:12px;
+}
+.adminTools{
+    width: 70px;
+
+    position: absolute;
+    right:10px;
+    bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

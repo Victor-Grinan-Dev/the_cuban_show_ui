@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import { getReadableTime } from "../../../functions/time";
 import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
+import AppBtn from "../appBtn/AppBtn";
 
 const NewsCard = ({ props }) => {
   const { id, title, image, date, heading } = props;
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
+  const auth = useSelector((state) => state.app.auth);
   return (
     <Link to={`article/${id}`} state={props}>
       <div className={style.newsCard}>
@@ -26,6 +28,12 @@ const NewsCard = ({ props }) => {
             {translate("Published", currentLang)}: {readableDate.toDateString()}
           </p>
         </div>
+        {auth && (
+          <div className={style.adminTools}>
+            <AppBtn caption={"ed"} type={"terceary"} />
+            <AppBtn caption={"del"} type={"terceary"} />
+          </div>
+        )}
       </div>
     </Link>
   );

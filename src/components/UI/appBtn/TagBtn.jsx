@@ -5,6 +5,7 @@ import { selectedAppBtn } from "./standardStyle";
 const notSelected = {
   borderColor: "black",
   color: "black",
+  margin: "0 5px",
 };
 
 const selected = {
@@ -18,17 +19,14 @@ const TagBtn = ({ fxPrimary, label }) => {
   const isSelectedHandle = () => {
     setIsSelected(!isSelected);
   };
+
   return (
-    // <span className={isSelected? style.selectedTagBtn : style.TagBtn} onClick={(e)=>
-    //     {
-    //         isSelectedHandle();
-    //         fxPrimary(e);
-    //     }}>
-    //     {label}
-    // </span>
     <AppBtn
       type={"terceary"}
-      fx={fxPrimary}
+      fx={() => {
+        fxPrimary();
+        isSelectedHandle();
+      }}
       caption={label}
       style={isSelected ? selected : notSelected}
     />

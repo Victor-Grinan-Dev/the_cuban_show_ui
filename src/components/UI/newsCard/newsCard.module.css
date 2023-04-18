@@ -26,6 +26,7 @@ a{
     font-size: small;
     color: black;
     text-shadow: 0 0 5px rgb(252, 252, 252);
+    text-transform: capitalize;
 }
 
 .line{

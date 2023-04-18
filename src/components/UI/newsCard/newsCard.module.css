@@ -23,7 +23,7 @@ a{
 }
 
 .newsCardTitle{
-    font-size: small;
+    font-size: 25px;
     color: black;
     text-shadow: 0 0 5px rgb(252, 252, 252);
     text-transform: capitalize;
@@ -34,7 +34,10 @@ a{
     border-color: rgb(161, 2, 2);
     border-width: 3px;
 }
-
+.heading{
+    text-transform: capitalize;
+    display: flex;
+}
 .date{
-    font-size: x-small;
+    font-size:12px;
 }

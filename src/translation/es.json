@@ -30,5 +30,14 @@
     "sport":"deporte",
     "technological":"tecnología",
     "Admin":"Administrar",
-    "Submit":"Enviar"
+    "Submit":"Enviar",
+    "Email":"Correo Electrónico",
+    "Password":"Contraseña",
+    "Tags":"Etiquetas",
+    "Publish":"Publicar",
+    "Title":"Título",
+    "Image":"Imágen",
+    "Image URL":"URL de Imágen",
+    "Heading": "Encabezado",
+    "Body":"Cuerpo"
 }

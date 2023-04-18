@@ -1,3 +1,11 @@
 .singleImage{
     max-width: 80vw;
 }
+
+.singleTags{
+    font-size: 10px;
+}
+
+.capitalStart{
+    text-transform: capitalize;
+}

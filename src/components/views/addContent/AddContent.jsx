@@ -55,7 +55,7 @@ const AddContent = () => {
   };
 
   const addTagsFiltershandler = (tag) => {
-    dispatch(addTag([tag]));
+    dispatch(addTag(tag));
   };
 
   const deleteTagFilterHandler = (tag) => {
@@ -66,12 +66,6 @@ const AddContent = () => {
         })
       )
     );
-  };
-  const addTagHandler = (e) => {
-    if (!tags.includes(e?.target?.innerText)) {
-      dispatch(addTag(e?.target?.innerText));
-    }
-    changeContent("tags", tags);
   };
 
   const cleanMessagge = () => {
@@ -178,7 +172,7 @@ const AddContent = () => {
                 name={t}
                 key={i}
                 label={t}
-                fxPrimary={addOrDelHandler}
+                fxPrimary={() => addOrDelHandler(t)}
                 style={
                   isIncluded ? selectedAppBtn : null
                 } /*isSelected={t.isTagSelected}*/

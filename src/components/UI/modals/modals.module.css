@@ -19,6 +19,8 @@
     justify-content: flex-start;
 
     overflow-y: scroll;
+
+    z-index: 5;
 }
 .sectionName{
     background-color: rgb(19, 4, 131);

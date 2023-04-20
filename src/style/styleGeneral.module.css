@@ -24,3 +24,20 @@
 .scrollable{
     overflow-y: scroll;
 }
+
+::-webkit-scrollbar {
+  /* width: 7px; */
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #636262; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #272626; 
+}

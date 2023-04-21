@@ -1,0 +1,28 @@
+.advCard {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px black;
+  margin: 5px;
+  width: 75vw;
+}
+.advContent {
+  height: 150px;
+  min-height: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
+  background-color:#929099;
+  padding-right: 20px;
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  .advCard {
+    width: 85vw;
+  }
+  .advContent {
+    height: 100px;
+  }
+}

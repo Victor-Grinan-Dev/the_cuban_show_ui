@@ -7,6 +7,7 @@ import { setContents, setIsLoading } from "../../../app/appSlice";
 import FilterSearchBar from "../../UI/filterSearchBar/FilterSearchBar";
 import { filterByTags } from "../../../functions/filter";
 import style from "./styleContent.module.css";
+import AdvCard from "../../UI/advCard/AdvCard";
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,20 @@ const Content = () => {
 
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
 
+  const advs = [
+    "advetisments1",
+    "advetisments2",
+    "advetisments3",
+    "advetisments1",
+    "advetisments2",
+    "advetisments3",
+    "advetisments1",
+    "advetisments2",
+    "advetisments3",
+    "advetisments1",
+    "advetisments2",
+    "advetisments3",
+  ];
   /**
    * contentsFiltered :
    * return all objects "content" filtered by parameter tags and search-input overlaped.
@@ -52,7 +67,17 @@ const Content = () => {
       <div className={style.box}>
         <div className={style.stack}>
           {contents &&
-            contentsFiltered.map((c, i) => <NewsCard props={c} key={i} />)}
+            contentsFiltered.map((c, i) =>
+              i % 4 === 0 ? (
+                <AdvCard
+                  id={`${i / 4}b`}
+                  key={`${i / 4}b`}
+                  text={advs[i / 4]}
+                />
+              ) : (
+                <NewsCard props={c} key={i} />
+              )
+            )}
         </div>
       </div>
       <div className={style.rightColumnAdv}> advetisments</div>

@@ -1,6 +1,14 @@
+.cardContainer{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px black;
+    margin: 5px;
+    width: 75vw;
+}
+
 .newsCard{
-    min-width: 260px;
-    max-height: 100px;
+    height: 150px;
     min-height: 50px;
     overflow: hidden;
     display: flex;
@@ -8,9 +16,9 @@
     /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
     background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
     padding-right: 20px;
-    position:relative;
-    
+    position:relative; 
 }
+
 a{
     text-decoration: none;
     color: black;
@@ -22,10 +30,11 @@ a{
 
 .contentContainer{
     padding: 10px;
+     width: 40%;
 }
 
 .newsCardTitle{
-    font-size: 25px;
+    font-size: 2.2vw;
     color: black;
     text-shadow: 0 0 5px rgb(252, 252, 252);
     text-transform: capitalize;
@@ -37,11 +46,12 @@ a{
     border-width: 3px;
 }
 .heading{
+    font-size: 12px;
     text-transform: capitalize;
     display: flex;
 }
 .date{
-    font-size:12px;
+    font-size:10px;
 }
 .adminTools{
     width: 70px;
@@ -53,4 +63,63 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .cardContainer{
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 0 5px black;
+        margin: 5px;
+        width: 85vw;
+    }
+    .newsCard{
+        height:  100px;
+        min-height: 50px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
+        background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
+        padding-right: 20px;
+        position:relative; 
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    .newsCardImg{
+        /* max-height: 100%; */
+        width: 30%;
+    }
+
+    .contentContainer{
+        padding: 10px;
+        width: 100%;
+    }
+
+    .newsCardTitle{
+        font-size: 16px;
+        color: black;
+        text-shadow: 0 0 5px rgb(252, 252, 252);
+        text-transform: capitalize;
+    }
+
+    .line{
+        border-style: solid;
+        border-color: rgb(161, 2, 2);
+        border-width: 3px;
+    }
+    .heading{
+        font-size: 12px;
+        text-transform: capitalize;
+        display: flex;
+    }
+    .date{
+        font-size:10px;
+    }
+
 }

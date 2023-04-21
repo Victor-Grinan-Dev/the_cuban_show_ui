@@ -1,9 +1,13 @@
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
 .view{
     height: 82vh;
     width: -webkit-fill-available;
 
     margin-top: 12vh;
-    padding: 0 20px;
 
     display: flex;
     flex-direction: column;

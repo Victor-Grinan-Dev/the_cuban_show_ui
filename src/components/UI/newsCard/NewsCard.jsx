@@ -5,35 +5,32 @@ import { Link } from "react-router-dom";
 import { getReadableTime } from "../../../functions/time";
 import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
-import AppBtn from "../appBtn/AppBtn";
 
 const NewsCard = ({ props }) => {
   const { id, title, image, date, heading } = props;
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
-  const auth = useSelector((state) => state.app.auth);
+  const isMobile = false;
+
   return (
     <Link to={`article/${id}`} state={props}>
-      <div className={style.newsCard}>
-        <img
-          className={style.newsCardImg}
-          src={image || testImg}
-          alt="newsImage"
-        />
-        <div className={style.contentContainer}>
-          <h3 className={style.newsCardTitle}>{title || "test title"}</h3>
-          <hr className={style.line} />
-          <div className={style.heading}>{heading}</div>
-          <p className={style.date}>
-            {translate("Published", currentLang)}: {readableDate.toDateString()}
-          </p>
-        </div>
-        {auth && (
-          <div className={style.adminTools}>
-            <AppBtn caption={"ed"} type={"terceary"} />
-            <AppBtn caption={"del"} type={"terceary"} />
+      <div className={style.cardContainer}>
+        <div className={style.newsCard}>
+          <img
+            className={style.newsCardImg}
+            src={image || testImg}
+            alt="newsImage"
+          />
+          <div className={style.contentContainer}>
+            <h3 className={style.newsCardTitle}>{title || "test title"}</h3>
+            <hr className={style.line} />
+            {!isMobile && <div className={style.heading}>{heading}</div>}
+            <p className={style.date}>
+              {translate("Published", currentLang)}:{" "}
+              {readableDate.toDateString()}
+            </p>
           </div>
-        )}
+        </div>
       </div>
     </Link>
   );

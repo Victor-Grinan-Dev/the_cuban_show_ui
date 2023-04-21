@@ -1,3 +1,4 @@
+
 .main{
     display: flex;
     flex-direction: column;
@@ -15,6 +16,8 @@
     justify-content: flex-start;
     
     overflow-y: scroll;
+
+    font-family: var(--textFont);
 }
 
 .hidden{

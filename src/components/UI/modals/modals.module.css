@@ -7,6 +7,7 @@
 
     border-radius: 5px;
     box-shadow: 0 0 10px black;
+
     background-color: rgba(0, 1, 1, 0.895);
 
     width: 90vw;
@@ -35,6 +36,7 @@
 .closeX{
     color: white;
     position: relative;
+
     font-size: 30px;
     right: -37%;
     

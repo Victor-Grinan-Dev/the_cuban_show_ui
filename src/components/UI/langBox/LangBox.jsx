@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentLang } from "../../../app/appSlice";
 import style from "./langBox.module.css";
+
 import AppBtn from "../appBtn/AppBtn";
 import modalStyle from "../modals/modals.module.css";
 import { translate } from "../../../translation/translation";
@@ -15,6 +16,7 @@ const LangBox = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
   return (
     <div className={style.langBox}>
+
       <p className={modalStyle.sectionName}>
         {translate("Language", currentLang)}:
       </p>

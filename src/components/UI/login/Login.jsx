@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
@@ -26,6 +27,7 @@ const Login = () => {
   };
   const handleLogin = (e) => {
     e.preventDefault();
+
     console.log("submit clicked!", submitform);
     const { email, password } = submitform;
     signInWithEmailAndPassword(auth, email, password)

@@ -1,3 +1,4 @@
+
 .cardContainer{
     background-color: white;
     border-radius: 5px;
@@ -44,6 +45,7 @@ a{
     border-style: solid;
     border-color: rgb(161, 2, 2);
     border-width: 3px;
+    width: 100%;
 }
 .heading{
     font-size: 12px;
@@ -107,5 +109,4 @@ a{
     .date{
         font-size:10px;
     }
-
 }

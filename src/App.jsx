@@ -40,13 +40,11 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="article/:single" element={<SinglePage />} />
-
           {protectedRoutes()}
         </Route>
         {/* FINALLY */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-
       {showSettings && <Modal1 component={<SettingView />} />}
     </BrowserRouter>
   );

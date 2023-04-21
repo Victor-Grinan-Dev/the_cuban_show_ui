@@ -1,7 +1,3 @@
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
 import NewsCard from "../../UI/newsCard/NewsCard";
 import genStyle from "../../../style/styleGeneral.module.css";
 import { useEffect } from "react";
@@ -10,15 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setContents, setIsLoading } from "../../../app/appSlice";
 import FilterSearchBar from "../../UI/filterSearchBar/FilterSearchBar";
 import { filterByTags } from "../../../functions/filter";
-
-/* MUI cards holder */
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import style from "./styleContent.module.css";
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -61,16 +49,13 @@ const Content = () => {
   return (
     <div className={genStyle.view}>
       <FilterSearchBar />
-      <Box sx={{ width: "100%", marginTop: "65px" }}>
-        <Stack spacing={1}>
+      <div className={style.box}>
+        <div className={style.stack}>
           {contents &&
-            contentsFiltered.map((c, i) => (
-              <Item key={i}>
-                <NewsCard props={c} />
-              </Item>
-            ))}
-        </Stack>
-      </Box>
+            contentsFiltered.map((c, i) => <NewsCard props={c} key={i} />)}
+        </div>
+      </div>
+      <div className={style.rightColumnAdv}> advetisments</div>
     </div>
   );
 };

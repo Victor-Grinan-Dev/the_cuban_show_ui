@@ -40,10 +40,10 @@ const Content = () => {
   const contentsFiltered =
     selectedTags.lenght !== 0
       ? filterByTags(contents, selectedTags).filter((content) => {
-          return content.title.toLowerCase().includes(search.toLowerCase());
+          return content?.title?.toLowerCase().includes(search.toLowerCase());
         })
       : contentsFilteredByTags.filter((content) => {
-          return content.title.toLowerCase().includes(search.toLowerCase());
+          return content?.title?.toLowerCase().includes(search.toLowerCase());
         });
 
   useEffect(() => {

@@ -7,7 +7,8 @@
 
     border-radius: 5px;
     box-shadow: 0 0 10px black;
-    background-color: rgba(0, 1, 1, 0.736);
+
+    background-color: rgba(0, 1, 1, 0.895);
 
     width: 90vw;
     height: 85vh;
@@ -16,15 +17,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
+    justify-content: flex-start;
 
+    overflow-y: scroll;
+
+    z-index: 5;
+}
+.sectionName{
+    background-color: rgb(19, 4, 131);
+    color: white;
+    font-size: 30px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border-radius: 10px;
+}
 .closeX{
     color: white;
     position: relative;
-    right: -40%;
-    top: -35%;
-    background-color: rgb(15, 15, 15);
-    padding: 3px;
-    border-radius: 5px;
+
+    font-size: 30px;
+    right: -37%;
+    
+    border-radius: 10px;
+    padding: 0 20px;
+    text-shadow: 0 0 10px rgb(251, 251, 251);
+}
+
+.closeX:hover{
+    color: red;
+    cursor: pointer;
 }

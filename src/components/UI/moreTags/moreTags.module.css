@@ -1,0 +1,8 @@
+.moreTags{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    align-items:flex-start;
+    justify-content: space-evenly;
+}

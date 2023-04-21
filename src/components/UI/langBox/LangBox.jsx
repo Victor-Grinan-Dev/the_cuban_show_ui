@@ -2,8 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentLang } from "../../../app/appSlice";
 import style from "./langBox.module.css";
+
+import AppBtn from "../appBtn/AppBtn";
+import modalStyle from "../modals/modals.module.css";
 import { translate } from "../../../translation/translation";
-import settingsStyle from "../settingView/settingStyles.module.css";
 
 const selected = {
   backgroundColor: "green",
@@ -14,22 +16,23 @@ const LangBox = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
   return (
     <div className={style.langBox}>
-      <p className={settingsStyle.settingsSectionName}>
-        {translate("Select language:")}
+
+      <p className={modalStyle.sectionName}>
+        {translate("Language", currentLang)}:
       </p>
       <div>
-        <button
-          onClick={() => dispatch(setCurrentLang("en"))}
+        <AppBtn
+          caption={"English"}
           style={currentLang === "en" ? selected : null}
-        >
-          English
-        </button>
-        <button
-          onClick={() => dispatch(setCurrentLang("es"))}
+          fx={() => dispatch(setCurrentLang("en"))}
+          type={"secondary"}
+        />
+        <AppBtn
+          caption={"Español"}
           style={currentLang === "es" ? selected : null}
-        >
-          Español
-        </button>
+          fx={() => dispatch(setCurrentLang("es"))}
+          type={"secondary"}
+        />
       </div>
     </div>
   );

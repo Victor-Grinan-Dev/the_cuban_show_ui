@@ -16,18 +16,19 @@ import { useSelector } from "react-redux";
 
 import SettingView from "./components/UI/settingView/SettingView";
 
+// import { AuthProvider } from "./auth/AuthContext";
+
 function App() {
-  const showSettings = useSelector((state) => state.app.showSettings);
-  // const { currentUser } = useContext(AuthContext);
   const auth = useSelector((state) => state.app.auth);
+  const showSettings = useSelector((state) => state.app.showSettings);
+
+  /**Todo
+   * read auth from cookies.
+   */
 
   const protectedRoutes = () => {
     if (auth) {
-      return (
-        <>
-          <Route path="addcontent" element={<AddContent />} />;
-        </>
-      );
+      return <Route path="addcontent" element={<AddContent />} />;
     }
   };
 

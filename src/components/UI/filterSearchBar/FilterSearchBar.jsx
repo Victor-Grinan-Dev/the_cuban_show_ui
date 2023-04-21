@@ -1,116 +1,137 @@
-import React, {useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilterTags, setSearch, setTags } from '../../../app/appSlice';
-import { allTags } from '../../../appConfig';
-import { translate } from '../../../translation/translation';
-import style from './filterSearchBar.module.css';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFilterTags,
+  setSearch,
+  setShowSettings,
+  setTags,
+} from "../../../app/appSlice";
+import { translate } from "../../../translation/translation";
+import style from "./filterSearchBar.module.css";
+import AppBtn from "../appBtn/AppBtn";
+import { isTagIncluded } from "../../../functions/tags";
+import { selectedAppBtn } from "../appBtn/standardStyle";
 
 const FilterSearchBar = () => {
   const dispatch = useDispatch();
   const [isShowSearchInput, setIsShowSearchInput] = useState(false);
-  const filterTags = useSelector(state => state.app.filterTags)
-  const search = useSelector(state => state.app.search);
-  const currentLang = useSelector(state => state.app.currentLang);
+  const filterTags = useSelector((state) => state.app.filterTags);
+  const search = useSelector((state) => state.app.search);
+  const currentLang = useSelector((state) => state.app.currentLang);
+  //const isShowSettings = useSelector(state => state.app.isShowSettings);
 
   useEffect(() => {
     dispatch(setTags(filterTags));
-  }, [filterTags, dispatch]);
-
-  const selectedCritStyle = {
-    backgroundColor:"green", 
-    color:'white',
-    borderColor:'darkgreen',
-  };
+    // eslint-disable-next-line
+  }, [filterTags]);
 
   const addOrDelHandler = (tag) => {
-    isTagIncluded(tag) ? deleteTagFilterHandler(tag) : addTagsFiltershandler(tag);
+    isTagIncluded(tag, filterTags)
+      ? deleteTagFilterHandler(tag)
+      : addTagsFiltershandler(tag);
   };
 
   const addTagsFiltershandler = (tag) => {
-      dispatch(setFilterTags([...filterTags, tag]));
+    dispatch(setFilterTags([...filterTags, tag]));
   };
 
-  const deleteTagFilterHandler = (tag) => {   
-    dispatch(setFilterTags(filterTags.filter(t => {
-        return t !== tag
+  const deleteTagFilterHandler = (tag) => {
+    dispatch(
+      setFilterTags(
+        filterTags.filter((t) => {
+          return t !== tag;
+        })
+      )
+    );
+  };
+  /** TODO make "moreTagsbtn to have green bg if a secundary tag is selected" */
+  const isSecundaryTagsIncluded = () => {
+    filterTags.forEach((t) => {
+      if (t !== "usa" && t !== "cuba" && t !== "world") {
+        if (isTagIncluded(t, filterTags)) {
+          return true;
+        }
       }
-    )));
-  };
-
-  const isTagIncluded = (tag) => {
-    return filterTags.includes(tag)
+    });
   };
 
   return (
     <div className={style.filterSearchBar}>
-        <ul className={style.filterSearchList} >
-            {!isShowSearchInput &&
-              <>
-                <li 
-                  id='All'
-                  className={style.filterSearchCriteria}
-                  style={(filterTags.length === 0 && search === '') ? selectedCritStyle : null}
-                  onClick={ ()=>{
-                    dispatch(setSearch(''))
-                    dispatch(setFilterTags([]))
-                  }} 
-                >{translate('All', currentLang)}</li>
-                <li 
-                  id='cuba'
-                  className={style.filterSearchCriteria} 
-                  style={filterTags.includes('cuba') ? selectedCritStyle : null}
-                  onClick={ (e) => {
-                    addOrDelHandler(e.target.id)
-                  }}
-                >Cuba</li>
-                <li 
-                  id='usa'
-                  style={filterTags.includes('usa') ? selectedCritStyle : null}
-                  className={style.filterSearchCriteria} 
-                  onClick={ (e) => {
-                    addOrDelHandler(e.target.id)
-                  }}
-                >{translate('USA')} </li>
-                <li 
-                id='world'
-                style={filterTags.includes('world') ? selectedCritStyle : null}
-                  className={style.filterSearchCriteria} 
-                  onClick={ (e) => {
-                    addOrDelHandler(e.target.id)
-                  }}
-                >{translate("World's", currentLang)}</li>
-                <select  
-                  style={{fontSize:"14px"}}
-                  onChange={(e) => addOrDelHandler(e.target.value)}
-                >
-                  <option style={{fontSize:"10px"}} hidden>{translate('More tags', currentLang)}</option>
-                  {allTags && allTags.map((t, i) => (
-                    (t !== "usa" && t !=="cuba" && t !== "world") && <option key={i} 
-                    style={{fontSize:"10px"}} 
-                    value={t} 
-                    id={t}
-                    >
-                      {t}{isTagIncluded(t) && '✅'}
-                    </option>
-                  ))}
-                </select>
-              </>
-            }
-            {
-              isShowSearchInput &&
-              <li className={style.searchCriteriaS} >
-                <input type="text"
-                 className={style.searchInput} 
-                 placeholder={translate('Search', currentLang)}
-                 onChange={(e)=>dispatch(setSearch(e.target.value))}
-                 value={search}
-                 />
-              </li>
-            }
-            <li className={style.filterSearchCriteria} onClick={()=>setIsShowSearchInput(!isShowSearchInput)}>🔎</li>
-        </ul>
+      <div className={style.filterSearchList}>
+        {!isShowSearchInput && (
+          <>
+            <AppBtn
+              id="all"
+              caption={translate("All", currentLang)}
+              type="terceary"
+              fx={() => {
+                dispatch(setSearch(""));
+                dispatch(setFilterTags([]));
+              }}
+              style={
+                filterTags.length === 0 && search === "" ? selectedAppBtn : null
+              }
+            />
+            <AppBtn
+              id="cuba"
+              name="cuba"
+              caption={translate("Cuba", currentLang)}
+              type="terceary"
+              fx={(e) => {
+                addOrDelHandler(e.target.name);
+              }}
+              style={filterTags.includes("cuba") ? selectedAppBtn : null}
+            />
+            <AppBtn
+              id="usa"
+              name="usa"
+              caption={translate("USA", currentLang)}
+              type="terceary"
+              fx={(e) => {
+                addOrDelHandler(e.target.name);
+              }}
+              style={filterTags.includes("usa") ? selectedAppBtn : null}
+            />
+            <AppBtn
+              id="world"
+              name="world"
+              caption={translate("World", currentLang)}
+              type="terceary"
+              fx={(e) => {
+                addOrDelHandler(e.target.name);
+              }}
+              style={filterTags.includes("world") ? selectedAppBtn : null}
+            />
+            <AppBtn
+              id="moreTags"
+              type={"terceary"}
+              style={isSecundaryTagsIncluded() ? selectedAppBtn : null}
+              caption={translate("More tags", currentLang)}
+              fx={() => {
+                dispatch(setShowSettings(true));
+              }}
+            />
+          </>
+        )}
+        {isShowSearchInput && (
+          <div className={style.searchCriteriaS}>
+            <input
+              type="text"
+              className={style.searchInput}
+              placeholder={translate("Search", currentLang)}
+              onChange={(e) => dispatch(setSearch(e.target.value))}
+              value={search}
+            />
+          </div>
+        )}
+        <AppBtn
+          type={"terceary"}
+          fx={() => setIsShowSearchInput(!isShowSearchInput)}
+          caption={"🔎"}
+        />
+      </div>
     </div>
-  )
+  );
 };
 
 export default FilterSearchBar;

@@ -1,0 +1,47 @@
+:root {
+  --primary: purple;
+  --active: green;
+  --defaultBoolean: grey;
+}
+
+.primary {
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.secondary {
+  border: none;
+  background-color: var(--defaultBoolean);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 95px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.secondary {
+  border: none;
+  background-color: var(--defaultBoolean);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 95px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.terceary {
+  padding: 0 2px;
+  font-size: 14px;
+  border-color: white;
+  color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 17px 0;
+  background-color: rgba(2, 2, 75, 0);
+}

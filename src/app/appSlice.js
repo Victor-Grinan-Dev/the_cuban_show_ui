@@ -16,7 +16,7 @@ export const appSlice = createSlice({
         currentLang:'en',
         
         //Auth
-        auth:false,
+        isAuth:false,
         user:{},
         
         //content
@@ -55,8 +55,8 @@ export const appSlice = createSlice({
         },
 
         //Auth
-        setAuth(state, action){
-            state.auth = action.payload;
+        setIsAuth(state, action){
+            state.isAuth = action.payload;
         },
         setUser(state, action){
             state.user = action.payload;
@@ -102,7 +102,7 @@ export const {
     setCurrentLang,
 
     //Auth
-    setAuth,
+    setIsAuth,
     setUser,
 
     //content

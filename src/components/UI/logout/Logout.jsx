@@ -26,13 +26,7 @@ const Logout = () => {
   };
 
   const btnStyle = {
-    border: "none",
-    backgroundColor: "purple",
-    color: "white",
-    fontWeight: "bold",
-    cursor: "pointer",
     fontSize: "25px",
-    padding: "0 20px",
     marginBottom: "100px",
   };
 

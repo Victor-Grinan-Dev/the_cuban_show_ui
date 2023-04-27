@@ -18,7 +18,7 @@ import SettingView from "./components/UI/settingView/SettingView";
 import ConfirmModal from "./components/UI/modals/ConfirmModal";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setAuth, setIsAuth, setUser } from "./app/appSlice";
+import { setIsAuth } from "./app/appSlice";
 import Cookies from "js-cookie";
 
 function App() {
@@ -34,7 +34,6 @@ function App() {
         toString(cookieValue) ===
         toString(process.env.REACT_APP_FIREBASE_CONTENT_KEY)
       ) {
-        console.log("we in");
         dispatch(setIsAuth(true));
       } else {
         //security risk

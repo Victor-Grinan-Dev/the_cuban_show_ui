@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setAuth,
-  setIsAuth,
-  setShowSettings,
-  setUser,
-} from "../../../app/appSlice";
+import { setIsAuth, setShowSettings } from "../../../app/appSlice";
 import style from "./login.module.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import modalStyle from "../modals/modals.module.css";
@@ -15,7 +10,7 @@ import useCookies from "../../../hooks/useCookies";
 const Login = () => {
   const [error, setError] = useState("");
   const [submitform, setSubmitform] = useState({});
-  const { cookieValue, setCookie } = useCookies("tcs");
+  const { setCookie } = useCookies("tcs");
   const currentLang = useSelector((state) => state.app.currentLang);
 
   const auth = getAuth();

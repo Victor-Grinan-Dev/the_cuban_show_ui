@@ -4,10 +4,6 @@
   "icons": [
     {
       "src": "micro.png",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "micro.png",
       "type": "image/png"
     }
   ],

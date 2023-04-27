@@ -29,6 +29,7 @@
     "socialism":"socialismo",
     "sport":"deporte",
     "technological":"tecnología",
+    "research":"investigación",
     "Admin":"Administrar",
     "Submit":"Enviar",
     "Email":"Correo Electrónico",
@@ -39,5 +40,6 @@
     "Image":"Imágen",
     "Image URL":"URL de Imágen",
     "Heading": "Encabezado",
-    "Body":"Cuerpo"
+    "Body":"Cuerpo",
+    "Logout": "Salir"
 }

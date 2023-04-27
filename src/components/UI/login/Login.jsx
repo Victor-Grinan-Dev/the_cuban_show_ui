@@ -1,20 +1,21 @@
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
-import { setAuth, setShowSettings } from "../../../app/appSlice";
+import { setIsAuth, setShowSettings } from "../../../app/appSlice";
 import style from "./login.module.css";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import modalStyle from "../modals/modals.module.css";
 import { translate } from "../../../translation/translation";
+import useCookies from "../../../hooks/useCookies";
+
 const Login = () => {
   const [error, setError] = useState("");
   const [submitform, setSubmitform] = useState({});
+  const { setCookie } = useCookies("tcs");
   const currentLang = useSelector((state) => state.app.currentLang);
-  const auth = useSelector((state) => state.app.auth);
+
+  const auth = getAuth();
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const changeHandler = (e) => {
     e.preventDefault();
@@ -22,26 +23,27 @@ const Login = () => {
     setSubmitform({ ...submitform, [name]: value });
     setError("");
   };
+
   const clearInputs = () => {
     /** todo */
   };
+
   const handleLogin = (e) => {
     e.preventDefault();
-
-    console.log("submit clicked!", submitform);
     const { email, password } = submitform;
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("under firebase fx");
-        const user = userCredential.user;
-        dispatch(setAuth(userCredential.user));
-        console.log("auth user:", user);
+        const data = userCredential.user.auth.config.apiKey;
+        // dispatch(setUser(userCredential.user.email));
+        // dispatch(setAuth(userCredential.user));
+        dispatch(setIsAuth(true));
         dispatch(setShowSettings(false));
+        setCookie(JSON.stringify(data));
       })
       .catch((err) => {
         const errorCode = err.code;
         const errorMessage = err.message;
-        setError(errorCode, errorMessage);
+        setError(`${errorCode}, ${errorMessage}`);
       })
       .finally(() => {
         clearInputs();

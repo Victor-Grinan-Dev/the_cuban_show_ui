@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 //import Homepage from './components/views/Homepage';
-import NotFound from "./components/NotFound";
+import NotFound from "./components/views/notFound404/NotFound";
 import "./style/app.css";
 
 import Content from "./components/views/contenido/Content";
@@ -12,22 +12,41 @@ import AddContent from "./components/views/addContent/AddContent";
 import SinglePage from "./components/views/singlePage/SinglePage";
 import Modal1 from "./components/UI/modals/Modal1";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import SettingView from "./components/UI/settingView/SettingView";
-
-// import { AuthProvider } from "./auth/AuthContext";
+import ConfirmModal from "./components/UI/modals/ConfirmModal";
+import { useEffect } from "react";
+import useCookies from "./hooks/useCookies";
+import { setIsAuth } from "./app/appSlice";
+import Cookies from "js-cookie";
 
 function App() {
-  const auth = useSelector((state) => state.app.auth);
+  const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.app.isAuth);
   const showSettings = useSelector((state) => state.app.showSettings);
+  const showConfirm = useSelector((state) => state.app.showConfirm);
+  const { cookieValue } = useCookies();
 
-  /**Todo
-   * read auth from cookies.
-   */
+  useEffect(() => {
+    if (cookieValue) {
+      if (
+        toString(cookieValue) ===
+        toString(process.env.REACT_APP_FIREBASE_CONTENT_KEY)
+      ) {
+        dispatch(setIsAuth(true));
+      } else {
+        //security risk
+        Cookies.remove("tcs");
+        dispatch(setIsAuth(false));
+        /* todo create user data and auth data? 
+        - populate in the local storage with preferences (language, dark mode)*/
+      }
+    }
+  }, [cookieValue, dispatch]);
 
   const protectedRoutes = () => {
-    if (auth) {
+    if (isAuth) {
       return <Route path="addcontent" element={<AddContent />} />;
     }
   };
@@ -46,6 +65,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       {showSettings && <Modal1 component={<SettingView />} />}
+      {showConfirm && <ConfirmModal message={"Hello"} />}
+      {/**NOT WORKING SMALL MODAL */}
     </BrowserRouter>
   );
 }

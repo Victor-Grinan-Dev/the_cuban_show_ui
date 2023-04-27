@@ -7,6 +7,7 @@ import style from "./singlePage.module.css";
 import { createBreakLines } from "../../../functions/text";
 import AppBtn from "../../UI/appBtn/AppBtn";
 import { useSelector } from "react-redux";
+import BackToMain from "../../UI/backToMain/BackToMain";
 
 const capitalStart = {
   textTransform: "capitalize",
@@ -20,6 +21,7 @@ const SinglePage = () => {
 
   return (
     <div className={globalStyle.view}>
+      <BackToMain />
       <p>Published: {readableDate.toDateString()} </p>
       <img
         src={image ? image : defaultImage}
@@ -43,7 +45,6 @@ const SinglePage = () => {
               textTransform: "capitalize",
             }}
           >
-            {console.log("p", i, parragraph)}
             {parragraph}
             <br />
             <br />

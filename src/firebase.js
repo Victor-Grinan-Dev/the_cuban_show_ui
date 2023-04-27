@@ -4,7 +4,7 @@ import { getStorage } from "firebase/storage";
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCkGXTmizLIeybjDyCunytGuiDqGczLxq4",
+    apiKey: process.env.REACT_APP_FIREBASE_CONTENT_KEY,
     authDomain: "thecubanshow-d5b0d.firebaseapp.com",
     projectId: "thecubanshow-d5b0d",
     storageBucket: "thecubanshow-d5b0d.appspot.com",
@@ -17,5 +17,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const auth = getAuth();
-export const storage = getStorage(app)
+export const storage = getStorage(app);
 export const db = getFirestore();

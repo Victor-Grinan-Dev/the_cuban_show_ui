@@ -23,7 +23,7 @@ export class Content {
                 return tags;
             }
         }else if(tags && !typeof tags === "string"){
-             console.log("incorrect tags type");
+             console.log("Error, incorrect tags type");
         }
     }
 

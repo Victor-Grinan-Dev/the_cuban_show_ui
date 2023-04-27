@@ -45,7 +45,6 @@ const SinglePage = () => {
               textTransform: "capitalize",
             }}
           >
-            {console.log("p", i, parragraph)}
             {parragraph}
             <br />
             <br />

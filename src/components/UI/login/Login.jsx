@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsAuth, setShowSettings, setUser } from "../../../app/appSlice";
+import { setIsAuth, setShowSettings } from "../../../app/appSlice";
 import style from "./login.module.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import modalStyle from "../modals/modals.module.css";
 import { translate } from "../../../translation/translation";
+import useCookies from "../../../hooks/useCookies";
+
 const Login = () => {
   const [error, setError] = useState("");
   const [submitform, setSubmitform] = useState({});
+  const { setCookie } = useCookies("tcs");
   const currentLang = useSelector((state) => state.app.currentLang);
 
   const auth = getAuth();
@@ -30,14 +33,17 @@ const Login = () => {
     const { email, password } = submitform;
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        dispatch(setUser(userCredential.user));
+        const data = userCredential.user.auth.config.apiKey;
+        // dispatch(setUser(userCredential.user.email));
+        // dispatch(setAuth(userCredential.user));
         dispatch(setIsAuth(true));
         dispatch(setShowSettings(false));
+        setCookie(JSON.stringify(data));
       })
       .catch((err) => {
         const errorCode = err.code;
         const errorMessage = err.message;
-        setError(errorCode, errorMessage);
+        setError(`${errorCode}, ${errorMessage}`);
       })
       .finally(() => {
         clearInputs();

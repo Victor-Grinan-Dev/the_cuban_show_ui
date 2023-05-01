@@ -16,11 +16,14 @@ const NewsCard = ({ props }) => {
     <Link to={`article/${id}`} state={props}>
       <div className={style.cardContainer}>
         <div className={style.newsCard}>
-          <img
-            className={style.newsCardImg}
-            src={image || testImg}
-            alt="newsImage"
-          />
+          <div className={style.newsCardImgContainer}>
+            <img
+              className={style.newsCardImg}
+              src={image || testImg}
+              alt="newsImage"
+            />
+          </div>
+
           <div className={style.contentContainer}>
             <h3 className={style.newsCardTitle}>{title || "test title"}</h3>
             <hr className={style.line} />

@@ -1,16 +1,26 @@
 
+:root{
+    --CardContentHeight: 150px;
+}
+.advCard,
+.mainNewsCardContainer,
 .cardContainer{
     background-color: white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 5px black;
     margin: 5px;
-    width: 75vw;
+    width: 85vw;
+}
+.mainNewsCardContainers{
+    margin-top: 20px;
 }
 
+
+.advContent,
+.mainNews,
 .newsCard{
-    height: 150px;
-    min-height: 50px;
+    height: var(--CardContentHeight);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -19,23 +29,70 @@
     padding-right: 20px;
     position:relative; 
 }
+.advContent{
+    background-image:none;
+    background-color: grey;
+}
 
+.mainNews{
+    /**/
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.mainNewsCardImg{
+    width: 115%;
+}
+
+.mainNewsContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 a{
     text-decoration: none;
     color: black;
 }
-.newsCardImg{
-    /* max-height: 100%; */
+
+.newsCardImgContainer{
+    background-color: #060606;
+    height: var(--CardContentHeight);
     width: 30%;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.newsCardImg{
+    /* max-height: 100%;*/
+    width: 100%;
+    min-height: var(--CardContentHeight);
+    /* vertical-align: middle; */
+    object-fit: cover;
+    object-position: center;
 }
 
 .contentContainer{
     padding: 10px;
-     width: 40%;
+    width: 70%;
 }
-
+.maincontentContainer{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+}
 .newsCardTitle{
     font-size: 2.2vw;
+    color: black;
+    text-shadow: 0 0 5px rgb(252, 252, 252);
+    text-transform: capitalize;
+}
+
+.mainNewsCardTitle{
+    font-size: 5.2vw;
     color: black;
     text-shadow: 0 0 5px rgb(252, 252, 252);
     text-transform: capitalize;
@@ -81,7 +138,8 @@ a{
     }
 
     .newsCardImg{
-        width: 30%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .contentContainer{

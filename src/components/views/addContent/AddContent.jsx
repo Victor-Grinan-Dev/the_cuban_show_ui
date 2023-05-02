@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createContent } from "../../../services/firebaseService";
 import genStyle from "../../../style/styleGeneral.module.css";
 import style from "./addContent.module.css";
@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setContent,
   setError,
-  setImageUrl,
   setMessage,
   addTag,
   setTags,
@@ -17,11 +16,10 @@ import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
 import { selectedAppBtn } from "../../../style/generalStyles";
-
-// import defaultImg from '../../../assets/logo-black.jpg'
-
-/* TODO */
-//click and unclick tags
+import { storage } from "../../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
+import NewsCard from "../../UI/newsCard/NewsCard";
 
 const AddContent = () => {
   const dispatch = useDispatch();
@@ -31,8 +29,7 @@ const AddContent = () => {
   const message = useSelector((state) => state.app.message);
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
-
-  // const [isShowTags, setIsShowTags] = useState(false);
+  const [imageUpload, setImageUpload] = useState(null);
 
   useEffect(() => {
     if (error || message) {
@@ -44,9 +41,13 @@ const AddContent = () => {
     // eslint-disable-next-line
   }, [error, message]);
 
-  // const showAllTasHandle = () => {
-  //     setIsShowTags(!isShowTags);
-  // }
+  useEffect(() => {
+    if (imageUpload)
+      dispatch(
+        setContent({ ...content, image: URL.createObjectURL(imageUpload) })
+      );
+    // eslint-disable-next-line
+  }, [imageUpload]);
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag, tags)
@@ -78,9 +79,6 @@ const AddContent = () => {
   };
 
   const changeHandler = (e) => {
-    if (e?.target?.name === "imageUrl") {
-      dispatch(setImageUrl(e.target.value));
-    }
     changeContent(e.target.name, e.target.value);
   };
 
@@ -88,11 +86,30 @@ const AddContent = () => {
     dispatch(setContent({ ...content, [key]: value }));
   };
 
+  const removeSelectedImage = () => {
+    setImageUpload();
+  };
+
+  const uploadImage = () => {
+    if (imageUpload === null) return;
+    const imageRef = ref(storage, `images/${imageUpload?.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then(() => {
+      getDownloadURL().then((url) => {
+        console.log(url);
+        changeContent("image", url);
+        alert("uploadeed image", url);
+      });
+    });
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
+    uploadImage();
+
     if (content.title !== "" && content.body !== "" && content.heading !== "") {
       createContent(content);
       document.getElementById("form").reset();
+
       dispatch(setMessage("Article added!"));
       resetContent();
       dispatch(setTags([]));
@@ -115,6 +132,10 @@ const AddContent = () => {
       >
         {message}
       </div>
+      <NewsCard props={content} />
+      {imageUpload && (
+        <button onClick={removeSelectedImage}>Remove This Image</button>
+      )}
 
       <form onSubmit={(e) => submitHandler(e)} className={style.form} id="form">
         <input
@@ -126,14 +147,11 @@ const AddContent = () => {
         />
 
         <input
-          type="text"
+          type="file"
           name="image"
-          placeholder={translate("Image URL", currentLang) + "*"}
           className={style.input}
-          onChange={changeHandler}
+          onChange={(e) => setImageUpload(e.target.files[0])}
         />
-
-        {/* <img id='preview' className={style.previewImg} src={imageUrl ? imageUrl : defaultImg} alt={"news portrait"} /> */}
 
         <input
           name="heading"
@@ -150,20 +168,10 @@ const AddContent = () => {
           onChange={(e) => changeHandler(e)}
         ></textarea>
 
-        {/* <p>Tags should be coma separated and lowercase</p>
-            { taggs && <input type="text" className={style.input} name='tags'
-            placeholder='Ex. politics, climate change' onChange={(e)=>changeHandler(e)}/>} */}
-
         <button>{translate("Publish", currentLang)}</button>
       </form>
       <div className={style.tagsArea}>
-        <p
-          className={style.isShowTags}
-          // onClick={showAllTasHandle}
-        >
-          Tags:
-          {/* {isShowTags?'Hide Tags' : 'Show Tags'} */}
-        </p>
+        <p className={style.isShowTags}>Tags:</p>
         {allTags &&
           allTags.map((t, i) => {
             const isIncluded = isTagIncluded(t, allTags);

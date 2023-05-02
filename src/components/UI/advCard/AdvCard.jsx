@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./advCard.module.css";
+import style from "../newsCard/newsCard.module.css";
 const AdvCard = (props) => {
   const { text } = props;
   return (

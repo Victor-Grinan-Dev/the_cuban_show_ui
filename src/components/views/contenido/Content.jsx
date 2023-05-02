@@ -8,6 +8,7 @@ import FilterSearchBar from "../../UI/filterSearchBar/FilterSearchBar";
 import { filterByTags } from "../../../functions/filter";
 import style from "./styleContent.module.css";
 import AdvCard from "../../UI/advCard/AdvCard";
+import MainNewsCard from "../../UI/mainNewsCard/MainNewsCard";
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ const Content = () => {
   const selectedTags = useSelector((state) => state.app.tags);
 
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
-
   const advs = [
     "advetisments1",
     "advetisments2",
@@ -32,6 +32,8 @@ const Content = () => {
     "advetisments2",
     "advetisments3",
   ];
+
+  const adsInterval = 5; //every x cards show advertisment
   /**
    * contentsFiltered :
    * return all objects "content" filtered by parameter tags and search-input overlaped.
@@ -68,11 +70,13 @@ const Content = () => {
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              i % 4 === 0 ? (
+              i === 0 ? (
+                <MainNewsCard props={c} key={i} />
+              ) : i % adsInterval === 0 ? (
                 <AdvCard
-                  id={`${i / 4}b`}
-                  key={`${i / 4}b`}
-                  text={advs[i / 4]}
+                  id={`${i / adsInterval}b`}
+                  key={`${i / adsInterval}b`}
+                  text={advs[i / adsInterval]}
                 />
               ) : (
                 <NewsCard props={c} key={i} />

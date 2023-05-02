@@ -1,5 +1,6 @@
 import React from "react";
-import style from "../newsCard/newsCard.module.css";
+import genStyle from "../newsCard/newsCard.module.css";
+import style from "./mainNews.module.css";
 import testImg from "../../../assets/logo-black.jpg";
 import { getReadableTime } from "../../../functions/time";
 import { translate } from "../../../translation/translation";
@@ -24,9 +25,9 @@ const MainNewsCard = ({ props }) => {
               <h3 className={style.mainNewsCardTitle}>
                 {title || "test title"}
               </h3>
-              <hr className={style.line} />
-              {!isMobile && <div className={style.heading}>{heading}</div>}
-              <p className={style.date}>
+              <hr className={genStyle.line} />
+              {!isMobile && <div className={genStyle.heading}>{heading}</div>}
+              <p className={genStyle.date}>
                 {translate("Published", currentLang)}:{" "}
                 {readableDate.toDateString()}
               </p>

@@ -7,7 +7,7 @@ import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 
 const NewsCard = ({ props }) => {
-  const { id, title, image, date, heading } = props;
+  const { id, title, image, date, heading, previewUrl } = props;
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
   const isMobile = false;
@@ -19,7 +19,7 @@ const NewsCard = ({ props }) => {
           <div className={style.newsCardImgContainer}>
             <img
               className={style.newsCardImg}
-              src={image || testImg}
+              src={previewUrl || image || testImg}
               alt="newsImage"
             />
           </div>

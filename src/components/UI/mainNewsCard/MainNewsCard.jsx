@@ -16,12 +16,7 @@ const MainNewsCard = ({ props }) => {
       <div className={style.mainNewsCardContainer}>
         <div className={style.mainNews}>
           <div className={style.mainNewsContent}>
-            <img
-              className={style.mainNewsCardImg}
-              src={image || testImg}
-              alt="newsImage"
-            />
-            <div className={style.contentContainer}>
+            <div className={style.maincontentContainer}>
               <h3 className={style.mainNewsCardTitle}>
                 {title || "test title"}
               </h3>
@@ -32,6 +27,11 @@ const MainNewsCard = ({ props }) => {
                 {readableDate.toDateString()}
               </p>
             </div>
+            <img
+              className={style.mainNewsCardImg}
+              src={image || testImg}
+              alt="newsImage"
+            />
           </div>
         </div>
       </div>

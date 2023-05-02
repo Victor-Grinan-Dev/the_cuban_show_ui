@@ -44,10 +44,14 @@ const AddContent = () => {
   useEffect(() => {
     if (imageUpload)
       dispatch(
-        setContent({ ...content, image: URL.createObjectURL(imageUpload) })
+        setContent({ ...content, previewUrl: URL.createObjectURL(imageUpload) })
       );
     // eslint-disable-next-line
   }, [imageUpload]);
+
+  useEffect(() => {
+    console.log(content);
+  }, [content]);
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag, tags)
@@ -86,18 +90,23 @@ const AddContent = () => {
     dispatch(setContent({ ...content, [key]: value }));
   };
 
-  const removeSelectedImage = () => {
-    setImageUpload();
-  };
+  // const removeSelectedImage = () => {
+  //   setImageUpload(null);
+  //   setContent({ ...content, image: "" });
+  // };
 
   const uploadImage = () => {
+    /**
+     * TODO
+     * upload and retrieve the url of the image before saving the firestore data
+     */
     if (imageUpload === null) return;
+
     const imageRef = ref(storage, `images/${imageUpload?.name + v4()}`);
+
     uploadBytes(imageRef, imageUpload).then(() => {
       getDownloadURL().then((url) => {
-        console.log(url);
         changeContent("image", url);
-        alert("uploadeed image", url);
       });
     });
   };
@@ -106,7 +115,11 @@ const AddContent = () => {
     e.preventDefault();
     uploadImage();
 
-    if (content.title !== "" && content.body !== "" && content.heading !== "") {
+    if (
+      (content.title !== "" && content.body !== "" && content.heading !== "",
+      tags.length !== 0,
+      content.image !== "")
+    ) {
       createContent(content);
       document.getElementById("form").reset();
 
@@ -133,9 +146,9 @@ const AddContent = () => {
         {message}
       </div>
       <NewsCard props={content} />
-      {imageUpload && (
+      {/* {imageUpload && (
         <button onClick={removeSelectedImage}>Remove This Image</button>
-      )}
+      )} */}
 
       <form onSubmit={(e) => submitHandler(e)} className={style.form} id="form">
         <input

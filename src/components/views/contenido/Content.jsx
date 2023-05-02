@@ -74,11 +74,14 @@ const Content = () => {
               i === 0 ? (
                 <MainNewsCard props={c} key={i} />
               ) : i % adsInterval === 0 ? (
-                <AdvCard
-                  id={`${i / adsInterval}b`}
-                  key={`${i / adsInterval}b`}
-                  text={advs[i / adsInterval]}
-                />
+                <>
+                  <AdvCard
+                    id={`${i / adsInterval}b`}
+                    key={`${i / adsInterval}b`}
+                    text={advs[i / adsInterval]}
+                  />
+                  <NewsCard props={c} key={i} />
+                </>
               ) : (
                 <NewsCard props={c} key={i} />
               )

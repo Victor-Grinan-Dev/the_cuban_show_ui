@@ -64,6 +64,7 @@ const Content = () => {
     );
   }
   return (
+    /* If there are tag filters dont show main cnews card */
     <div className={genStyle.view}>
       <FilterSearchBar />
       <div className={style.box}>

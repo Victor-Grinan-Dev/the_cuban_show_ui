@@ -156,6 +156,7 @@ const AddContent = () => {
           className={style.input}
           type="text"
           placeholder={translate("Title", currentLang) + "*"}
+          value={content.title && content.title}
           onChange={(e) => changeHandler(e)}
         />
 
@@ -172,6 +173,7 @@ const AddContent = () => {
           type="text"
           placeholder={translate("Heading", currentLang) + "*"}
           onChange={(e) => changeHandler(e)}
+          value={content.heading && content.heading}
         />
         <textarea
           className={style.textarea}
@@ -179,6 +181,7 @@ const AddContent = () => {
           id="body"
           placeholder={translate("Body", currentLang) + "*"}
           onChange={(e) => changeHandler(e)}
+          value={content.body && content.body}
         ></textarea>
 
         <button>{translate("Publish", currentLang)}</button>

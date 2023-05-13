@@ -37,7 +37,7 @@ const MoreTags = () => {
 
   return (
     <div className={style.moreTags}>
-      <p className={modalStyle.sectionName}>TAGS:</p>
+      <p className={modalStyle.sectionName}>{translate('Tags', currentLang)+':'}</p>
       <div className={style.moreTags}>
         {allTags &&
           allTags.map(

@@ -9,6 +9,7 @@ import {
   setMessage,
   addTag,
   setTags,
+  setImageUrl,
 } from "../../../app/appSlice";
 import { Content } from "../../../classes/content";
 import { allTags } from "../../../appConfig";
@@ -17,7 +18,12 @@ import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
 import { selectedAppBtn } from "../../../style/generalStyles";
 import { storage } from "../../../firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { v4 } from "uuid";
 import NewsCard from "../../UI/newsCard/NewsCard";
 
@@ -30,6 +36,7 @@ const AddContent = () => {
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
   const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     if (error || message) {
@@ -42,6 +49,7 @@ const AddContent = () => {
   }, [error, message]);
 
   useEffect(() => {
+    /* REVIEW TO ERASE */
     if (imageUpload)
       dispatch(
         setContent({ ...content, previewUrl: URL.createObjectURL(imageUpload) })
@@ -50,7 +58,19 @@ const AddContent = () => {
   }, [imageUpload]);
 
   useEffect(() => {
-    console.log(content);
+    if (content.image && content.title && content.heading && content.body) {
+      // dispatch(setContent({ ...content, image: imageUrl }));
+      createContent(content);
+
+    //reset
+      document.getElementById("form").reset();
+      dispatch(setMessage("Article added!"));
+      resetContent();
+      dispatch(setTags([]));
+    }else{
+      console.log("content:", content);
+    }
+    // eslint-disable-next-line
   }, [content]);
 
   const addOrDelHandler = (tag) => {
@@ -90,45 +110,67 @@ const AddContent = () => {
     dispatch(setContent({ ...content, [key]: value }));
   };
 
+  /*TODO */
   // const removeSelectedImage = () => {
   //   setImageUpload(null);
   //   setContent({ ...content, image: "" });
   // };
 
   const uploadImage = () => {
-    /**
-     * TODO
-     * upload and retrieve the url of the image before saving the firestore data
-     */
-    if (imageUpload === null) return;
+    const imageRef = ref(storage, `images/${v4() + imageUpload?.name }`);
+    const uploadTask = uploadBytesResumable(imageRef, imageUpload);
 
-    const imageRef = ref(storage, `images/${imageUpload?.name + v4()}`);
-
-    uploadBytes(imageRef, imageUpload).then(() => {
-      getDownloadURL().then((url) => {
-        changeContent("image", url);
-      });
-    });
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+            break;
+        }
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          //console.log("File available at", downloadURL);
+          dispatch(setContent({ ...content, 'image': downloadURL }));
+          // setImageUrl(downloadURL);
+        });
+      }
+    ); 
   };
-
+const imageUpload2 = () => {
+  // const imageRef = ref(storage, `images/${imageUpload?.name + v4()}`);
+  // uploadBytes(imageRef, file).then((snapshot) => {
+  //   console.log('Uploaded a blob or file!');
+  // });
+}
   const submitHandler = (e) => {
     e.preventDefault();
-    uploadImage();
-
     if (
-      (content.title !== "" && content.body !== "" && content.heading !== "",
-      tags.length !== 0,
-      content.image !== "")
+      (content.title !== "" && content.body !== "" && content.heading !== ""
+      //,
+      // tags.length !== 0,
+      //content.image !== ""
+      )
     ) {
-      createContent(content);
-      document.getElementById("form").reset();
-
-      dispatch(setMessage("Article added!"));
-      resetContent();
-      dispatch(setTags([]));
+      uploadImage();
     } else {
-      dispatch(setError("Input fields still empty"));
-    }
+      /**
+       * more specific of what is missing
+       */
+        dispatch(setError("Input fields still empty"));
+      }
   };
 
   return (

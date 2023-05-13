@@ -9,7 +9,6 @@ import {
   setMessage,
   addTag,
   setTags,
-  setImageUrl,
 } from "../../../app/appSlice";
 import { Content } from "../../../classes/content";
 import { allTags } from "../../../appConfig";
@@ -20,7 +19,6 @@ import { selectedAppBtn } from "../../../style/generalStyles";
 import { storage } from "../../../firebase";
 import {
   ref,
-  uploadBytes,
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
@@ -36,7 +34,6 @@ const AddContent = () => {
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
   const [imageUpload, setImageUpload] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     if (error || message) {
@@ -149,12 +146,7 @@ const AddContent = () => {
       }
     ); 
   };
-const imageUpload2 = () => {
-  // const imageRef = ref(storage, `images/${imageUpload?.name + v4()}`);
-  // uploadBytes(imageRef, file).then((snapshot) => {
-  //   console.log('Uploaded a blob or file!');
-  // });
-}
+  
   const submitHandler = (e) => {
     e.preventDefault();
     if (

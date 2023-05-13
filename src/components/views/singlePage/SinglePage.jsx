@@ -36,15 +36,7 @@ const SinglePage = () => {
       </h3>
       <span>
         {createBreakLines(body).map((parragraph, i) => (
-          <p
-            key={i}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              width: "90vw",
-              textTransform: "capitalize",
-            }}
-          >
+          <p className={style.bodyText} key={i}>
             {parragraph}
             <br />
             <br />

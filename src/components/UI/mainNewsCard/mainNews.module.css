@@ -3,8 +3,7 @@
     --CardContentHeight: 150px;
 }
 
-.advCard,
-.cardContainer{
+.mainNewsCardContainer{
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -12,25 +11,33 @@
     margin: 5px;
     width: 85vw;
     max-width: 895px;
+    margin-top: 20px;
 }
 
-
-.advContent,
-.newsCard{
-    height: var(--CardContentHeight);
+.mainNews{
     overflow: hidden;
-    display: flex;
-    align-items: center;
     /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
     background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
-    padding-right: 20px;
-    position:relative; 
-}
-.advContent{
-    background-image:none;
-    background-color: grey;
+    
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; */
 }
 
+.mainNewsCardImg{
+    width: 115%;
+}
+
+.mainNewsContent{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+/*take this from newsCard*/
 a{
     text-decoration: none;
     color: black;
@@ -54,11 +61,13 @@ a{
     object-position: center;
 }
 
-.contentContainer{
-    padding: 10px;
-    width: 70%;
+.maincontentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 }
-
 .newsCardTitle{
     font-size: 2.2vw;
     color: black;
@@ -66,9 +75,16 @@ a{
     text-transform: capitalize;
 }
 
+.mainNewsCardTitle{
+    font-size: 5.2vw;
+    color: black;
+    text-shadow: 0 0 5px rgb(252, 252, 252);
+    text-transform: capitalize;
+}
+
 @media screen and (min-width: 1600px) {
-    .newsCardTitle {
-       font-size: 30px;
+    .mainNewsCardTitle {
+       font-size: 50px;
     }
   }
 
@@ -97,8 +113,7 @@ a{
     justify-content: space-between;
     align-items: center;
 }
-
-@media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 768px) {
     .cardContainer{
         width: 85vw;
     }

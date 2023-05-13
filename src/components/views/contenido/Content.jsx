@@ -8,6 +8,7 @@ import FilterSearchBar from "../../UI/filterSearchBar/FilterSearchBar";
 import { filterByTags } from "../../../functions/filter";
 import style from "./styleContent.module.css";
 import AdvCard from "../../UI/advCard/AdvCard";
+import MainNewsCard from "../../UI/mainNewsCard/MainNewsCard";
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -17,21 +18,22 @@ const Content = () => {
   const selectedTags = useSelector((state) => state.app.tags);
 
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
-
   const advs = [
     "advetisments1",
     "advetisments2",
     "advetisments3",
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
   ];
+  let value = advs.length - 1;
+  const nextAdv = () => {
+    
+    if(value === advs.length - 1){
+      value = 0;
+    }else{
+      value++
+    }
+    return value;
+  }
+  const adsInterval = 5; //every x cards show advertisment
   /**
    * contentsFiltered :
    * return all objects "content" filtered by parameter tags and search-input overlaped.
@@ -62,20 +64,26 @@ const Content = () => {
     );
   }
   return (
+    /* If there are tag filters dont show main cnews card */
     <div className={genStyle.view}>
       <FilterSearchBar />
       <div className={style.box}>
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              i % 4 === 0 ? (
-                <AdvCard
-                  id={`${i / 4}b`}
-                  key={`${i / 4}b`}
-                  text={advs[i / 4]}
-                />
+              i === 0 ? (
+                <MainNewsCard props={c} key={c.id} />
+              ) : i % adsInterval === 0 ? (
+                <>
+                  <AdvCard
+                    id={i}
+                    key={i}
+                    text={advs[nextAdv()]}
+                  />
+                  <NewsCard props={c} key={c.id} />
+                </>
               ) : (
-                <NewsCard props={c} key={i} />
+                <NewsCard props={c} key={c.id} />
               )
             )}
         </div>

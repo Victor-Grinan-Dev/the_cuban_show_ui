@@ -1,11 +1,19 @@
-.singleImage{
-    max-width: 80vw;
+.singleImage {
+  width: 93%;
 }
 
-.singleTags{
-    font-size: 10px;
+.bodyText {
+  display: flex;
+  flex-wrap: wrap;
+  width: 93vw;
+  max-width: 900px;
+  text-transform: capitalize;
 }
 
-.capitalStart{
-    text-transform: capitalize;
+.singleTags {
+  font-size: 10px;
+}
+
+.capitalStart {
+  text-transform: capitalize;
 }

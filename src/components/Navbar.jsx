@@ -16,7 +16,13 @@ const Navbar = () => {
       <div className={style.navbarContainer}>
         <div className={style.logo} />
         <div className={style.title}>
-          <h1>{translate("Nothing but the truth", currentLang)}</h1>
+          <h1
+            style={{
+              textAlign: "center",
+            }}
+          >
+            {translate("Nothing but the truth", currentLang)}
+          </h1>
         </div>
         <div
           className={showSettings ? style.menuOn : style.menu}

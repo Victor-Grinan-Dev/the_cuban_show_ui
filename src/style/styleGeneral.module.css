@@ -7,7 +7,7 @@
 .view{
     height: 82vh;
     width: -webkit-fill-available;
-    max-width: 900px;
+    max-width: 950px;
     margin: 12vh 0 0 auto;
     display: flex;
     flex-direction: column;

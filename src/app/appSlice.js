@@ -78,8 +78,8 @@ export const appSlice = createSlice({
     setContent(state, action) {
       state.content = action.payload;
     },
-    addTag(state, action) {
-      state.tags = [...state.tags, action.payload];
+    clearTags(state) {
+      state.tags = [];
     },
     setTags(state, action) {
       state.tags = action.payload;
@@ -117,7 +117,7 @@ export const {
   setContents,
   setContent,
   setContentsInvert,
-  addTag,
+  clearTags,
   setTags,
 
   //image

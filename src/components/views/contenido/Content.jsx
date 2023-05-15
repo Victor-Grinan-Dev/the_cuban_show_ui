@@ -16,7 +16,7 @@ const Content = () => {
   const isLoading = useSelector((state) => state.app.isLoading);
   const search = useSelector((state) => state.app.search);
   const selectedTags = useSelector((state) => state.app.tags);
-  console.log(selectedTags.length);
+
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
   const advs = ["advetisments1", "advetisments2", "advetisments3"];
   let value = advs.length - 1;

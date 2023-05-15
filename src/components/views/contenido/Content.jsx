@@ -22,17 +22,17 @@ const Content = () => {
     "advetisments1",
     "advetisments2",
     "advetisments3",
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
   ];
-
+  let value = advs.length - 1;
+  const nextAdv = () => {
+    
+    if(value === advs.length - 1){
+      value = 0;
+    }else{
+      value++
+    }
+    return value;
+  }
   const adsInterval = 5; //every x cards show advertisment
   /**
    * contentsFiltered :
@@ -72,15 +72,18 @@ const Content = () => {
           {contents &&
             contentsFiltered.map((c, i) =>
               i === 0 ? (
-                <MainNewsCard props={c} key={i} />
+                <MainNewsCard props={c} key={c.id} />
               ) : i % adsInterval === 0 ? (
-                <AdvCard
-                  id={`${i / adsInterval}b`}
-                  key={`${i / adsInterval}b`}
-                  text={advs[i / adsInterval]}
-                />
+                <>
+                  <AdvCard
+                    id={i}
+                    key={i}
+                    text={advs[nextAdv()]}
+                  />
+                  <NewsCard props={c} key={c.id} />
+                </>
               ) : (
-                <NewsCard props={c} key={i} />
+                <NewsCard props={c} key={c.id} />
               )
             )}
         </div>

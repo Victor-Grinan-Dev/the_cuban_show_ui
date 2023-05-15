@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createContent } from "../../../services/firebaseService";
 import genStyle from "../../../style/styleGeneral.module.css";
 import style from "./addContent.module.css";
@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setContent,
   setError,
-  setImageUrl,
   setMessage,
   addTag,
   setTags,
@@ -17,11 +16,14 @@ import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
 import { selectedAppBtn } from "../../../style/generalStyles";
-
-// import defaultImg from '../../../assets/logo-black.jpg'
-
-/* TODO */
-//click and unclick tags
+import { storage } from "../../../firebase";
+import {
+  ref,
+  getDownloadURL,
+  uploadBytesResumable,
+} from "firebase/storage";
+import { v4 } from "uuid";
+import NewsCard from "../../UI/newsCard/NewsCard";
 
 const AddContent = () => {
   const dispatch = useDispatch();
@@ -31,8 +33,7 @@ const AddContent = () => {
   const message = useSelector((state) => state.app.message);
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
-
-  // const [isShowTags, setIsShowTags] = useState(false);
+  const [imageUpload, setImageUpload] = useState(null);
 
   useEffect(() => {
     if (error || message) {
@@ -44,9 +45,30 @@ const AddContent = () => {
     // eslint-disable-next-line
   }, [error, message]);
 
-  // const showAllTasHandle = () => {
-  //     setIsShowTags(!isShowTags);
-  // }
+  useEffect(() => {
+    /* REVIEW TO ERASE */
+    if (imageUpload)
+      dispatch(
+        setContent({ ...content, previewUrl: URL.createObjectURL(imageUpload) })
+      );
+    // eslint-disable-next-line
+  }, [imageUpload]);
+
+  useEffect(() => {
+    if (content.image && content.title && content.heading && content.body) {
+      // dispatch(setContent({ ...content, image: imageUrl }));
+      createContent(content);
+
+    //reset
+      document.getElementById("form").reset();
+      dispatch(setMessage("Article added!"));
+      resetContent();
+      dispatch(setTags([]));
+    }else{
+      console.log("content:", content);
+    }
+    // eslint-disable-next-line
+  }, [content]);
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag, tags)
@@ -78,9 +100,6 @@ const AddContent = () => {
   };
 
   const changeHandler = (e) => {
-    if (e?.target?.name === "imageUrl") {
-      dispatch(setImageUrl(e.target.value));
-    }
     changeContent(e.target.name, e.target.value);
   };
 
@@ -88,17 +107,62 @@ const AddContent = () => {
     dispatch(setContent({ ...content, [key]: value }));
   };
 
+  /*TODO */
+  // const removeSelectedImage = () => {
+  //   setImageUpload(null);
+  //   setContent({ ...content, image: "" });
+  // };
+
+  const uploadImage = () => {
+    const imageRef = ref(storage, `images/${v4() + imageUpload?.name }`);
+    const uploadTask = uploadBytesResumable(imageRef, imageUpload);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+            break;
+        }
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          //console.log("File available at", downloadURL);
+          dispatch(setContent({ ...content, 'image': downloadURL }));
+          // setImageUrl(downloadURL);
+        });
+      }
+    ); 
+  };
+  
   const submitHandler = (e) => {
     e.preventDefault();
-    if (content.title !== "" && content.body !== "" && content.heading !== "") {
-      createContent(content);
-      document.getElementById("form").reset();
-      dispatch(setMessage("Article added!"));
-      resetContent();
-      dispatch(setTags([]));
+    if (
+      (content.title !== "" && content.body !== "" && content.heading !== ""
+      //,
+      // tags.length !== 0,
+      //content.image !== ""
+      )
+    ) {
+      uploadImage();
     } else {
-      dispatch(setError("Input fields still empty"));
-    }
+      /**
+       * more specific of what is missing
+       */
+        dispatch(setError("Input fields still empty"));
+      }
   };
 
   return (
@@ -115,6 +179,10 @@ const AddContent = () => {
       >
         {message}
       </div>
+      <NewsCard props={content} />
+      {/* {imageUpload && (
+        <button onClick={removeSelectedImage}>Remove This Image</button>
+      )} */}
 
       <form onSubmit={(e) => submitHandler(e)} className={style.form} id="form">
         <input
@@ -122,18 +190,16 @@ const AddContent = () => {
           className={style.input}
           type="text"
           placeholder={translate("Title", currentLang) + "*"}
+          value={content.title && content.title}
           onChange={(e) => changeHandler(e)}
         />
 
         <input
-          type="text"
+          type="file"
           name="image"
-          placeholder={translate("Image URL", currentLang) + "*"}
           className={style.input}
-          onChange={changeHandler}
+          onChange={(e) => setImageUpload(e.target.files[0])}
         />
-
-        {/* <img id='preview' className={style.previewImg} src={imageUrl ? imageUrl : defaultImg} alt={"news portrait"} /> */}
 
         <input
           name="heading"
@@ -141,6 +207,7 @@ const AddContent = () => {
           type="text"
           placeholder={translate("Heading", currentLang) + "*"}
           onChange={(e) => changeHandler(e)}
+          value={content.heading && content.heading}
         />
         <textarea
           className={style.textarea}
@@ -148,22 +215,13 @@ const AddContent = () => {
           id="body"
           placeholder={translate("Body", currentLang) + "*"}
           onChange={(e) => changeHandler(e)}
+          value={content.body && content.body}
         ></textarea>
-
-        {/* <p>Tags should be coma separated and lowercase</p>
-            { taggs && <input type="text" className={style.input} name='tags'
-            placeholder='Ex. politics, climate change' onChange={(e)=>changeHandler(e)}/>} */}
 
         <button>{translate("Publish", currentLang)}</button>
       </form>
       <div className={style.tagsArea}>
-        <p
-          className={style.isShowTags}
-          // onClick={showAllTasHandle}
-        >
-          Tags:
-          {/* {isShowTags?'Hide Tags' : 'Show Tags'} */}
-        </p>
+        <p className={style.isShowTags}>Tags:</p>
         {allTags &&
           allTags.map((t, i) => {
             const isIncluded = isTagIncluded(t, allTags);

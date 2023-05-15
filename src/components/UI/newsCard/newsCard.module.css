@@ -11,6 +11,7 @@
     box-shadow: 0 0 5px black;
     margin: 5px;
     width: 85vw;
+    max-width: 895px;
 }
 
 
@@ -64,6 +65,12 @@ a{
     text-shadow: 0 0 5px rgb(252, 252, 252);
     text-transform: capitalize;
 }
+
+@media screen and (min-width: 1600px) {
+    .newsCardTitle {
+       font-size: 30px;
+    }
+  }
 
 .line{
     border-style: solid;

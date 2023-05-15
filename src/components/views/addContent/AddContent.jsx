@@ -69,10 +69,7 @@ const AddContent = () => {
       dispatch(setMessage("Article added!"));
       resetContent();
       dispatch(setTags([]));
-    }else{
-      console.log("content:", content);
     }
-    console.log(content)
     // eslint-disable-next-line
   }, [content]);
 

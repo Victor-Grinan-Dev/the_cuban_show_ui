@@ -16,23 +16,18 @@ const Content = () => {
   const isLoading = useSelector((state) => state.app.isLoading);
   const search = useSelector((state) => state.app.search);
   const selectedTags = useSelector((state) => state.app.tags);
-
+  console.log(selectedTags.length);
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
-  const advs = [
-    "advetisments1",
-    "advetisments2",
-    "advetisments3",
-  ];
+  const advs = ["advetisments1", "advetisments2", "advetisments3"];
   let value = advs.length - 1;
   const nextAdv = () => {
-    
-    if(value === advs.length - 1){
+    if (value === advs.length - 1) {
       value = 0;
-    }else{
-      value++
+    } else {
+      value++;
     }
     return value;
-  }
+  };
   const adsInterval = 5; //every x cards show advertisment
   /**
    * contentsFiltered :
@@ -71,15 +66,11 @@ const Content = () => {
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              i === 0 ? (
+              i === 0 && selectedTags.length === 0 ? (
                 <MainNewsCard props={c} key={c.id} />
               ) : i % adsInterval === 0 ? (
                 <>
-                  <AdvCard
-                    id={i}
-                    key={i}
-                    text={advs[nextAdv()]}
-                  />
+                  <AdvCard id={i} key={i} text={advs[nextAdv()]} />
                   <NewsCard props={c} key={c.id} />
                 </>
               ) : (
@@ -88,7 +79,9 @@ const Content = () => {
             )}
         </div>
       </div>
-      <div className={style.rightColumnAdv}> advetisments</div>
+      <div className={style.rightColumnAdv}>
+        <AdvCard id={"last"} key={"last"} text={advs[nextAdv()]} />
+      </div>
     </div>
   );
 };

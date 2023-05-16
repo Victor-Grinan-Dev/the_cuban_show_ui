@@ -1,7 +1,9 @@
 # The Cuban Show UI
+This project is a CRUD that allows content creators to publish their articles.
+
 No-Copy License.
 - Live site: [https://thecubanshow.netlify.app/](https://thecubanshowui.netlify.app/)
-This project is a CRUD that allows content creators to publish their articles.
+- https://the-cuban-show-development.netlify.app/
 
 ## Table of Contents
 - Features

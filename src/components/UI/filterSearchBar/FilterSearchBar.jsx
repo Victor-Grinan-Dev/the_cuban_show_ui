@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setFilterTags,
   setSearch,
-  setShowSettings,
   setTags,
 } from "../../../app/appSlice";
 import { translate } from "../../../translation/translation";
@@ -11,6 +10,7 @@ import style from "./filterSearchBar.module.css";
 import AppBtn from "../appBtn/AppBtn";
 import { isTagIncluded } from "../../../functions/tags";
 import { selectedAppBtn } from "../appBtn/standardStyle";
+import FilterBarMoreTagsBtn from "../appBtn/FilterBarMoreTagsBtn";
 
 const FilterSearchBar = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ const FilterSearchBar = () => {
   const filterTags = useSelector((state) => state.app.filterTags);
   const search = useSelector((state) => state.app.search);
   const currentLang = useSelector((state) => state.app.currentLang);
-  //const isShowSettings = useSelector(state => state.app.isShowSettings);
 
   useEffect(() => {
     dispatch(setTags(filterTags));
@@ -43,16 +42,6 @@ const FilterSearchBar = () => {
         })
       )
     );
-  };
-  /** TODO make "moreTagsbtn to have green bg if a secundary tag is selected" */
-  const isSecundaryTagsIncluded = () => {
-    filterTags.forEach((t) => {
-      if (t !== "usa" && t !== "cuba" && t !== "world") {
-        if (isTagIncluded(t, filterTags)) {
-          return true;
-        }
-      }
-    });
   };
 
   return (
@@ -102,14 +91,7 @@ const FilterSearchBar = () => {
               }}
               style={filterTags.includes("world") ? selectedAppBtn : null}
             />
-            <AppBtn
-              id="moreTags"
-              type={"terceary"}
-              style={isSecundaryTagsIncluded() ? selectedAppBtn : null}
-              caption={translate("More tags", currentLang)}
-              fx={() => {
-                dispatch(setShowSettings(true));
-              }}
+            <FilterBarMoreTagsBtn
             />
           </>
         )}

@@ -7,7 +7,6 @@ import {
   setContent,
   setError,
   setMessage,
-  addTag,
   setTags,
 } from "../../../app/appSlice";
 import { Content } from "../../../classes/content";
@@ -15,7 +14,6 @@ import { allTags } from "../../../appConfig";
 import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
-import { selectedAppBtn } from "../../../style/generalStyles";
 import { storage } from "../../../firebase";
 import {
   ref,
@@ -46,6 +44,14 @@ const AddContent = () => {
   }, [error, message]);
 
   useEffect(() => {
+    if (tags.length !== 0) {
+      dispatch(
+        setContent({ ...content, tags:tags})
+    )}
+    // eslint-disable-next-line
+  }, [tags]);
+
+  useEffect(() => {
     /* REVIEW TO ERASE */
     if (imageUpload)
       dispatch(
@@ -55,8 +61,7 @@ const AddContent = () => {
   }, [imageUpload]);
 
   useEffect(() => {
-    if (content.image && content.title && content.heading && content.body) {
-      // dispatch(setContent({ ...content, image: imageUrl }));
+    if (content.image && content.title && content.heading && content.body && content.tags.length !== 0) {
       createContent(content);
 
     //reset
@@ -64,23 +69,21 @@ const AddContent = () => {
       dispatch(setMessage("Article added!"));
       resetContent();
       dispatch(setTags([]));
-    }else{
-      console.log("content:", content);
     }
     // eslint-disable-next-line
   }, [content]);
 
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag, tags)
-      ? deleteTagFilterHandler(tag)
-      : addTagsFiltershandler(tag);
+      ? deleteTagHandler(tag)
+      : addTagsHandler(tag);
   };
 
-  const addTagsFiltershandler = (tag) => {
-    dispatch(addTag(tag));
+  const addTagsHandler = (newTag) => {
+    dispatch(setTags([...tags, newTag]))
   };
 
-  const deleteTagFilterHandler = (tag) => {
+  const deleteTagHandler = (tag) => {
     dispatch(
       setTags(
         tags.filter((t) => {
@@ -89,6 +92,12 @@ const AddContent = () => {
       )
     );
   };
+  const clearTags = () => {
+    dispatch(setTags([]));
+    dispatch(
+      setContent({ ...content, tags:[]})
+  )};
+
 
   const cleanMessagge = () => {
     dispatch(setError(""));
@@ -139,9 +148,7 @@ const AddContent = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          //console.log("File available at", downloadURL);
           dispatch(setContent({ ...content, 'image': downloadURL }));
-          // setImageUrl(downloadURL);
         });
       }
     ); 
@@ -150,15 +157,12 @@ const AddContent = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      (content.title !== "" && content.body !== "" && content.heading !== ""
-      //,
-      // tags.length !== 0,
-      //content.image !== ""
-      )
+      (content.title !== "" && content.body !== "" && content.heading !== "")
     ) {
       uploadImage();
     } else {
       /**
+       * TODO
        * more specific of what is missing
        */
         dispatch(setError("Input fields still empty"));
@@ -180,10 +184,6 @@ const AddContent = () => {
         {message}
       </div>
       <NewsCard props={content} />
-      {/* {imageUpload && (
-        <button onClick={removeSelectedImage}>Remove This Image</button>
-      )} */}
-
       <form onSubmit={(e) => submitHandler(e)} className={style.form} id="form">
         <input
           name="title"
@@ -224,20 +224,19 @@ const AddContent = () => {
         <p className={style.isShowTags}>Tags:</p>
         {allTags &&
           allTags.map((t, i) => {
-            const isIncluded = isTagIncluded(t, allTags);
             return (
               <TagBtn
                 name={t}
                 key={i}
                 label={t}
                 fxPrimary={() => addOrDelHandler(t)}
-                style={
-                  isIncluded ? selectedAppBtn : null
-                } /*isSelected={t.isTagSelected}*/
+                isSelected={isTagIncluded(t, tags)}
               />
             );
           })}
+          
       </div>
+      <button onClick={clearTags}>clear tags</button>
     </div>
   );
 };

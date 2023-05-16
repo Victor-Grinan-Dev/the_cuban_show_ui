@@ -116,12 +116,6 @@ const AddContent = () => {
     dispatch(setContent({ ...content, [key]: value }));
   };
 
-  /*TODO */
-  // const removeSelectedImage = () => {
-  //   setImageUpload(null);
-  //   setContent({ ...content, image: "" });
-  // };
-
   const uploadImage = () => {
     const imageRef = ref(storage, `images/${v4() + imageUpload?.name }`);
     const uploadTask = uploadBytesResumable(imageRef, imageUpload);
@@ -183,7 +177,7 @@ const AddContent = () => {
       >
         {message}
       </div>
-      <NewsCard props={content} />
+      <NewsCard props={content} isTest={true}/>
       <form onSubmit={(e) => submitHandler(e)} className={style.form} id="form">
         <input
           name="title"

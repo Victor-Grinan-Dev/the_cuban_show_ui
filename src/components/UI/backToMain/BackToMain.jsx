@@ -7,12 +7,10 @@ import AppBtn from "../appBtn/AppBtn";
 const BackToMain = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
   return (
-    // <Link to="/">{"<<< " + translate("Back to homepage...", currentLang)}</Link>
     <Link to="/">
       <AppBtn
         caption={"<<< " + translate("Back to homepage...", currentLang)}
         type={"primary"}
-        style={{ width: "300px" }}
       />
     </Link>
   );

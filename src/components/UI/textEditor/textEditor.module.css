@@ -1,0 +1,13 @@
+.textEditorContainer{
+    background-color: aqua;
+    width: 85%;
+    max-width: 895px;
+}
+.editor{
+    background-color: bisque;
+
+}
+.preview{
+    background-color: rgb(151, 203, 222);
+    height: 50vh;
+}

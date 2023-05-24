@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import style from './textEditor.module.css';
 
 import 'react-quill/dist/quill.snow.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setContent } from '../../../app/appSlice';
 
 const TextEditor = () => {
     const [text, setText] = useState("");
+    const dispatch = useDispatch();
+    const content = useSelector(state => state.app.content)
+
+    useEffect(() => {
+        dispatch(setContent({...content, body: text}))
+        // eslint-disable-next-line
+    }, [text]);
 
     const modules = {
         toolbar:[
             [{header:[3, 4, false]}],
-            [{font:[]}],
-            [{size:[]}],
             ["bold", "italic", "underline", "strike", "blockquote"],
             [
                 {list:"ordered"},
@@ -29,7 +36,6 @@ const TextEditor = () => {
            value={text} 
            onChange={setText}
            modules={modules}
-
            />
         </div>
         <div className={style.preview} 

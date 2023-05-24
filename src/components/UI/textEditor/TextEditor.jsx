@@ -38,10 +38,10 @@ const TextEditor = () => {
            modules={modules}
            />
         </div>
-        <div className={style.preview} 
+        {/* <div className={style.preview} 
             dangerouslySetInnerHTML={{__html: text}}
         >
-        </div>
+        </div> */}
     </div>
   )
 }

@@ -17,3 +17,7 @@
 .capitalStart {
   text-transform: capitalize;
 }
+
+.singleBody{
+  width: 80%;
+}

@@ -4,7 +4,6 @@ import { getReadableTime } from "../../../functions/time";
 import globalStyle from "../../../style/styleGeneral.module.css";
 import defaultImage from "../../../assets/logo-black.jpg";
 import style from "./singlePage.module.css";
-//import { createBreakLines } from "../../../functions/text";
 import AppBtn from "../../UI/appBtn/AppBtn";
 import { useSelector } from "react-redux";
 import BackToMain from "../../UI/backToMain/BackToMain";
@@ -13,6 +12,8 @@ import { deleteContent } from "../../../services/firebaseService";
 
 const capitalStart = {
   textTransform: "capitalize",
+  width:"80%",
+  margin:"10px 0"
 };
 
 const SinglePage = () => {
@@ -37,15 +38,6 @@ const SinglePage = () => {
         {heading}
       </h3>
       <div className={style.singleBody} dangerouslySetInnerHTML={{__html: body}} />
-      {/* <span>
-        {createBreakLines(body).map((parragraph, i) => (
-          <p className={style.bodyText} key={i}>
-            {parragraph}
-            <br />
-            <br />
-          </p>
-        ))}
-      </span> */}
       <div className={style.singleTags}>
         {tags && tags.map((t, i) => <span key={i}>{t}, </span>)}
       </div>

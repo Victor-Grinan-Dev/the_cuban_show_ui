@@ -25,7 +25,8 @@ const TextEditor = () => {
                 {list:"bullet"},
                 {indent:"-1"},
                 {indent:"+1"},
-            ]
+            ],
+            ["link", "video"]
         ]
     }
   return (

@@ -5,7 +5,7 @@ import style from './textEditor.module.css';
 import 'react-quill/dist/quill.snow.css';
 
 const TextEditor = () => {
-    const [value, setValue] = useState("");
+    const [text, setText] = useState("");
 
     const modules = {
         toolbar:[
@@ -26,14 +26,14 @@ const TextEditor = () => {
         <div className={style.editor}>
            <ReactQuill 
            theme="snow" 
-           value={value} 
-           onChange={setValue}
+           value={text} 
+           onChange={setText}
            modules={modules}
 
            />
         </div>
         <div className={style.preview} 
-            dangerouslySetInnerHTML={{__html: value}}
+            dangerouslySetInnerHTML={{__html: text}}
         >
         </div>
     </div>

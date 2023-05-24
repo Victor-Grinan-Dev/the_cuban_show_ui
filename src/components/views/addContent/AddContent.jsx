@@ -22,6 +22,7 @@ import {
 } from "firebase/storage";
 import { v4 } from "uuid";
 import NewsCard from "../../UI/newsCard/NewsCard";
+import TextEditor from "../../UI/textEditor/TextEditor";
 
 const AddContent = () => {
   const dispatch = useDispatch();
@@ -203,14 +204,15 @@ const AddContent = () => {
           onChange={(e) => changeHandler(e)}
           value={content.heading && content.heading}
         />
-        <textarea
+        {/* <textarea
           className={style.textarea}
           name="body"
           id="body"
           placeholder={translate("Body", currentLang) + "*"}
           onChange={(e) => changeHandler(e)}
           value={content.body && content.body}
-        ></textarea>
+        ></textarea> */}
+        <TextEditor />
 
         <button>{translate("Publish", currentLang)}</button>
       </form>

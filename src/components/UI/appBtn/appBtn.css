@@ -1,7 +1,9 @@
 :root {
   --primary: purple;
   --active: green;
-  --defaultBoolean: grey;
+  --neutral: grey;
+  --warning:rgb(214, 123, 3);
+  --danger: rgb(184, 5, 5);
 }
 
 .primary {
@@ -16,9 +18,12 @@
   height: 30px;
 }
 
-.secondary {
+.secondary,
+.secondary-active,
+.secondary-danger,
+.secondary-warning {
   border: none;
-  background-color: var(--defaultBoolean);
+  background-color: var(--neutral);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -27,15 +32,16 @@
   margin: 10px;
 }
 
-.secondary {
-  border: none;
-  background-color: var(--defaultBoolean);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  width: 95px;
-  border-radius: 5px;
-  margin: 10px;
+.secondary-active {
+  background-color: var(--active);
+}
+
+.secondary-danger {
+  background-color: var(--danger);
+}
+
+.secondary-warning {
+  background-color: var(--warning);
 }
 
 .terceary {

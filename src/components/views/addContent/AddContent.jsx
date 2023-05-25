@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setContent,
   setError,
+  setIsClearText,
   setMessage,
   setTags,
 } from "../../../app/appSlice";
@@ -152,9 +153,10 @@ const AddContent = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      (content.title !== "" && content.body !== "" && content.heading !== "")
+      (content.title !== "" && content.body !== "" && content.heading !== "" && tags.length > 0)
     ) {
       uploadImage();
+      dispatch(setIsClearText(false));
     } else {
       /**
        * TODO

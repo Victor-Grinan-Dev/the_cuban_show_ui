@@ -41,5 +41,7 @@
     "Image URL":"URL de Imágen",
     "Heading": "Encabezado",
     "Body":"Cuerpo",
-    "Logout": "Salir"
+    "Logout": "Salir",
+    "Clear tags": "Borrar etiquetas",
+    "Clear form":"Borrar formulario"
 }

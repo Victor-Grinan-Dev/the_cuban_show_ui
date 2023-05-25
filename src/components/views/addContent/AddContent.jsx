@@ -74,12 +74,11 @@ const AddContent = () => {
       createContent(content);
 
       //reset
-      //clearForm();
       document.getElementById("form").reset();
       textEditor[0].innerHTML = "";
       resetContent();
       dispatch(setTags([]));
-      //clearTags();
+  
 
       //success
       dispatch(setMessage("Article added!"));
@@ -123,14 +122,6 @@ const AddContent = () => {
   };
   const resetContent = () => {
     dispatch(setContent(new Content("", "", "", "")));
-  };
-
-  const fullReset = () => {
-    clearForm();
-    clearTextEditor();
-    resetContent();
-    // clearImage()
-    clearTags();
   };
 
   const changeHandler = (e) => {
@@ -256,42 +247,35 @@ const AddContent = () => {
               <TagBtn
                 name={t}
                 key={i}
-                label={t}
+                label={translate(t, currentLang)}
                 fxPrimary={() => addOrDelHandler(t)}
                 isSelected={isTagIncluded(t, tags)}
               />
             );
           })}
       </div>
-      {/* <button onClick={clearTags}>clear tags</button> */}
       <div className={style.panel}>
 
         <AppBtn
-          caption={translate("Clear Image, title & heading", currentLang)}
-          type={"warning"}
+          caption={translate("Clear image, title & heading", currentLang)}
+          type={"secondary"}
           fx={clearForm}
           style={panelBtnStyle}
         />
 
         <AppBtn
           caption={translate("Clear Text Body", currentLang)}
-          type={"warning"}
+          type={"secondary"}
           fx={clearTextEditor}
           style={panelBtnStyle}
         />
         <AppBtn
           caption={translate("Clear tags", currentLang)}
-          type={"warning"}
+          type={"secondary"}
           fx={clearTags}
           style={panelBtnStyle}
         />
       </div>
-      <AppBtn
-        caption={translate("Clear all", currentLang)}
-        type={"danger"}
-        fx={fullReset}
-        style={panelBtnStyle}
-      />
     </div>
   );
 };

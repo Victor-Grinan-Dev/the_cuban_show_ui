@@ -13,7 +13,7 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
-  
+  text-shadow: 0 0 5px black;
   width: 200px;
   height: 30px;
 }
@@ -30,6 +30,7 @@
   width: 95px;
   border-radius: 5px;
   margin: 10px;
+  text-shadow: 0 0 5px black;
 }
 
 .secondary-active {

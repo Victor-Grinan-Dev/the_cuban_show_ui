@@ -23,7 +23,6 @@ export const appSlice = createSlice({
     //content
     contents: [],
     content: new Content("", "", "", ""),
-    isClearText:false,
     tags: [],
 
     //image
@@ -79,9 +78,6 @@ export const appSlice = createSlice({
     setContent(state, action) {
       state.content = action.payload;
     },
-    setIsClearText(state, action){
-      state.text = action.payload;
-    },
     clearTags(state) {
       state.tags = [];
     },
@@ -121,7 +117,6 @@ export const {
   setContents,
   setContent,
   setContentsInvert,
-  setIsClearText,
   clearTags,
   setTags,
 

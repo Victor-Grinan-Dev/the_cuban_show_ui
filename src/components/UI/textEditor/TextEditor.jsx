@@ -4,28 +4,19 @@ import style from './textEditor.module.css';
 
 import 'react-quill/dist/quill.snow.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { setContent, setsClearText } from '../../../app/appSlice';
-import { setContent, setIsClearText } from '../../../app/appSlice';
+import { setContent } from '../../../app/appSlice';
 
 const TextEditor = () => {
     const [text, setText] = useState("");
     // const text = useSelector(state => state.app.text);
     const dispatch = useDispatch();
     const content = useSelector(state => state.app.content);
-    const isClear = useSelector(state => state.app.isClearText);
 
     useEffect(() => {
         dispatch(setContent({...content, body: text}))
         // eslint-disable-next-line
     }, [text]);
 
-    useEffect(() => {
-        if(isClear){
-            setText("");
-            dispatch(setIsClearText(false));
-        }
-        // eslint-disable-next-line
-    }, [isClear]);
 
     const modules = {
         toolbar:[

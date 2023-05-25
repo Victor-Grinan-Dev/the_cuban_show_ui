@@ -15,14 +15,11 @@ import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
 import { storage } from "../../../firebase";
-import {
-  ref,
-  getDownloadURL,
-  uploadBytesResumable,
-} from "firebase/storage";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { v4 } from "uuid";
 import NewsCard from "../../UI/newsCard/NewsCard";
 import TextEditor from "../../UI/textEditor/TextEditor";
+import AppBtn from "../../UI/appBtn/AppBtn";
 
 const AddContent = () => {
   const dispatch = useDispatch();
@@ -33,6 +30,12 @@ const AddContent = () => {
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
   const [imageUpload, setImageUpload] = useState(null);
+  const textEditor = document.getElementsByClassName("ql-editor");
+
+  const panelBtnStyle = {
+    padding: "10px",
+    margin: "10px 0",
+  };
 
   useEffect(() => {
     if (error || message) {
@@ -46,9 +49,8 @@ const AddContent = () => {
 
   useEffect(() => {
     if (tags.length !== 0) {
-      dispatch(
-        setContent({ ...content, tags:tags})
-    )}
+      dispatch(setContent({ ...content, tags: tags }));
+    }
     // eslint-disable-next-line
   }, [tags]);
 
@@ -62,26 +64,34 @@ const AddContent = () => {
   }, [imageUpload]);
 
   useEffect(() => {
-    if (content.image && content.title && content.heading && content.body && content.tags.length !== 0) {
+    if (
+      content.image &&
+      content.title &&
+      content.heading &&
+      content.body &&
+      content.tags.length !== 0
+    ) {
       createContent(content);
 
-    //reset
+      //reset
       document.getElementById("form").reset();
-      dispatch(setMessage("Article added!"));
+      textEditor[0].innerHTML = "";
       resetContent();
       dispatch(setTags([]));
+  
+
+      //success
+      dispatch(setMessage("Article added!"));
     }
     // eslint-disable-next-line
   }, [content]);
 
   const addOrDelHandler = (tag) => {
-    isTagIncluded(tag, tags)
-      ? deleteTagHandler(tag)
-      : addTagsHandler(tag);
+    isTagIncluded(tag, tags) ? deleteTagHandler(tag) : addTagsHandler(tag);
   };
 
   const addTagsHandler = (newTag) => {
-    dispatch(setTags([...tags, newTag]))
+    dispatch(setTags([...tags, newTag]));
   };
 
   const deleteTagHandler = (tag) => {
@@ -95,16 +105,21 @@ const AddContent = () => {
   };
   const clearTags = () => {
     dispatch(setTags([]));
-    dispatch(
-      setContent({ ...content, tags:[]})
-  )};
-
+    dispatch(setContent({ ...content, tags: [] }));
+  };
 
   const cleanMessagge = () => {
     dispatch(setError(""));
     dispatch(setMessage(""));
   };
 
+  const clearForm = () => {
+    document.getElementById("form").reset();
+    resetContent();
+  };
+  const clearTextEditor = () => {
+    textEditor[0].innerHTML = "";
+  };
   const resetContent = () => {
     dispatch(setContent(new Content("", "", "", "")));
   };
@@ -118,7 +133,7 @@ const AddContent = () => {
   };
 
   const uploadImage = () => {
-    const imageRef = ref(storage, `images/${v4() + imageUpload?.name }`);
+    const imageRef = ref(storage, `images/${v4() + imageUpload?.name}`);
     const uploadTask = uploadBytesResumable(imageRef, imageUpload);
 
     uploadTask.on(
@@ -143,16 +158,19 @@ const AddContent = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          dispatch(setContent({ ...content, 'image': downloadURL }));
+          dispatch(setContent({ ...content, image: downloadURL }));
         });
       }
-    ); 
+    );
   };
-  
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      (content.title !== "" && content.body !== "" && content.heading !== "")
+      content.title !== "" &&
+      content.body !== "" &&
+      content.heading !== "" &&
+      tags.length > 0
     ) {
       uploadImage();
     } else {
@@ -160,8 +178,8 @@ const AddContent = () => {
        * TODO
        * more specific of what is missing
        */
-        dispatch(setError("Input fields still empty"));
-      }
+      dispatch(setError("Input fields still empty"));
+    }
   };
 
   return (
@@ -178,44 +196,49 @@ const AddContent = () => {
       >
         {message}
       </div>
-      <NewsCard props={content} isTest={true}/>
-      <form onSubmit={(e) => submitHandler(e)} className={style.form} id="form">
-        <input
-          name="title"
-          className={style.input}
-          type="text"
-          placeholder={translate("Title", currentLang) + "*"}
-          value={content.title && content.title}
-          onChange={(e) => changeHandler(e)}
-        />
+      <NewsCard props={content} isTest={true} />
+      <div className="formContainer">
+        <form
+          onSubmit={(e) => submitHandler(e)}
+          className={style.form}
+          id="form"
+        >
+          <span className={style.formSpan}>
+            <input
+              name="title"
+              className={style.input}
+              type="text"
+              placeholder={translate("Title", currentLang) + "*"}
+              value={content.title && content.title}
+              onChange={(e) => changeHandler(e)}
+            />
+            <input
+              id="imageInput"
+              type="file"
+              name="image"
+              className={style.fileInput}
+              onChange={(e) => setImageUpload(e.target.files[0])}
+            />
 
-        <input
-          type="file"
-          name="image"
-          className={style.input}
-          onChange={(e) => setImageUpload(e.target.files[0])}
-        />
-
-        <input
-          name="heading"
-          className={style.input}
-          type="text"
-          placeholder={translate("Heading", currentLang) + "*"}
-          onChange={(e) => changeHandler(e)}
-          value={content.heading && content.heading}
-        />
-        {/* <textarea
-          className={style.textarea}
-          name="body"
-          id="body"
-          placeholder={translate("Body", currentLang) + "*"}
-          onChange={(e) => changeHandler(e)}
-          value={content.body && content.body}
-        ></textarea> */}
-        <TextEditor />
-
-        <button>{translate("Publish", currentLang)}</button>
-      </form>
+            <input
+              name="heading"
+              className={style.input}
+              type="text"
+              placeholder={translate("Heading", currentLang) + "*"}
+              onChange={(e) => changeHandler(e)}
+              value={content.heading && content.heading}
+            />
+            <div className="editorContainer">
+              <TextEditor />
+            </div>
+          </span>
+          <AppBtn
+            caption={translate("Publish", currentLang)}
+            type={"primary"}
+            style={{ margin: "10px" }}
+          />
+        </form>
+      </div>
       <div className={style.tagsArea}>
         <p className={style.isShowTags}>Tags:</p>
         {allTags &&
@@ -224,15 +247,35 @@ const AddContent = () => {
               <TagBtn
                 name={t}
                 key={i}
-                label={t}
+                label={translate(t, currentLang)}
                 fxPrimary={() => addOrDelHandler(t)}
                 isSelected={isTagIncluded(t, tags)}
               />
             );
           })}
-          
       </div>
-      <button onClick={clearTags}>clear tags</button>
+      <div className={style.panel}>
+
+        <AppBtn
+          caption={translate("Clear image, title & heading", currentLang)}
+          type={"secondary"}
+          fx={clearForm}
+          style={panelBtnStyle}
+        />
+
+        <AppBtn
+          caption={translate("Clear Text Body", currentLang)}
+          type={"secondary"}
+          fx={clearTextEditor}
+          style={panelBtnStyle}
+        />
+        <AppBtn
+          caption={translate("Clear tags", currentLang)}
+          type={"secondary"}
+          fx={clearTags}
+          style={panelBtnStyle}
+        />
+      </div>
     </div>
   );
 };

@@ -21,3 +21,11 @@
 .singleBody{
   width: 80%;
 }
+
+.singleBody ul,
+.singleBody ol{
+  padding-left: 20px;
+}
+.singleBody a{
+  color:rgb(4, 4, 227)
+}

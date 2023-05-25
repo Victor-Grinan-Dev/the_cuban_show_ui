@@ -3,7 +3,7 @@ No-Copy License.
 - Live site: https://thecubanshow.netlify.app/
 This project is a CRUD that allows content creators to publish their articles.
 
-## Table of Contents
+ 
 - Features
 - Installation
 - Contributing

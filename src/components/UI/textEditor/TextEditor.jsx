@@ -8,13 +8,15 @@ import { setContent } from '../../../app/appSlice';
 
 const TextEditor = () => {
     const [text, setText] = useState("");
+    // const text = useSelector(state => state.app.text);
     const dispatch = useDispatch();
-    const content = useSelector(state => state.app.content)
+    const content = useSelector(state => state.app.content);
 
     useEffect(() => {
         dispatch(setContent({...content, body: text}))
         // eslint-disable-next-line
     }, [text]);
+
 
     const modules = {
         toolbar:[
@@ -25,7 +27,8 @@ const TextEditor = () => {
                 {list:"bullet"},
                 {indent:"-1"},
                 {indent:"+1"},
-            ]
+            ],
+            ["link", "video"]
         ]
     }
   return (
@@ -36,12 +39,9 @@ const TextEditor = () => {
            value={text} 
            onChange={setText}
            modules={modules}
+           className={style.editorInput}
            />
         </div>
-        {/* <div className={style.preview} 
-            dangerouslySetInnerHTML={{__html: text}}
-        >
-        </div> */}
     </div>
   )
 }

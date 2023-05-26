@@ -1,0 +1,31 @@
+.singleImage {
+  width: 93%;
+}
+
+.bodyText {
+  display: flex;
+  flex-wrap: wrap;
+  width: 93vw;
+  max-width: 900px;
+  text-transform: capitalize;
+}
+
+.singleTags {
+  font-size: 10px;
+}
+
+.capitalStart {
+  text-transform: capitalize;
+}
+
+.singleBody{
+  width: 80%;
+}
+
+.singleBody ul,
+.singleBody ol{
+  padding-left: 20px;
+}
+.singleBody a{
+  color:rgb(4, 4, 227)
+}

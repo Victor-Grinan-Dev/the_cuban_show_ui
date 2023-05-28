@@ -1,0 +1,28 @@
+{
+  "short_name": "The Cuban Show",
+  "name": "The Cuban Show, nothing but the truth",
+  "icons": [
+    {
+      "src": "micro.png",
+      "sizes": "61x61",
+      "type": "image/png",
+      "purpouse":"any"
+    },
+    {
+      "src": "micro.png",
+      "sizes": "61x61",
+      "type": "image/png",
+      "purpouse":"any"
+    },
+    {
+      "src": "micro.png",
+      "sizes": "61x61",
+      "type": "image/png",
+      "purpouse":"any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

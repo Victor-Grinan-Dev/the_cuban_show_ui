@@ -11,6 +11,13 @@
 - edit news
 
 ### Funtionalities:
+
+- return to browse pinPoint:
+    - on click in newsCard save scroll value.
+    - on BackToContents reload scroll value.
+    - smooth scroll.
+
+
 - adicionar al contenido de la noticia: 
     - author
     - source - poner link a las noticias de otros periodicos.

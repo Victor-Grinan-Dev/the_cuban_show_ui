@@ -36,6 +36,8 @@
 - ads if there is no ads dont show the empty space or show own ad flag.
 
 ### Fix ups.
+- UNIQUE KEY VALUE ERROR IN CONTENT.
+
 - si activas busqueda por tags no mostrar la tarjeta de mainNews.
 
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.

@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { translate } from "../../../translation/translation";
 import AppBtn from "../appBtn/AppBtn";
 
+const btmStyle = {
+  margin:'10px',
+}
+
 const BackToMain = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
   return (
@@ -11,6 +15,7 @@ const BackToMain = () => {
       <AppBtn
         caption={"<<< " + translate("Back to homepage...", currentLang)}
         type={"primary"}
+        style={btmStyle}
       />
     </Link>
   );

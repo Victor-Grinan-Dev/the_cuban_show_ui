@@ -62,6 +62,7 @@ const SinglePage = () => {
           fx={() => console.log("bye!")}
         />
       </div>}
+      <BackToMain />
     </div>
   );
 };

@@ -10,6 +10,9 @@
 - popup modal for accept - cancel before deleting.
 - edit news
 
+### Loader
+- make one
+
 ### Funtionalities:
 
 - return to browse pinPoint:

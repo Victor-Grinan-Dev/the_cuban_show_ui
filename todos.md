@@ -24,7 +24,7 @@
 - adicionar al contenido de la noticia: 
     - author
     - source - poner link a las noticias de otros periodicos.
-    
+   
 - darkmode
 - language auto translation;
 
@@ -35,6 +35,7 @@
 - single page tags to be displayed as selectect tag btn with no functionality.
 
 - newsCard to show author & source of the nes if any.
+- buscador por author por fecha fuente.
 
 - ads if there is no ads dont show the empty space or show own ad flag.
 

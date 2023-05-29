@@ -32,7 +32,7 @@
     - imgur upload img: https://www.youtube.com/watch?v=uJnf0mKswVA 
 
 - singlePage images onClick open display in new tab.
-- single page tags to be displayed as selectect tag btn with no functionality.
+- singlePage tags to be displayed as selectect tag btn with no functionality.
 
 - newsCard to show author & source of the nes if any.
 - buscador por author por fecha fuente.

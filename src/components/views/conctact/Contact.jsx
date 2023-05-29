@@ -20,6 +20,8 @@ export default function Contact() {
         voluptatibus laudantium aperiam, quae debitis commodi eveniet numquam
         dolorem facilis?
       </p>
+      <br />
+      <p style={{color:"blue"}}>thecubanshow502@gmail.com</p>
     </div>
   );
 }

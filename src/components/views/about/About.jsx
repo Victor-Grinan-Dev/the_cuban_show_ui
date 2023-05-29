@@ -31,12 +31,13 @@ export default function About() {
         dolorem totam dicta voluptates hic dolore, at eum saepe, nisi assumenda,
         earum praesentium quibusdam explicabo quod ea excepturi fugiat minus
         asperiores magnam enim doloribus. <br />
-        <span className={style.aboutSubjects}> <br /> How you can help?</span> <br /> Rerum
-        asperiores nemo exercitationem deserunt corporis. Laboriosam tempore
-        nostrum alias numquam earum aspernatur quibusdam unde labore assumenda
-        iste consequatur molestiae debitis architecto voluptates reiciendis
-        ratione deleniti, necessitatibus porro sint? Deserunt architecto eum quo
-        ab laudantium? Minus tenetur quas necessitatibus, veritatis ad quaerat?
+        <span className={style.aboutSubjects}> <br /> How you can help?</span> <br />
+        - The easiest way to help us is by following, liking and subscribing in some or all of the social media plattforms.
+        <br />
+        - You could provide topics and info for us to include in our program.
+        - you could order merchandise from us as a way to support.
+        - you can order adverrtisment service from us.
+        - or you could just donate.
       </p>
       <h4 className={style.installingTitle}>Installing the App in your mobile</h4>
 

@@ -52,7 +52,7 @@
 
 - buscar el DNS del domain que compraste, eso tenemos que hacerlo juntos con tu cuenta de GoDaddy.
 
-- arreglar el manifest.json file para app logo.
+
 
 ## Done
 
@@ -90,3 +90,4 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 
 - upload image from disk.
 - read image from firebase.
+- arreglar el manifest.json file para app logo. ahora el app can be installed in mobiles

@@ -14,6 +14,7 @@ export const appSlice = createSlice({
     showSettings: false,
     showConfim: true,
     currentLang: "en",
+    appMemo:{},
 
     //Auth
     isAuth: false,
@@ -55,6 +56,9 @@ export const appSlice = createSlice({
     },
     setCurrentLang(state, action) {
       state.currentLang = action.payload;
+    },
+    setAppMemo(state, action){
+      state.appMemo = action.payload;
     },
 
     //Auth
@@ -107,7 +111,8 @@ export const {
   setShowSettings,
   setShowConfirm,
   setCurrentLang,
-
+  setAppMemo,
+  
   //Auth
   setIsAuth,
   setAuth,

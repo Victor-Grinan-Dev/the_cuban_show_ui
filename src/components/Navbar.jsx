@@ -14,13 +14,17 @@ const Navbar = () => {
   return (
     <div className={style.navbar}>
       <div className={style.navbarContainer}>
+      <Link to="/">
         <div className={style.logo} />
+      </Link>
+        
         <div className={style.title}>
           <h1
             style={{
               textAlign: "center",
             }}
-          >
+            >
+           {/* <span className="orgTitle">"The Cuban Show"</span> <br/> */}
             {translate("Nothing but the truth", currentLang)}
           </h1>
         </div>

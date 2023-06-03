@@ -42,17 +42,11 @@
 ### Fix ups.
 - UNIQUE KEY VALUE ERROR IN CONTENT.
 
-- si activas busqueda por tags no mostrar la tarjeta de mainNews.
-
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
 
 - cuando das click en una de las noticias y estando dentro le das reload a la pagina se pierde el contenido de la noticia (404 not found) no deberia pasar.
 
 - la pagina de About y Contact
-
-- buscar el DNS del domain que compraste, eso tenemos que hacerlo juntos con tu cuenta de GoDaddy.
-
-
 
 ## Done
 
@@ -91,3 +85,7 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - upload image from disk.
 - read image from firebase.
 - arreglar el manifest.json file para app logo. ahora el app can be installed in mobiles
+
+/* updates in june*/
+- si activas busqueda por tags no mostrar la tarjeta de mainNews.
+- buscar el DNS del domain que compraste, eso tenemos que hacerlo juntos con tu cuenta de GoDaddy.

@@ -11,15 +11,15 @@ import Contact from "./components/views/conctact/Contact";
 import AddContent from "./components/views/addContent/AddContent";
 import SinglePage from "./components/views/singlePage/SinglePage";
 import Modal1 from "./components/UI/modals/Modal1";
-
+import MoreTags from'./components/UI/moreTags/MoreTags';
 import { useDispatch, useSelector } from "react-redux";
 
-import SettingView from "./components/UI/settingView/SettingView";
+import SettingView from "./components/UI/modals/settingView/SettingView";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setIsAuth, setShowConfirm, setShowLogin, setShowMoreTags, setShowSettings } from "./app/appSlice";
+import { setIsAuth, setShowConfirm, setShowMoreTags, setShowSettings } from "./app/appSlice";
 import Cookies from "js-cookie";
-import ConfirmCancel from "./components/UI/confirmCancel/ConfirmCancel";
+import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
 
 
 function App() {
@@ -27,7 +27,8 @@ function App() {
   const isAuth = useSelector((state) => state.app.isAuth);
   const showSettings = useSelector((state) => state.app.showSettings);
   const showConfirm = useSelector((state) => state.app.showConfirm);
-  const showLogin = useSelector((state) => state.app.showLogin);
+  const showMoreTags = useSelector((state) => state.app.showMoreTags);
+
   const { cookieValue } = useCookies();
 
   useEffect(() => {
@@ -84,13 +85,12 @@ function App() {
           message={"Are you sure?"}
         />
       )}
-      {showLogin && (
+      {showMoreTags && (
         <Modal1
-          component={<ConfirmCancel />}
+          component={<MoreTags />}
           closeFx={() =>{ 
-            dispatch(setShowLogin(false));
+            dispatch(setShowMoreTags(false));
           }}
-          message={"Are you sure?"}
         />
       )}
 

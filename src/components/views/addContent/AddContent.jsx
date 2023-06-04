@@ -37,15 +37,15 @@ const AddContent = () => {
     margin: "10px 0",
   };
 
-  useEffect(() => {
-    if (error || message) {
-      const setTimer = setInterval(() => {
-        cleanMessagge();
-      }, 10000);
-      return () => setTimer;
-    }
-    // eslint-disable-next-line
-  }, [error, message]);
+  // useEffect(() => {
+  //   if (error || message) {
+  //     const setTimer = setInterval(() => {
+  //       cleanMessagge();
+  //     }, 10000);
+  //     return () => setTimer;
+  //   }
+  //   // eslint-disable-next-line
+  // }, [error, message]);
 
   useEffect(() => {
     if (tags.length !== 0) {

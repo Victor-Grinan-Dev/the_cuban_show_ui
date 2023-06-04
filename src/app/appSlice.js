@@ -19,7 +19,7 @@ export const appSlice = createSlice({
     showSettings: false,
     showMoreTags: false,
     showConfirm: false,
-    showLogin: false,
+    // showLogin: false,
     showMessage: false,
 
     //Auth
@@ -74,9 +74,9 @@ export const appSlice = createSlice({
     setShowConfirm(state, action) {
       state.showConfirm = action.payload;
     },
-    setShowLogin(state,action){
-      state.showLogin =action.payload
-    },
+    // setShowLogin(state, action){
+    //   state.showLogin =action.payload
+    // },
     setShowMessage(state, action){
       state.showMessage = action.payload
     },
@@ -137,7 +137,7 @@ export const {
   setShowSettings,
   setShowMoreTags,
   setShowConfirm,
-  setShowLogin,
+  // setShowLogin,
   setShowMessage,
   
   //Auth

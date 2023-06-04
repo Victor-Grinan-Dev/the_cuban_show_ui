@@ -91,8 +91,7 @@ const FilterSearchBar = () => {
               }}
               style={filterTags.includes("world") ? selectedAppBtn : null}
             />
-            <FilterBarMoreTagsBtn
-            />
+            <FilterBarMoreTagsBtn/>
           </>
         )}
         {isShowSearchInput && (

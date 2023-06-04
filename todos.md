@@ -15,7 +15,10 @@
 
 ### Funtionalities:
 
-- when you click 
+- different modal for settings (language, dark mode)
+- different modals for login
+- different modal for tags
+- different modal for confirm.
 
 
 - adicionar al contenido de la noticia: 

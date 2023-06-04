@@ -9,6 +9,7 @@ import { filterByTags } from "../../../functions/filter";
 import style from "./styleContent.module.css";
 import AdvCard from "../../UI/advCard/AdvCard";
 import MainNewsCard from "../../UI/mainNewsCard/MainNewsCard";
+import { v4 as uuidv4 } from 'uuid';
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,7 @@ const Content = () => {
       </div>
     );
   }
+
   return (
     /* If there are tag filters dont show main cnews card */
     <div className={genStyle.view}>
@@ -66,21 +68,21 @@ const Content = () => {
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              i === 0 && selectedTags.length === 0 ? (
-                <MainNewsCard props={c} key={c.id} />
+              (i === 0 && selectedTags.length === 0 ? (
+                <MainNewsCard props={c} key={'mainCard'} />
               ) : i % adsInterval === 0 ? (
                 <>
-                  <AdvCard id={i} key={i} text={advs[nextAdv()]} />
-                  <NewsCard props={c} key={c.id} />
+                  <AdvCard id={i} key={`${uuidv4()}`} text={advs[nextAdv()]} />
+                  <NewsCard props={c} key={c.id || uuidv4()} />
                 </>
               ) : (
-                <NewsCard props={c} key={c.id} />
-              )
+                <NewsCard props={c} key={c.id || uuidv4()} />
+              ))
             )}
         </div>
       </div>
       <div className={style.rightColumnAdv}>
-        <AdvCard id={"last"} key={"last"} text={advs[nextAdv()]} />
+        <AdvCard id={"lastAdv"} key={`lastAdv`} text={advs[nextAdv()]} />
       </div>
     </div>
   );

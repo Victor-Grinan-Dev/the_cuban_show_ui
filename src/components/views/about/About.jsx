@@ -1,30 +1,97 @@
 import * as React from "react";
 import genStyle from "../../../style/styleGeneral.module.css";
+import style from "./styleAbout.module.css";
 import Banner from "../../UI/banner/Banner";
+
+import chromeTcs from "../../../assets/install-app/chorme_tcs_page.jpg";
+import zoom from "../../../assets/install-app/chrome_tcs_zoom.jpg";
+import settings from "../../../assets/install-app/chrome_tcs_settings.jpg";
+import modal from "../../../assets/install-app/chrome-confirm-modal.jpg"
+import toHomeSc from "../../../assets/install-app/phone-installed-app.jpg"
+import complete from "../../../assets/install-app/phone-added-to-home-app.jpg"
+
 export default function About() {
   return (
-    <div className={genStyle.view}>
+    <div className={genStyle.view} style={{}}>
       <Banner />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-        reprehenderit beatae ullam quis ex tenetur velit quidem vitae
-        dignissimos iusto necessitatibus deserunt recusandae est totam,
-        voluptate laboriosam quam delectus assumenda doloremque debitis fugit
-        facere nemo. Tempore molestias id incidunt. Iure optio cumque saepe,
-        natus reiciendis delectus. Quisquam autem illo iure sint sed amet
-        temporibus, accusantium reiciendis incidunt ab dicta, necessitatibus
-        ipsam voluptatum numquam nulla similique repudiandae non deserunt illum
-        ullam qui vel eum? Quasi aspernatur quod quidem necessitatibus
-        consequatur libero delectus maxime facere. Dolores dolorem totam dicta
-        voluptates hic dolore, at eum saepe, nisi assumenda, earum praesentium
-        quibusdam explicabo quod ea excepturi fugiat minus asperiores magnam
-        enim doloribus. Rerum asperiores nemo exercitationem deserunt corporis.
-        Laboriosam tempore nostrum alias numquam earum aspernatur quibusdam unde
-        labore assumenda iste consequatur molestiae debitis architecto
-        voluptates reiciendis ratione deleniti, necessitatibus porro sint?
-        Deserunt architecto eum quo ab laudantium? Minus tenetur quas
-        necessitatibus, veritatis ad quaerat?
+      <p className={genStyle.splitParragraph}>
+        <span className={style.aboutSubjects}>Who we are?</span><br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+          reprehenderit beatae ullam quis ex tenetur velit quidem vitae
+          dignissimos iusto necessitatibus deserunt recusandae est totam,
+          voluptate laboriosam quam delectus assumenda doloremque debitis fugit
+          facere nemo. Tempore molestias id incidunt. <br />  <br />
+        <span className={style.aboutSubjects}>What we want?</span> <br /> Iure optio
+        cumque saepe, natus reiciendis delectus. Quisquam autem illo iure sint
+        sed amet temporibus, accusantium reiciendis incidunt ab dicta,
+        necessitatibus ipsam voluptatum numquam nulla similique repudiandae non
+        deserunt illum ullam qui vel eum? Quasi aspernatur quod quidem
+        necessitatibus consequatur libero delectus maxime facere. <br />
+        <span className={style.aboutSubjects}> <br /> How we will get it?</span> <br /> Dolores
+        dolorem totam dicta voluptates hic dolore, at eum saepe, nisi assumenda,
+        earum praesentium quibusdam explicabo quod ea excepturi fugiat minus
+        asperiores magnam enim doloribus. <br />
+        <span className={style.aboutSubjects}> <br /> How you can help?</span> <br />
+        - The easiest way to help us is by following, liking and subscribing in some or all of the social media plattforms.
+        <br />
+        - You could provide topics and info for us to include in our program.
+        - you could order merchandise from us as a way to support.
+        - you can order adverrtisment service from us.
+        - or you could just donate.
       </p>
+      <h4 className={style.installingTitle}>Installing the App in your mobile</h4>
+
+      <ol className={style.list}>
+        <li>
+          1. Open the link of this app in your mobilephone with Google Chrome.
+        </li>
+        <a href={chromeTcs} target="_blank" rel="noreferrer">
+          <img
+            src={chromeTcs}
+            alt="chrome settings"
+            className={style.installImg}
+          />
+        </a>
+        <li>
+          2. Click the settings in the right upper corner of the Chrome browser
+        </li>
+        <a href={zoom} target="_blank" rel="noreferrer">
+          <img src={zoom} alt="chrome settings" className={style.installImg} />
+        </a>
+        <li>
+          3. Select "install App". Notice that sometimes appears as "Add to home screen"</li>
+        <a href={settings} target="_blank" rel="noreferrer">
+          <img
+            src={settings}
+            alt="chrome settings"
+            className={style.installImg}
+          />
+        </a>
+        <li>4. Install or accept the suggested name in the popup modal</li>
+        <a href={modal} target="_blank" rel="noreferrer">
+          <img
+            src={modal}
+            alt="chrome settings"
+            className={style.installImg}
+          />
+        </a>
+        <li>5. (Optional) Add the app to the mobile home screen </li>
+        <a href={toHomeSc} target="_blank" rel="noreferrer">
+          <img
+            src={toHomeSc}
+            alt="chrome settings"
+            className={style.installImg}
+          />
+        </a>
+        <li>Enjoy the App from your mobile!</li>
+        <a href={complete} target="_blank" rel="noreferrer">
+          <img
+            src={complete}
+            alt="chrome settings"
+            className={style.installImg}
+          />
+        </a>
+      </ol>
     </div>
   );
 }

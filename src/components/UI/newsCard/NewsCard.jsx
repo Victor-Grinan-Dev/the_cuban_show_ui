@@ -19,7 +19,7 @@ const NewsCard = ({ props }) => {
           <div className={style.newsCardImgContainer}>
             <img
               className={style.newsCardImg}
-              src={image || previewUrl ||  testImg}
+              src={image || previewUrl || testImg}
               alt="newsImage"
             />
           </div>

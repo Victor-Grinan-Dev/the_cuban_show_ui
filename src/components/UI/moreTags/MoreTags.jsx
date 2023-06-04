@@ -64,6 +64,7 @@ const MoreTags = () => {
               )
           )}
       </div>
+      <AppBtn caption={"clear all"} type={"warning"}/>
     </div>
   );
 };

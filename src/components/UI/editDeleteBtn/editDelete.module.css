@@ -1,0 +1,17 @@
+.editDelete {
+    background-color: rgba(8, 8, 8, 0.734);
+    border-radius: 5px;
+    color: rgba(231, 243, 243, 0.896);
+    height: 70px;
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    position: fixed;
+
+    right: 5px;
+    top: 80%
+}

@@ -15,17 +15,19 @@ import Modal1 from "./components/UI/modals/Modal1";
 import { useDispatch, useSelector } from "react-redux";
 
 import SettingView from "./components/UI/settingView/SettingView";
-import ConfirmModal from "./components/UI/modals/ConfirmModal";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setIsAuth } from "./app/appSlice";
+import { setIsAuth, setShowConfirm, setShowLogin, setShowMoreTags, setShowSettings } from "./app/appSlice";
 import Cookies from "js-cookie";
+import ConfirmCancel from "./components/UI/confirmCancel/ConfirmCancel";
+
 
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.app.isAuth);
   const showSettings = useSelector((state) => state.app.showSettings);
   const showConfirm = useSelector((state) => state.app.showConfirm);
+  const showLogin = useSelector((state) => state.app.showLogin);
   const { cookieValue } = useCookies();
 
   useEffect(() => {
@@ -64,9 +66,34 @@ function App() {
         {/* FINALLY */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {showSettings && <Modal1 component={<SettingView />} />}
-      {showConfirm && <ConfirmModal message={"Hello"} />}
-      {/**NOT WORKING SMALL MODAL */}
+      {showSettings && (
+        <Modal1
+          component={<SettingView />}
+          closeFx={() =>{ 
+            dispatch(setShowSettings());
+          }}
+          message={"settings"}
+        />
+      )}
+      {showConfirm && (
+        <Modal1
+          component={<ConfirmCancel />}
+          closeFx={() =>{ 
+            dispatch(setShowConfirm(false));
+          }}
+          message={"Are you sure?"}
+        />
+      )}
+      {showLogin && (
+        <Modal1
+          component={<ConfirmCancel />}
+          closeFx={() =>{ 
+            dispatch(setShowLogin(false));
+          }}
+          message={"Are you sure?"}
+        />
+      )}
+
     </BrowserRouter>
   );
 }

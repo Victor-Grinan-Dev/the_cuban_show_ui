@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import BackToMain from "../../UI/backToMain/BackToMain";
 //import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
 import { deleteContent } from "../../../services/firebaseService";
-import { setAppMemo } from "../../../app/appSlice";
+import { setAppMemo, setDeleteIdMemo, setShowConfirm } from "../../../app/appSlice";
 const capitalStart = {
   textTransform: "capitalize",
   width:"80%",
@@ -19,6 +19,7 @@ const capitalStart = {
 const SinglePage = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+  const deleteIdMemo =  useSelector(state => state.app.deleteIdMemo);
   const appMemo =  useSelector(state => state.app.appMemo);
   const { id, body, date, heading, image, tags, title } = appMemo;
 
@@ -34,6 +35,13 @@ const SinglePage = () => {
     }else{
       dispatch(setAppMemo( JSON.parse(localStorage.getItem("tcs_memo"))));
     }
+    // eslint-disable-next-line
+  }, [appMemo]);
+
+  useEffect(() => {
+
+    dispatch(setDeleteIdMemo(id));
+ 
     // eslint-disable-next-line
   }, [appMemo]);
 
@@ -54,7 +62,7 @@ const SinglePage = () => {
       </h3>
       <div className={style.singleBody} dangerouslySetInnerHTML={{__html: body}} />
       <div className={style.singleTags}>
-        {tags && appMemo.tags.map((t, i) => <span key={i}>{t}, </span>)}
+        {tags && tags.map((t, i) => <span key={i}>{t}, </span>)}
       </div>
       {
         isAuth && <div style={{
@@ -66,15 +74,13 @@ const SinglePage = () => {
         <AppBtn
           caption={"delete"}
           type={"secundary"}
-          fx={() => {
-            deleteContent(id);
-            navegate("/");
-          }}
+          fx={()=>dispatch(setShowConfirm(true))}
         />
         <AppBtn
           caption={"edit"}
           type={"secundary"}
           fx={() => console.log("bye!")}
+          
         />
       </div>}
       <BackToMain />

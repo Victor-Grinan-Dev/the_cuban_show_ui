@@ -11,10 +11,16 @@ export const appSlice = createSlice({
     error: "",
     message: "",
     filterTags: [],
-    showSettings: false,
-    showConfim: true,
     currentLang: "en",
+    deleteIdMemo:"",
     appMemo:{},
+
+    //Modals
+    showSettings: false,
+    showMoreTags: false,
+    showConfirm: false,
+    showLogin: false,
+    showMessage: false,
 
     //Auth
     isAuth: false,
@@ -48,18 +54,33 @@ export const appSlice = createSlice({
     setFilterTags(state, action) {
       state.filterTags = action.payload;
     },
-    setShowSettings(state) {
-      state.showSettings = !state.showSettings;
-    },
-    setShowConfirm(state) {
-      state.showConfim = !state.showConfim;
-    },
     setCurrentLang(state, action) {
       state.currentLang = action.payload;
     },
     setAppMemo(state, action){
       state.appMemo = action.payload;
     },
+    setDeleteIdMemo(state, action){
+      state.deleteIdMemo = action.payload;
+    },
+
+    //MODALS:
+    setShowSettings(state) {
+      state.showSettings = !state.showSettings;
+    },
+    setShowMoreTags(state){
+      state.showMoreTags = !state.showMoreTags
+    },
+    setShowConfirm(state, action) {
+      state.showConfirm = action.payload;
+    },
+    setShowLogin(state,action){
+      state.showLogin =action.payload
+    },
+    setShowMessage(state, action){
+      state.showMessage = action.payload
+    },
+
 
     //Auth
     setIsAuth(state, action) {
@@ -108,10 +129,16 @@ export const {
   setFilterTags,
   addFilterTag,
   delFilterTag,
-  setShowSettings,
-  setShowConfirm,
   setCurrentLang,
+  setDeleteIdMemo,
   setAppMemo,
+
+  //modals
+  setShowSettings,
+  setShowMoreTags,
+  setShowConfirm,
+  setShowLogin,
+  setShowMessage,
   
   //Auth
   setIsAuth,

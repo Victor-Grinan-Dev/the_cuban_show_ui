@@ -3,7 +3,7 @@ This project is a CRUD that allows content creators to publish their articles.
 
 
 No-Copy License.
-- Live site: [https://thecubanshow.com/](https://thecubanshowui.netlify.app/)
+- Live site: [https://thecubanshow.com/](https://thecubanshow.com/)
 - https://the-cuban-show-development.netlify.app/
 
 ## Table of Contents

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { getReadableTime } from "../../../functions/time";
 import globalStyle from "../../../style/styleGeneral.module.css";
 import defaultImage from "../../../assets/logo-black.jpg";
@@ -8,7 +8,6 @@ import AppBtn from "../../UI/appBtn/AppBtn";
 import { useDispatch, useSelector } from "react-redux";
 import BackToMain from "../../UI/backToMain/BackToMain";
 //import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
-import { deleteContent } from "../../../services/firebaseService";
 import { setAppMemo, setDeleteIdMemo, setShowConfirm } from "../../../app/appSlice";
 const capitalStart = {
   textTransform: "capitalize",
@@ -19,14 +18,12 @@ const capitalStart = {
 const SinglePage = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const deleteIdMemo =  useSelector(state => state.app.deleteIdMemo);
   const appMemo =  useSelector(state => state.app.appMemo);
   const { id, body, date, heading, image, tags, title } = appMemo;
 
 
   const readableDate = getReadableTime(date);
   const isAuth = useSelector((state) => state.app.isAuth);
- const navegate = useNavigate();
 
   useEffect(() => {
     if(location.state){

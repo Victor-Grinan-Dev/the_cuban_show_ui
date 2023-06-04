@@ -17,9 +17,11 @@ import { useDispatch, useSelector } from "react-redux";
 import SettingView from "./components/UI/modals/settingView/SettingView";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setIsAuth, setShowConfirm, setShowMoreTags, setShowSettings } from "./app/appSlice";
+import { setError, setIsAuth, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
 import Cookies from "js-cookie";
 import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
+import MessageConfirm from "./components/UI/modals/messageConfirm/MessageConfirm";
+import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
   const showSettings = useSelector((state) => state.app.showSettings);
   const showConfirm = useSelector((state) => state.app.showConfirm);
   const showMoreTags = useSelector((state) => state.app.showMoreTags);
+  const showMessage = useSelector((state) => state.app.showMessage);
+  const showError = useSelector((state) => state.app.showError);
 
   const { cookieValue } = useCookies();
 
@@ -91,6 +95,26 @@ function App() {
           closeFx={() =>{ 
             dispatch(setShowMoreTags(false));
           }}
+        />
+      )}
+      {showMessage && (
+        <Modal1
+          component={<MessageConfirm />}
+          closeFx={() =>{ 
+            dispatch(setShowMessage(false));         
+            dispatch(setMessage(""));         
+          }}
+          message={"Success!"}
+        />
+      )}
+      {showError && (
+        <Modal1
+          component={<ErrorConfirm />}
+          closeFx={() =>{ 
+            dispatch(setShowError(false));         
+            dispatch(setError(""));         
+          }}
+          message={"ERROR!!"}
         />
       )}
 

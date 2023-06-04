@@ -20,6 +20,7 @@
 - different modal for tags
 - different modal for confirm.
 
+- "clear all" tags btn in MoreTags.
 
 - dynamic tags
 

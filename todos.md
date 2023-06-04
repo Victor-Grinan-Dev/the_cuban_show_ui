@@ -15,18 +15,14 @@
 
 ### Funtionalities:
 
-- return to browse pinPoint:
-    - on click in newsCard save scroll value.
-    - on BackToContents reload scroll value.
-    - smooth scroll.
+- when you click 
 
 
 - adicionar al contenido de la noticia: 
     - author
     - source - poner link a las noticias de otros periodicos.
    
-- darkmode
-- language auto translation;
+
 
 - imgur helper for secundary images
     - imgur upload img: https://www.youtube.com/watch?v=uJnf0mKswVA 
@@ -40,13 +36,22 @@
 - ads if there is no ads dont show the empty space or show own ad flag.
 
 ### Fix ups.
-- UNIQUE KEY VALUE ERROR IN CONTENT.
 
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
 
-- cuando das click en una de las noticias y estando dentro le das reload a la pagina se pierde el contenido de la noticia (404 not found) no deberia pasar.
-
 - la pagina de About y Contact
+
+- Make delete not really delete but just move the content to another branch of the json obj.
+
+- UNIQUE KEY VALUE ERROR IN CONTENT. cuando das click en una de las noticias y estando dentro le das reload a la pagina se pierde el contenido de la noticia (404 not found) no deberia pasar.
+
+- return to browse pinPoint: (DOESNT HAPPENS CAUSE KEY ERROR)
+    - on click in newsCard save scroll value.
+    - on BackToContents reload scroll value.
+    - smooth scroll.
+
+- darkmode
+- language auto translation;
 
 ## Done
 

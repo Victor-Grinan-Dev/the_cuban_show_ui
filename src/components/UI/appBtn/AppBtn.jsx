@@ -10,6 +10,9 @@ const types = {
 };
 
 const AppBtn = ({ caption, fx, type, style, name, id }) => {
+  /**
+   * type: accepts strings: primary, secondary, terceary, active, warning or danger
+   */
   const classStyle = types[type];
   return (
     <button

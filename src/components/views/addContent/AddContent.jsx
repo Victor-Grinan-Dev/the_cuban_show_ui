@@ -7,6 +7,8 @@ import {
   setContent,
   setError,
   setMessage,
+  setShowError,
+  setShowMessage,
   setTags,
 } from "../../../app/appSlice";
 import { Content } from "../../../classes/content";
@@ -37,15 +39,15 @@ const AddContent = () => {
     margin: "10px 0",
   };
 
-  useEffect(() => {
-    if (error || message) {
-      const setTimer = setInterval(() => {
-        cleanMessagge();
-      }, 10000);
-      return () => setTimer;
-    }
-    // eslint-disable-next-line
-  }, [error, message]);
+  // useEffect(() => {
+  //   if (error || message) {
+  //     const setTimer = setInterval(() => {
+  //       cleanMessagge();
+  //     }, 10000);
+  //     return () => setTimer;
+  //   }
+  //   // eslint-disable-next-line
+  // }, [error, message]);
 
   useEffect(() => {
     if (tags.length !== 0) {
@@ -82,6 +84,7 @@ const AddContent = () => {
 
       //success
       dispatch(setMessage("Article added!"));
+      dispatch(setShowMessage(true));
     }
     // eslint-disable-next-line
   }, [content]);
@@ -108,10 +111,10 @@ const AddContent = () => {
     dispatch(setContent({ ...content, tags: [] }));
   };
 
-  const cleanMessagge = () => {
-    dispatch(setError(""));
-    dispatch(setMessage(""));
-  };
+  // const cleanMessagge = () => {
+  //   dispatch(setError(""));
+  //   dispatch(setMessage(""));
+  // };
 
   const clearForm = () => {
     document.getElementById("form").reset();
@@ -179,6 +182,7 @@ const AddContent = () => {
        * more specific of what is missing
        */
       dispatch(setError("Input fields still empty"));
+      dispatch(setShowError(true))
     }
   };
 

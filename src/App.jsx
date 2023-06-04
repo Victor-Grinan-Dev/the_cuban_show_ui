@@ -11,21 +11,28 @@ import Contact from "./components/views/conctact/Contact";
 import AddContent from "./components/views/addContent/AddContent";
 import SinglePage from "./components/views/singlePage/SinglePage";
 import Modal1 from "./components/UI/modals/Modal1";
-
+import MoreTags from'./components/UI/moreTags/MoreTags';
 import { useDispatch, useSelector } from "react-redux";
 
-import SettingView from "./components/UI/settingView/SettingView";
-import ConfirmModal from "./components/UI/modals/ConfirmModal";
+import SettingView from "./components/UI/modals/settingView/SettingView";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setIsAuth } from "./app/appSlice";
+import { setError, setIsAuth, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
 import Cookies from "js-cookie";
+import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
+import MessageConfirm from "./components/UI/modals/messageConfirm/MessageConfirm";
+import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
+
 
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.app.isAuth);
   const showSettings = useSelector((state) => state.app.showSettings);
   const showConfirm = useSelector((state) => state.app.showConfirm);
+  const showMoreTags = useSelector((state) => state.app.showMoreTags);
+  const showMessage = useSelector((state) => state.app.showMessage);
+  const showError = useSelector((state) => state.app.showError);
+
   const { cookieValue } = useCookies();
 
   useEffect(() => {
@@ -64,9 +71,53 @@ function App() {
         {/* FINALLY */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {showSettings && <Modal1 component={<SettingView />} />}
-      {showConfirm && <ConfirmModal message={"Hello"} />}
-      {/**NOT WORKING SMALL MODAL */}
+      {showSettings && (
+        <Modal1
+          component={<SettingView />}
+          closeFx={() =>{ 
+            dispatch(setShowSettings());
+          }}
+          message={"settings"}
+        />
+      )}
+      {showConfirm && (
+        <Modal1
+          component={<ConfirmCancel />}
+          closeFx={() =>{ 
+            dispatch(setShowConfirm(false));
+          }}
+          message={"Are you sure?"}
+        />
+      )}
+      {showMoreTags && (
+        <Modal1
+          component={<MoreTags />}
+          closeFx={() =>{ 
+            dispatch(setShowMoreTags(false));
+          }}
+        />
+      )}
+      {showMessage && (
+        <Modal1
+          component={<MessageConfirm />}
+          closeFx={() =>{ 
+            dispatch(setShowMessage(false));         
+            dispatch(setMessage(""));         
+          }}
+          message={"Success!"}
+        />
+      )}
+      {showError && (
+        <Modal1
+          component={<ErrorConfirm />}
+          closeFx={() =>{ 
+            dispatch(setShowError(false));         
+            dispatch(setError(""));         
+          }}
+          message={"ERROR!!"}
+        />
+      )}
+
     </BrowserRouter>
   );
 }

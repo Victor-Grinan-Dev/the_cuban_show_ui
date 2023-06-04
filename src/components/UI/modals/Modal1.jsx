@@ -1,16 +1,15 @@
 import React from 'react';
 import css from './modals.module.css';
-import { setShowSettings } from '../../../app/appSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { translate } from '../../../translation/translation';
 
-const Modal1 = (props) => {
-  const dispatch = useDispatch();
-  const {component} = props;
+const Modal1 = ({component, message, closeFx}) => {
+
   const currentLang = useSelector(state => state.app.currentLang);
   return (
     <div className={css.absoluteCenter}>
-        <p className={css.closeX} onClick={()=>dispatch(setShowSettings())}>{translate('Close', currentLang)}</p>
+        <p className={css.closeX} onClick={closeFx}>{translate('Close', currentLang)}</p>
+        {message && <p style={{color:"white", textTransform:"uppercase", fontSize:"50px"}}>{translate(`${message}`, currentLang)}</p>}
         {component && component}
     </div>
   )

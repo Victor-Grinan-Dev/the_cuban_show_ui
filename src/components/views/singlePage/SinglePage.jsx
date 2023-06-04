@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { getReadableTime } from "../../../functions/time";
 import globalStyle from "../../../style/styleGeneral.module.css";
 import defaultImage from "../../../assets/logo-black.jpg";
@@ -8,8 +8,7 @@ import AppBtn from "../../UI/appBtn/AppBtn";
 import { useDispatch, useSelector } from "react-redux";
 import BackToMain from "../../UI/backToMain/BackToMain";
 //import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
-import { deleteContent } from "../../../services/firebaseService";
-import { setAppMemo } from "../../../app/appSlice";
+import { setAppMemo, setDeleteIdMemo, setShowConfirm } from "../../../app/appSlice";
 const capitalStart = {
   textTransform: "capitalize",
   width:"80%",
@@ -25,7 +24,6 @@ const SinglePage = () => {
 
   const readableDate = getReadableTime(date);
   const isAuth = useSelector((state) => state.app.isAuth);
- const navegate = useNavigate();
 
   useEffect(() => {
     if(location.state){
@@ -34,6 +32,13 @@ const SinglePage = () => {
     }else{
       dispatch(setAppMemo( JSON.parse(localStorage.getItem("tcs_memo"))));
     }
+    // eslint-disable-next-line
+  }, [appMemo]);
+
+  useEffect(() => {
+
+    dispatch(setDeleteIdMemo(id));
+ 
     // eslint-disable-next-line
   }, [appMemo]);
 
@@ -54,7 +59,7 @@ const SinglePage = () => {
       </h3>
       <div className={style.singleBody} dangerouslySetInnerHTML={{__html: body}} />
       <div className={style.singleTags}>
-        {tags && appMemo.tags.map((t, i) => <span key={i}>{t}, </span>)}
+        {tags && tags.map((t, i) => <span key={i}>{t}, </span>)}
       </div>
       {
         isAuth && <div style={{
@@ -66,15 +71,13 @@ const SinglePage = () => {
         <AppBtn
           caption={"delete"}
           type={"secundary"}
-          fx={() => {
-            deleteContent(id);
-            navegate("/");
-          }}
+          fx={()=>dispatch(setShowConfirm(true))}
         />
         <AppBtn
           caption={"edit"}
           type={"secundary"}
           fx={() => console.log("bye!")}
+          
         />
       </div>}
       <BackToMain />

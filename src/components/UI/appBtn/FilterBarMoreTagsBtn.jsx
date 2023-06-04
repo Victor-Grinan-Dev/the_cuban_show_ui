@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AppBtn from "./AppBtn";
 import { translate } from "../../../translation/translation";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowSettings } from "../../../app/appSlice";
+import { setShowMoreTags } from "../../../app/appSlice";
 import { selectedAppBtn } from "./standardStyle";
 
 const isSecundaryTagsIncluded = (tagArray) => {
@@ -34,7 +34,7 @@ const FilterBarMoreTagsBtn = () => {
       type={"terceary"}
       caption={translate("More tags", currentLang)}
       fx={() => {
-        dispatch(setShowSettings(true));
+        dispatch(setShowMoreTags(true));
       }}
       style={isMoreTagesIncl ? selectedAppBtn : null}
     />

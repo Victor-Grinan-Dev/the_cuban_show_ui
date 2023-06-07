@@ -15,11 +15,6 @@
 
 ### Funtionalities:
 
-- different modal for settings (language, dark mode)
-- different modals for login
-- different modal for tags
-- different modal for confirm.
-
 - "clear all" tags btn in MoreTags.
 
 - dynamic tags
@@ -28,8 +23,6 @@
     - author
     - source - poner link a las noticias de otros periodicos.
    
-
-
 - imgur helper for secundary images
     - imgur upload img: https://www.youtube.com/watch?v=uJnf0mKswVA 
 
@@ -59,7 +52,6 @@
     - on BackToContents reload scroll value.
     - smooth scroll.
 
-- darkmode
 - language auto translation;
 
 ## Done
@@ -103,3 +95,13 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 /* updates in june*/
 - si activas busqueda por tags no mostrar la tarjeta de mainNews.
 - buscar el DNS del domain que compraste, eso tenemos que hacerlo juntos con tu cuenta de GoDaddy.
+
+
+- different modal for settings (language, dark mode)
+- different modals for messages
+- different modal for tags
+- different modal for cancel confirm.
+
+- If there are tag filters dont show main news card
+
+- darkmode

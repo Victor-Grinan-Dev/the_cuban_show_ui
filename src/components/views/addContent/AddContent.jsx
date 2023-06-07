@@ -25,7 +25,6 @@ import AppBtn from "../../UI/appBtn/AppBtn";
 
 const AddContent = () => {
   const dispatch = useDispatch();
-
   const content = useSelector((state) => state.app.content);
   const error = useSelector((state) => state.app.error);
   const message = useSelector((state) => state.app.message);
@@ -38,16 +37,6 @@ const AddContent = () => {
     padding: "10px",
     margin: "10px 0",
   };
-
-  // useEffect(() => {
-  //   if (error || message) {
-  //     const setTimer = setInterval(() => {
-  //       cleanMessagge();
-  //     }, 10000);
-  //     return () => setTimer;
-  //   }
-  //   // eslint-disable-next-line
-  // }, [error, message]);
 
   useEffect(() => {
     if (tags.length !== 0) {
@@ -80,7 +69,6 @@ const AddContent = () => {
       textEditor[0].innerHTML = "";
       resetContent();
       dispatch(setTags([]));
-  
 
       //success
       dispatch(setMessage("Article added!"));
@@ -110,11 +98,6 @@ const AddContent = () => {
     dispatch(setTags([]));
     dispatch(setContent({ ...content, tags: [] }));
   };
-
-  // const cleanMessagge = () => {
-  //   dispatch(setError(""));
-  //   dispatch(setMessage(""));
-  // };
 
   const clearForm = () => {
     document.getElementById("form").reset();

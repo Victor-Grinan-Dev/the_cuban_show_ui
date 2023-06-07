@@ -68,7 +68,6 @@ function App() {
           <Route path="article/:single" element={<SinglePage />} />
           {protectedRoutes()}
         </Route>
-        {/* FINALLY */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       {showSettings && (

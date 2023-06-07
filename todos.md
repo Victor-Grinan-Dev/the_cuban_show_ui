@@ -1,25 +1,14 @@
 # The Cuban Show Notes:
 ## TODOs
-### Ads: (needs bank account linkage, test first in my own portfolio and bank accound first)
-- monetization plan: https://www.youtube.com/watch?v=TlhuljEYBMk
-- google  adsense: https://www.youtube.com/watch?v=W7r2w0aq3kE
-- react-semantic-ui: https://www.geeksforgeeks.org/reactjs-semantic-ui-advertisement-views/
-- consuming the ad component: https://algobook.info/articles/react/react-adsense-component
+
 
 ### CRUD.
-- popup modal for accept - cancel before deleting.
 - edit news
 
 ### Loader
 - make one
 
 ### Funtionalities:
-
-- different modal for settings (language, dark mode)
-- different modals for login
-- different modal for tags
-- different modal for confirm.
-
 - "clear all" tags btn in MoreTags.
 
 - dynamic tags
@@ -28,8 +17,6 @@
     - author
     - source - poner link a las noticias de otros periodicos.
    
-
-
 - imgur helper for secundary images
     - imgur upload img: https://www.youtube.com/watch?v=uJnf0mKswVA 
 
@@ -62,6 +49,12 @@
 - darkmode
 - language auto translation;
 
+### Ads: (needs bank account linkage, test first in my own portfolio and bank accound first)
+- monetization plan: https://www.youtube.com/watch?v=TlhuljEYBMk
+- google  adsense: https://www.youtube.com/watch?v=W7r2w0aq3kE
+- react-semantic-ui: https://www.geeksforgeeks.org/reactjs-semantic-ui-advertisement-views/
+- consuming the ad component: https://algobook.info/articles/react/react-adsense-component
+
 ## Done
 
 ### contenido: 
@@ -72,6 +65,7 @@ the cuban show in youtube: https://www.youtube.com/channel/UCzjcr4N5avBbjEcywqVa
 ### Firebase
 - firebase Auth
 - firebase CRUD
+    - - popup modal for accept - cancel before deleting.
 - firebase: https://www.youtube.com/watch?v=jCY6DH8F4oc&t=930s, https://www.youtube.com/watch?v=jCY6DH8F4oc&t=930s
 custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 
@@ -103,3 +97,9 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 /* updates in june*/
 - si activas busqueda por tags no mostrar la tarjeta de mainNews.
 - buscar el DNS del domain que compraste, eso tenemos que hacerlo juntos con tu cuenta de GoDaddy.
+
+- different modal for settings (language, dark mode)
+- different modal for tags
+- different modal for confirm.
+- different modals for messages
+- different modals for error

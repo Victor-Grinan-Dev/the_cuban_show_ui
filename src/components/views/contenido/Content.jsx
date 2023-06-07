@@ -61,7 +61,6 @@ const Content = () => {
   }
 
   return (
-    /* If there are tag filters dont show main cnews card */
     <div className={genStyle.view}>
       <FilterSearchBar />
       <div className={style.box}>
@@ -81,9 +80,9 @@ const Content = () => {
             )}
         </div>
       </div>
-      <div className={style.rightColumnAdv}>
-        <AdvCard id={"lastAdv"} key={`lastAdv`} text={advs[nextAdv()]} />
-      </div>
+    
+      <AdvCard id={"lastAdv"} key={`lastAdv`} text={advs[nextAdv()]} />
+  
     </div>
   );
 };

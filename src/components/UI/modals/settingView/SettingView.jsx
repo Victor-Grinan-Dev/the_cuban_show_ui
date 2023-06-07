@@ -6,6 +6,7 @@ import Logout from "../../logout/Logout";
 
 import style from "./settingsView.module.css";
 import { useSelector } from "react-redux";
+import DarkMode from "../../darkMode/DarkMode";
 
 const SettingView = () => {
   const isAuth = useSelector((state) => state.app.isAuth);
@@ -13,7 +14,7 @@ const SettingView = () => {
     <div className={style.settingView}>
       {/* <MoreTags /> */}
       <LangBox />
-
+      <DarkMode/>
       {isAuth ? <Logout /> : <Login />}
     </div>
   );

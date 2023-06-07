@@ -14,6 +14,7 @@ export const appSlice = createSlice({
     currentLang: "en",
     deleteIdMemo:"",
     appMemo:{},
+    darkMode: false,
 
     //Modals
     showSettings: false,
@@ -62,6 +63,9 @@ export const appSlice = createSlice({
     },
     setDeleteIdMemo(state, action){
       state.deleteIdMemo = action.payload;
+    },
+    setDarkMode(state){
+      state.darkMode = !state.darkMode;
     },
 
     //MODALS:
@@ -132,6 +136,7 @@ export const {
   setCurrentLang,
   setDeleteIdMemo,
   setAppMemo,
+  setDarkMode,
 
   //modals
   setShowSettings,

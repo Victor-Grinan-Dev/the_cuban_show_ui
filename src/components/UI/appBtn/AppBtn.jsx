@@ -4,6 +4,7 @@ const types = {
   primary: "primary", //big and long submit
   secondary: "secondary", // half sized
   terceary: "terceary", //tiny like tags btn
+  tercearyA: "terceary-active", //green version
   active:"secondary-active",
   warning:"secondary-warning",
   danger:"secondary-danger",

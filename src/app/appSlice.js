@@ -14,7 +14,8 @@ export const appSlice = createSlice({
     currentLang: "en",
     deleteIdMemo:"",
     appMemo:{},
-    darkMode: false,
+    darkMode:false,
+
 
     //Modals
     showSettings: false,

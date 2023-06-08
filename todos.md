@@ -46,7 +46,6 @@
     - on BackToContents reload scroll value.
     - smooth scroll.
 
-- darkmode
 - language auto translation;
 
 ### Ads: (needs bank account linkage, test first in my own portfolio and bank accound first)
@@ -99,7 +98,14 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - buscar el DNS del domain que compraste, eso tenemos que hacerlo juntos con tu cuenta de GoDaddy.
 
 - different modal for settings (language, dark mode)
-- different modal for tags
-- different modal for confirm.
+- popup modal for accept - cancel before deleting.
 - different modals for messages
-- different modals for error
+- different modal for tags
+- different modal for cancel confirm.
+
+- If there are tag filters dont show main news card
+
+- darkmode
+
+- "clear all" tags btn in MoreTags.
+

@@ -1,7 +1,7 @@
-//import { serverTimestamp } from "firebase/firestore";
 export class Content {
     isErased = false;
-    constructor(title, heading, image, body, previewUrl=null, isVideo=false, tags=[]){
+    constructor(title, heading, image, body, previewUrl=null, isVideo=false, tags=[], author="Anonymus"){
+
         this.title = title;
         this.heading = heading;
         this.image = image;
@@ -9,5 +9,7 @@ export class Content {
         this.isVideo = isVideo;
         this.previewUrl = previewUrl;
         this.tags = tags;
+        this.author = author;
+
     }
 }

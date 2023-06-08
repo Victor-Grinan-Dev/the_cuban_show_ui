@@ -1,47 +1,34 @@
 import React, { useEffect } from 'react';
-import modalStyle from "../modals/modals.module.css";
-import { translate } from "../../../translation/translation";
-import { useDispatch, useSelector } from 'react-redux';
-import AppBtn from '../appBtn/AppBtn';
+
 import { setDarkMode } from '../../../app/appSlice';
-import style from '../langBox/langBox.module.css'
+import { useDispatch, useSelector } from 'react-redux';
+import AppBtn from "../appBtn/AppBtn";
+import modalStyle from "../modals/modals.module.css";
+import style from './darkMode.module.css';
+import { translate } from '../../../translation/translation';
 
 const DarkMode = () => {
     const dispatch = useDispatch();
-    const currentLang = useSelector((state) => state.app.currentLang);
-    const darkMode = useSelector((state) => state.app.darkMode);
-    
-    const selected = {
-        backgroundColor: "green",
-      };
+    const darkMode = useSelector(state => state.app.darkMode);
+    const currenLang = useSelector(state => state.app.currentLang);
 
-     
-      useEffect(() => {
+    useEffect(() => {
         if(darkMode){
-            document.body.style.backgroundColor = "#333";
-            document.body.style.color = "white";
+            document.documentElement.style.backgroundColor = '#252530';
+            document.documentElement.style.color = 'white';
         }else{
-            document.body.style.backgroundColor = "white";
-            document.body.style.color = "black";
-        } 
-      }, [darkMode]);
+            document.documentElement.style.backgroundColor = 'white';
+            document.documentElement.style.color = '#252525';
+        }
+    }, [darkMode]);
 
   return (
-    <div className={style.langBox}>
-
-      <p className={modalStyle.sectionName}>
-        {translate("Dark Mode", currentLang)}:
-      </p>
-      <div>
-        <AppBtn
-          caption={darkMode ? "ON" : "OFF"}
-          style={darkMode ? selected : null}
-          fx={() => dispatch(setDarkMode())}
-          type={"secondary"}
-        />
-      </div>
+    <div className={style.darkMode}>
+        <p className={modalStyle.sectionName}>{translate("Dark mode", currenLang)}</p> 
+        <AppBtn caption={darkMode ? translate("On", currenLang) : translate("Off", currenLang) } type={darkMode ? "active" : "secondary"} fx={()=>{dispatch(setDarkMode())}}/>
     </div>
   )
 }
 
 export default DarkMode;
+

@@ -5,6 +5,8 @@
   "Content": "Contenido",
   "Contact": "Contacto",
   "World's": "Mundial",
+  "World":"Mundo",
+  "world":"mundo",
   "More tags": "Mas etiquetas",
   "Close": "Cerrar",
   "Language": "Idioma",
@@ -45,6 +47,12 @@
   "Clear form": "Borrar formulario",
   "Clear tags": "Borrar etiquetas",
   "Clear image, title & heading": "Borrar imagen, título y encabezado",
-  "Clear Text Body": "Borrar Texto"
+  "Clear Text Body": "Borrar Texto",
+  "Dark mode":"Modo oscuro",
+  "On": "Encendido",
+  "Off":"Apagado",
+  "Clear all":"Despejar",
+  "Author":"Autor",
+  "Not specified":"No especificado"
 }
 

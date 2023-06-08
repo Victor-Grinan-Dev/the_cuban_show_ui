@@ -1,6 +1,6 @@
 
 :root{
-    --CardContentHeight: 150px;
+    --CardContentHeight: 10vh;
 }
 
 .advCard,
@@ -16,16 +16,14 @@
     position: relative;
 }
 
-
-.advContent,
+.advContent{
+    height: 15vh;
+}
 .newsCard{
     height: var(--CardContentHeight);
     overflow: hidden;
     display: flex;
-    align-items: center;
-    /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
     background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
-    padding-right: 20px;
     position:relative; 
 }
 .advContent{
@@ -40,7 +38,7 @@ a{
 
 .newsCardImgContainer{
     background-color: #060606;
-    height: var(--CardContentHeight);
+    height: 100%;
     width: 30%;
 
     overflow: hidden;
@@ -48,9 +46,9 @@ a{
 }
 
 .newsCardImg{
-    /* max-height: 100%;*/
+
     width: 100%;
-    min-height: var(--CardContentHeight);
+    min-height: 100%;
     /* vertical-align: middle; */
     object-fit: cover;
     object-position: center;
@@ -88,6 +86,10 @@ a{
 .date{
     font-size:10px;
 }
+
+.author{
+    font-size: 12px;
+}
 .adminTools{
     width: 70px;
 
@@ -101,8 +103,9 @@ a{
 }
 
 @media only screen and (max-width: 768px) {
+    .advCard,
     .cardContainer{
-        width: 85vw;
+        width: 95vw;
     }
     .newsCard{
         height:  100px;
@@ -124,7 +127,7 @@ a{
     }
 
     .newsCardTitle{
-        font-size: 16px;
+        font-size: 14px;
         color: black;
         text-shadow: 0 0 5px rgb(252, 252, 252);
         text-transform: capitalize;

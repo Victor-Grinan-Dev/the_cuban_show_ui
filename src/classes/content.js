@@ -1,7 +1,7 @@
 export class Content {
-    tags = [];
     isErased = false;
     constructor(title, heading, image, body, previewUrl=null, isVideo=false, tags=[], author="Anonymus"){
+
         this.title = title;
         this.heading = heading;
         this.image = image;
@@ -10,5 +10,6 @@ export class Content {
         this.previewUrl = previewUrl;
         this.tags = tags;
         this.author = author;
+
     }
 }

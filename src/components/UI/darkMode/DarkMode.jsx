@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { setDarkMode } from '../../../app/appSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import AppBtn from "../appBtn/AppBtn";
@@ -30,3 +31,4 @@ const DarkMode = () => {
 }
 
 export default DarkMode;
+

@@ -16,6 +16,7 @@ export const appSlice = createSlice({
     appMemo:{},
     darkMode:false,
 
+
     //Modals
     showSettings: false,
     showMoreTags: false,

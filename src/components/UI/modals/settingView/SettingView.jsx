@@ -11,7 +11,6 @@ const SettingView = () => {
   const isAuth = useSelector((state) => state.app.isAuth);
   return (
     <div className={style.settingView}>
-
       <LangBox />
       <DarkMode/>
       {isAuth ? <Logout /> : <Login />}

@@ -7,16 +7,12 @@
 - consuming the ad component: https://algobook.info/articles/react/react-adsense-component
 
 ### CRUD.
-- popup modal for accept - cancel before deleting.
 - edit news
 
 ### Loader
 - make one
 
 ### Funtionalities:
-
-- "clear all" tags btn in MoreTags.
-
 - dynamic tags
 
 - adicionar al contenido de la noticia: 
@@ -98,6 +94,7 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 
 
 - different modal for settings (language, dark mode)
+- popup modal for accept - cancel before deleting.
 - different modals for messages
 - different modal for tags
 - different modal for cancel confirm.
@@ -105,3 +102,5 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - If there are tag filters dont show main news card
 
 - darkmode
+
+- "clear all" tags btn in MoreTags.

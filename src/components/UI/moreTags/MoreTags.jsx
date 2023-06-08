@@ -64,7 +64,7 @@ const MoreTags = () => {
               )
           )}
       </div>
-      <AppBtn caption={"clear all"} type={"warning"}/>
+      <AppBtn caption={translate("Clear all", currentLang)} type={"warning"} fx={()=>dispatch(setFilterTags([]))}/>
     </div>
   );
 };

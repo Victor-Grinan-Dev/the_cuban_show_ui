@@ -5,6 +5,7 @@
   "Content": "Contenido",
   "Contact": "Contacto",
   "World's": "Mundial",
+  "World":"Mundo",
   "More tags": "Mas etiquetas",
   "Close": "Cerrar",
   "Language": "Idioma",
@@ -48,6 +49,7 @@
   "Clear Text Body": "Borrar Texto",
   "Dark mode":"Modo oscuro",
   "On": "Encendido",
-  "Off":"Apagado"
+  "Off":"Apagado",
+  "Clear all":"Despejar"
 }
 

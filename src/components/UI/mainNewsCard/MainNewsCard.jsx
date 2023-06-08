@@ -6,8 +6,9 @@ import { getReadableTime } from "../../../functions/time";
 import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import TagBtn from "../appBtn/TagBtn";
 const MainNewsCard = ({ props }) => {
-  const { id, title, image, date, heading } = props;
+  const { id, title, image, date, heading, tags, author } = props;
   const readableDate = getReadableTime(date);
   const isMobile = false;
   const currentLang = useSelector((state) => state.app.currentLang);
@@ -22,10 +23,23 @@ const MainNewsCard = ({ props }) => {
               </h3>
               <hr className={genStyle.line} />
               {!isMobile && <div className={genStyle.heading}>{heading}</div>}
-              <p className={genStyle.date}>
-                {translate("Published", currentLang)}:{" "}
+              <div className="date-author">
+              <p className={style.date}>
+                {translate("Published", currentLang)}:
                 {readableDate.toDateString()}
               </p>
+              <p className={style.author}>
+                Author: {" "}
+                {author ? author : "Anonymus" }
+              </p>
+            </div>
+              <div className="tags"> 
+              {
+                tags && tags.map((tag, i) => (
+                  <TagBtn id={i} type={"terceary"} label={translate(`${tag}`, currentLang)}/>
+                ))
+              }
+            </div>
             </div>
             <img
               className={style.mainNewsCardImg}

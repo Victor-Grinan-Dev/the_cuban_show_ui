@@ -1,5 +1,4 @@
 import React from "react";
-// import style from "./tagBtn.module.css";
 import AppBtn from "./AppBtn";
 import { selectedAppBtn } from "./standardStyle";
 

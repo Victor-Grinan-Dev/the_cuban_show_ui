@@ -6,6 +6,7 @@
   "Contact": "Contacto",
   "World's": "Mundial",
   "World":"Mundo",
+  "world":"mundo",
   "More tags": "Mas etiquetas",
   "Close": "Cerrar",
   "Language": "Idioma",
@@ -50,6 +51,8 @@
   "Dark mode":"Modo oscuro",
   "On": "Encendido",
   "Off":"Apagado",
-  "Clear all":"Despejar"
+  "Clear all":"Despejar",
+  "Author":"Autor",
+  "Not specified":"No especificado"
 }
 

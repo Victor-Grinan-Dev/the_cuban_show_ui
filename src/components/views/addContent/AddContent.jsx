@@ -236,6 +236,14 @@ const AddContent = () => {
               <TextEditor />
             </div>
           </span>
+          <input
+              name="author"
+              className={style.input}
+              type="text"
+              placeholder={translate("Author", currentLang)}
+              onChange={(e) => changeHandler(e)}
+              value={content.author && content.author}
+            />
           <AppBtn
             caption={translate("Publish", currentLang)}
             type={"primary"}

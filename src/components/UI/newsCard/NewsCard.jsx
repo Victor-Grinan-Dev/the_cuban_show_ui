@@ -36,7 +36,7 @@ console.log(author)
               </p>
               <p className={style.author}>
                 Author: {" "}
-                {author ? author : "Anonymus" }
+                {author ? author : "Not specified" }
               </p>
             </div>
             <div className="tags"> 

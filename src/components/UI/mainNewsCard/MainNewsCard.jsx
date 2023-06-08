@@ -29,8 +29,8 @@ const MainNewsCard = ({ props }) => {
                 {readableDate.toDateString()}
               </p>
               <p className={style.author}>
-                Author: {" "}
-                {author ? author : "Anonymus" }
+                {translate("Author", currentLang)}: {" "}
+                {author ? author : translate("Not specified", currentLang) }
               </p>
             </div>
               <div className="tags"> 

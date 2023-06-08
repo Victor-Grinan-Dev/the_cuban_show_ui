@@ -4,14 +4,12 @@ import { getReadableTime } from "../../../functions/time";
 import globalStyle from "../../../style/styleGeneral.module.css";
 import defaultImage from "../../../assets/logo-black.jpg";
 import style from "./singlePage.module.css";
-import AppBtn from "../../UI/appBtn/AppBtn";
 import { useDispatch, useSelector } from "react-redux";
 import BackToMain from "../../UI/backToMain/BackToMain";
 //import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
 import {
   setAppMemo,
   setDeleteIdMemo,
-  setShowConfirm,
 } from "../../../app/appSlice";
 import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
@@ -29,7 +27,6 @@ const SinglePage = () => {
 
   const currentLang = useSelector((state) => state.app.currentLang);
   const readableDate = getReadableTime(date);
-  const isAuth = useSelector((state) => state.app.isAuth);
   const darkMode = useSelector(state => state.app.darkMode)
 
   useEffect(() => {

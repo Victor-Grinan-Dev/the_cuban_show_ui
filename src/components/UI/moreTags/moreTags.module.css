@@ -5,4 +5,5 @@
     height: 50vh;
     align-items:flex-start;
     justify-content: space-evenly;
+    max-width: 600px;
 }

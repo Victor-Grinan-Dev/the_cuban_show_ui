@@ -12,7 +12,7 @@ const NewsCard = ({ props }) => {
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
   const isMobile = false;
-console.log(author)
+  
   return (
     <Link to={`article/${id}`} state={props}>
       <div className={style.cardContainer}>

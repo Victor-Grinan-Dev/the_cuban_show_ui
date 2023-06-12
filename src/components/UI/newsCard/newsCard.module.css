@@ -103,10 +103,6 @@ a{
 }
 
 @media only screen and (max-width: 768px) {
-    .advCard,
-    .cardContainer{
-        width: 95vw;
-    }
     .newsCard{
         height:  100px;
     }

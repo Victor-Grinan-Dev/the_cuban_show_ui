@@ -37,8 +37,10 @@ export default function About() {
         - or you could just donate.
       </p>
     
-      <div><p>Make sure to read our <Link to={"termsandconditions"}> <h4>Terms & Conditions</h4> </Link></p></div>
-      <div><Link to={"termsandconditions"}> <h4>How to install the App in android phones</h4> </Link></div>
+      <div><p>Make sure to read our <Link to={"termsandconditions"}> Terms & Conditions </Link></p></div>
+      <br />
+      <br />
+      <div><Link to={"installapp"}> How to install the App in android phones </Link></div>
 
 
     </div>

@@ -99,7 +99,7 @@ export default function About() {
 </ol></div>
       
 
-    <div><Link to={"installapp"}><p>How to install this ap in androids</p></Link></div>
+    {/* <div><Link to={"installapp"}><p>How to install this ap in androids</p></Link></div> */}
 
     </div>
   );

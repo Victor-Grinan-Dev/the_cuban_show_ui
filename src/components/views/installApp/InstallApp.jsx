@@ -5,7 +5,7 @@ import zoom from "../../../assets/install-app/chrome_tcs_zoom.jpg";
 import settings from "../../../assets/install-app/chrome_tcs_settings.jpg";
 import modal from "../../../assets/install-app/chrome-confirm-modal.jpg"
 import toHomeSc from "../../../assets/install-app/phone-installed-app.jpg"
-import complete from "../../../assets/install-app/phone-added-to-home-app.jpg"
+import complete from "../../../assets/install-app/phone-added-to-home-app.jpg";
 
 const InstallApp = () => {
   return (
@@ -65,4 +65,4 @@ const InstallApp = () => {
   )
 }
 
-export default InstallApp
+export default InstallApp;

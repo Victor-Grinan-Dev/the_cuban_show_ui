@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import genStyle from "../../../style/styleGeneral.module.css";
 
 const TermsAndConditions = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
 
   if (currentLang === "es") {
     return (
-      <div>
+      <div className={genStyle.view}>
         <h3>terminos & Condiciones</h3>
         <p>Estimado usuario, </p>
 

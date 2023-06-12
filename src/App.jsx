@@ -22,6 +22,8 @@ import Cookies from "js-cookie";
 import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
 import MessageConfirm from "./components/UI/modals/messageConfirm/MessageConfirm";
 import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
+import TermsAndConditions from "./components/views/termsAndConditions/TermsAndConditions";
+import InstallApp from "./components/views/installApp/InstallApp";
 
 
 function App() {
@@ -64,8 +66,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Content />} />
           <Route path="about" element={<About />} />
+          <Route path="about/:termsandconditions" element={<TermsAndConditions />} />
+          <Route path="about/:installapp" element={<InstallApp />} />
           <Route path="contact" element={<Contact />} />
           <Route path="article/:single" element={<SinglePage />} />
+
           {protectedRoutes()}
         </Route>
         <Route path="*" element={<NotFound />} />

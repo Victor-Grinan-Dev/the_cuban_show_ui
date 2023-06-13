@@ -81,7 +81,7 @@ const Content = () => {
         </div>
       </div>
     
-      <AdvCard id={"lastAdv"} key={`lastAdv`} text={advs[nextAdv()]} />
+      <AdvCard id={"lastAdv"} key={`lastAdv`} text={advs[nextAdv()]} dataAdSlot={"9160054892"} />
   
     </div>
   );

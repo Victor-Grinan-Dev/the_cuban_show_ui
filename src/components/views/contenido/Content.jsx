@@ -1,9 +1,9 @@
 import NewsCard from "../../UI/newsCard/NewsCard";
 import genStyle from "../../../style/styleGeneral.module.css";
 import { useEffect } from "react";
-import { getContents } from "../../../services/firebaseService";
+import { getAllTags, getContents } from "../../../services/firebaseService";
 import { useDispatch, useSelector } from "react-redux";
-import { setContents, setIsLoading } from "../../../app/appSlice";
+import { setAllTags, setContents, setIsLoading } from "../../../app/appSlice";
 import FilterSearchBar from "../../UI/filterSearchBar/FilterSearchBar";
 import { filterByTags } from "../../../functions/filter";
 import style from "./styleContent.module.css";
@@ -14,10 +14,10 @@ import { v4 as uuidv4 } from 'uuid';
 const Content = () => {
   const dispatch = useDispatch();
   const contents = useSelector((state) => state.app.contents);
+  const allTags = useSelector(state => state.app.allTags);
   const isLoading = useSelector((state) => state.app.isLoading);
   const search = useSelector((state) => state.app.search);
   const selectedTags = useSelector((state) => state.app.tags);
-
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
   const advs = ["advetisments1", "advetisments2", "advetisments3"];
   let value = advs.length - 1;
@@ -48,6 +48,8 @@ const Content = () => {
     dispatch(setIsLoading(true));
     getContents()
       .then((data) => dispatch(setContents(data)))
+    getAllTags()
+      .then((data) => dispatch(setAllTags(data)))
       .then(dispatch(setIsLoading(false)));
     // eslint-disable-next-line
   }, []);

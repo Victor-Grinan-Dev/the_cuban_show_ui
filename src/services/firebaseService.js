@@ -9,7 +9,6 @@ import {
   doc,
   deleteDoc,
   serverTimestamp,
-  onSnapshot,
 } from "firebase/firestore";
 
 const contentCollectionRef = collection(db, "content");

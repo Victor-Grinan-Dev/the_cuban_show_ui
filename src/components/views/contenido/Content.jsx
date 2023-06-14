@@ -14,7 +14,6 @@ import { v4 as uuidv4 } from 'uuid';
 const Content = () => {
   const dispatch = useDispatch();
   const contents = useSelector((state) => state.app.contents);
-  const allTags = useSelector(state => state.app.allTags);
   const isLoading = useSelector((state) => state.app.isLoading);
   const search = useSelector((state) => state.app.search);
   const selectedTags = useSelector((state) => state.app.tags);

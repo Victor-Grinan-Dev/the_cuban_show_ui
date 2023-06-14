@@ -18,4 +18,7 @@ export const allTags = [
     "sport",
     "technological",
     "research",
+    "LGBTQAI+",
+    "woke",
+    "feminism"
 ]

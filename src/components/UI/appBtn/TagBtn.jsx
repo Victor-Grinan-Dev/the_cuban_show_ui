@@ -21,7 +21,7 @@ const TagBtn = ({ fxPrimary, label, style, isSelected }) => {
       fx={() => {
         fxPrimary();
       }}
-      caption={label}
+      caption={label.toUpperCase()}
       style={style ? style : isSelected ? selected : notSelected}
     />
   );

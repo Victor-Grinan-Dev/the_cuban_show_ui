@@ -1,6 +1,7 @@
 export class Tag{
-    isSelected = false;
-    constructor(name){
-        this.name = name;
+    id = null;
+    constructor(en, es){
+        this.es = es;
+        this.en = en;
     }
 }

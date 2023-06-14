@@ -87,6 +87,7 @@ const SinglePage = () => {
             {tags &&
               tags.map((tag, i) => (
                 <TagBtn
+                  key={i}
                   id={i}
                   type={"terceary"}
                   label={translate(`${tag}`, currentLang)}

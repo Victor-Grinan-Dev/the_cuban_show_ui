@@ -10,12 +10,11 @@
 
 ### Funtionalities:
 
-- dynamic tags
-
 - buscador por author por fecha fuente.
 
 - ads if there is no ads dont show the empty space or show own ad flag.
 
+- settings memory (darkmode & lang)
 ### Fix ups.
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
 
@@ -100,3 +99,5 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 
 - newsCard to show author & source of the nes if any.
 - show tags in newsCard.
+
+- dynamic tags

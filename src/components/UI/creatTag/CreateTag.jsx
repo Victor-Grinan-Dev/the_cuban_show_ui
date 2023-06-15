@@ -43,7 +43,7 @@ const CreateTag = () => {
        <div> {translate("Add", currentLang)} {translate("tag", currentLang)}:</div>
         <div>EN: <input id='en' name='englishTag' type="text" placeholder='New tag in english' onChange={changeValue} value={newTag.en}/></div>
         <div>ES: <input id='es' name='englishTag' type="text" placeholder='New tag in spanish' onChange={(e)=> changeValue(e)} value={newTag.es}/></div>
-        <div><AppBtn caption={translate("Add", currentLang)} type={'warning'} fx={submit}/></div>
+        <div><AppBtn caption={translate("Add", currentLang)} type={'execute'} fx={submit}/></div>
     </div>
   )
 }

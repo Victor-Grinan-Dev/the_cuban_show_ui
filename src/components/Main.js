@@ -5,7 +5,7 @@ import genStyle  from '../style/styleGeneral.module.css';
 function Main() {
   return (
     <main className={genStyle.main}>
-        <Outlet/>
+       
     </main>
   )
 }

@@ -56,7 +56,7 @@ function App() {
 
   useEffect(() => {
    const pref = JSON.parse( localStorage.getItem('tcs-pref'));
-   console.log(pref)
+  
    if(pref){
     dispatch(setCurrentLang(pref.currentLang));
     dispatch(setDarkMode(pref.darkMode));

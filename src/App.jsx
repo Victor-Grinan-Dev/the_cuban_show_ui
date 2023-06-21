@@ -26,9 +26,6 @@ import TermsAndConditions from "./components/views/termsAndConditions/TermsAndCo
 import InstallApp from "./components/views/installApp/InstallApp";
 import { getAllTags, getContents } from "./services/firebaseService";
 
-
-
-
 function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.app.isAuth);
@@ -60,8 +57,11 @@ function App() {
   useEffect(() => {
    const pref = JSON.parse( localStorage.getItem('tcs-pref'));
    console.log(pref)
+   if(pref){
     dispatch(setCurrentLang(pref.currentLang));
     dispatch(setDarkMode(pref.darkMode));
+   }
+
     // eslint-disable-next-line
   }, []);
 

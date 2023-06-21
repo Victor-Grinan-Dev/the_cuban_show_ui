@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SettingView from "./components/UI/modals/settingView/SettingView";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setAllTags, setContents, setError, setIsAuth, setIsLoading, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
+import { setAllTags, setContents, setCurrentLang, setDarkMode, setError, setIsAuth, setIsLoading, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
 import Cookies from "js-cookie";
 import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
 import MessageConfirm from "./components/UI/modals/messageConfirm/MessageConfirm";
@@ -25,6 +25,8 @@ import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
 import TermsAndConditions from "./components/views/termsAndConditions/TermsAndConditions";
 import InstallApp from "./components/views/installApp/InstallApp";
 import { getAllTags, getContents } from "./services/firebaseService";
+
+
 
 
 function App() {
@@ -54,6 +56,13 @@ function App() {
       }
     }
   }, [cookieValue, dispatch]);
+
+  useEffect(() => {
+   const pref = JSON.parse( localStorage.getItem('tcs-pref'));
+   console.log(pref)
+    dispatch(setCurrentLang(pref.currentLang));
+    dispatch(setDarkMode(pref.darkMode));
+  }, []);
 
   useEffect(() => {
     dispatch(setIsLoading(true));

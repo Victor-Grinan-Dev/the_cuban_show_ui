@@ -62,6 +62,7 @@ function App() {
    console.log(pref)
     dispatch(setCurrentLang(pref.currentLang));
     dispatch(setDarkMode(pref.darkMode));
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

@@ -34,7 +34,7 @@ const SinglePage = () => {
 
   useEffect(() => {
     if (location.state) {
-      localStorage.setItem("tcs_memo", JSON.stringify(location.state));
+      localStorage.setItem("tcs-pref", JSON.stringify(location.state));
       dispatch(setAppMemo(location.state));
     } else {
       dispatch(setAppMemo(JSON.parse(localStorage.getItem("tcs_memo"))));

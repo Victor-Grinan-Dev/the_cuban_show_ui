@@ -12,8 +12,10 @@ const DarkMode = () => {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.app.darkMode);
   const currentLang = useSelector((state) => state.app.currentLang);
-  const [ pref, setPref] = useLocalStorage('tcs-pref', { darkMode: darkMode, currentLang: currentLang });
-
+  const [pref, setPref] = useLocalStorage("tcs-pref", {
+    darkMode: darkMode,
+    currentLang: currentLang,
+  });
 
   useEffect(() => {
     if (darkMode) {
@@ -25,7 +27,15 @@ const DarkMode = () => {
     }
   }, [darkMode]);
 
-  console.log(pref);
+  useEffect(() => {
+    if(pref.darkMode !== darkMode){
+      console.log(pref, darkMode)
+      setPref({ ...pref, darkMode: darkMode });
+    }
+    
+     // eslint-disable-next-line
+  }, [darkMode]);
+
   return (
     <div className={style.darkMode}>
       <p className={modalStyle.sectionName}>
@@ -40,7 +50,6 @@ const DarkMode = () => {
         type={darkMode ? "active" : "secondary"}
         fx={() => {
           dispatch(setDarkMode());
-          setPref({ darkMode: !darkMode, currentLang: currentLang })
         }}
       />
     </div>

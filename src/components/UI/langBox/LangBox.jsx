@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentLang } from "../../../app/appSlice";
 import style from "./langBox.module.css";
@@ -6,6 +6,7 @@ import style from "./langBox.module.css";
 import AppBtn from "../appBtn/AppBtn";
 import modalStyle from "../modals/modals.module.css";
 import { translate } from "../../../translation/translation";
+import useLocalStorage from "../../../hooks/useLocalStorage";
 
 const selected = {
   backgroundColor: "green",
@@ -14,9 +15,23 @@ const selected = {
 const LangBox = () => {
   const dispatch = useDispatch();
   const currentLang = useSelector((state) => state.app.currentLang);
+  const darkMode = useSelector((state) => state.app.darkMode);
+  const [pref, setPref] = useLocalStorage("tcs-pref", {
+    darkMode: darkMode,
+    currentLang: currentLang,
+  });
+
+  useEffect(() => {
+    if(pref.currentLang !== currentLang){
+      console.log(pref, currentLang)
+      setPref({ ...pref, currentLang: currentLang });
+    }
+    
+     // eslint-disable-next-line
+  }, [currentLang]);
+
   return (
     <div className={style.langBox}>
-
       <p className={modalStyle.sectionName}>
         {translate("Language", currentLang)}:
       </p>
@@ -30,7 +45,9 @@ const LangBox = () => {
         <AppBtn
           caption={"Español"}
           style={currentLang === "es" ? selected : null}
-          fx={() => dispatch(setCurrentLang("es"))}
+          fx={() => {
+            dispatch(setCurrentLang("es"));
+          }}
           type={"secondary"}
         />
       </div>

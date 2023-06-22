@@ -16,7 +16,7 @@ const types = {
   tercearyA: "terceary-active", //green version
   notSelected:"terceary-not-selected",
   selected:"terceary-selected",
-  disply:"terceary-display",
+  display:"terceary-display",
 };
 
 const AppBtn = ({ caption, fx, type, style, name, id }) => {

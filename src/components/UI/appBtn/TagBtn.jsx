@@ -1,10 +1,17 @@
 import React from "react";
 import AppBtn from "./AppBtn";
 import { selectedAppBtn } from "./standardStyle";
+import { useSelector } from "react-redux";
 
 const notSelected = {
   borderColor: "black",
   color: "black",
+  margin: "0 5px",
+};
+
+const darkNotSelected = {
+  borderColor: "white",
+  color: "white",
   margin: "0 5px",
 };
 
@@ -14,7 +21,7 @@ const selected = {
 };
 
 const TagBtn = ({ fxPrimary, label, style, isSelected }) => {
-
+  const darkMode = useSelector(state => state.app.darkMode);
   return (
     <AppBtn
       type={"terceary"}
@@ -22,7 +29,7 @@ const TagBtn = ({ fxPrimary, label, style, isSelected }) => {
         fxPrimary();
       }}
       caption={label.toUpperCase()}
-      style={style ? style : isSelected ? selected : notSelected}
+      style={style ? style : isSelected ? selected : !darkMode ? notSelected : darkNotSelected}
     />
   );
 };

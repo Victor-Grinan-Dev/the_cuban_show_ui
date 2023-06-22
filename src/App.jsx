@@ -34,6 +34,7 @@ function App() {
   const showMoreTags = useSelector((state) => state.app.showMoreTags);
   const showMessage = useSelector((state) => state.app.showMessage);
   const showError = useSelector((state) => state.app.showError);
+  const darkMode = useSelector((state) => state.app.darkMode);
 
   const { cookieValue } = useCookies();
 
@@ -64,6 +65,16 @@ function App() {
 
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.style.backgroundColor = "#252530";
+      document.documentElement.style.color = "white";
+    } else {
+      document.documentElement.style.backgroundColor = "white";
+      document.documentElement.style.color = "#252525";
+    }
+  }, [darkMode]);
 
   useEffect(() => {
     dispatch(setIsLoading(true));

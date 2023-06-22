@@ -1,5 +1,4 @@
 import React from "react";
-import { allTags } from "../../../appConfig";
 import AppBtn from "../appBtn/AppBtn";
 import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
@@ -14,6 +13,7 @@ const MoreTagsSelectedAppBtn = { ...selectedAppBtn, margin: "0 15px" };
 const MoreTags = () => {
   const filterTags = useSelector((state) => state.app.filterTags);
   const currentLang = useSelector((state) => state.app.currentLang);
+  const allTags = useSelector((state) => state.app.allTags);
   const dispatch = useDispatch();
   const addOrDelHandler = (tag) => {
     isTagIncluded(tag, filterTags)
@@ -41,20 +41,20 @@ const MoreTags = () => {
       <div className={style.moreTags}>
         {allTags &&
           allTags.map(
-            (t, i) =>
+            (t) =>
               t !== "usa" &&
               t !== "cuba" &&
               t !== "world" && (
                 <AppBtn
-                  name={t}
-                  key={i}
-                  id={t}
+                  name={t.en}
+                  key={t.id}
+                  id={t.id}
                   className={style.secundaryTags}
-                  caption={translate(t, currentLang)}
+                  caption={translate(t.en, currentLang)}
                   type={"terceary"}
                   fx={(e) => addOrDelHandler(e.target.name)}
                   style={
-                    isTagIncluded(t, filterTags)
+                    isTagIncluded(t.en, filterTags)
                       ? MoreTagsSelectedAppBtn
                       : {
                           margin: "0 15px",

@@ -12,7 +12,7 @@ const NewsCard = ({ props }) => {
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
   const isMobile = false;
-console.log(author)
+ 
   return (
     <Link to={`article/${id}`} state={props}>
       <div className={style.cardContainer}>
@@ -42,7 +42,7 @@ console.log(author)
             <div className="tags"> 
               {
                 tags && tags.map((tag, i) => (
-                  <TagBtn id={i} type={"terceary"} label={translate(`${tag}`, currentLang)}/>
+                  <TagBtn id={i} key={i} type={"terceary"} label={translate(`${tag}`, currentLang)}/>
                 ))
               }
             </div>

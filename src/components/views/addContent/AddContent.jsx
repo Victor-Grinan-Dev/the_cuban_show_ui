@@ -12,7 +12,7 @@ import {
   setTags,
 } from "../../../app/appSlice";
 import { Content } from "../../../classes/content";
-import { allTags } from "../../../appConfig";
+// import { allTags } from "../../../appConfig";
 import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
 import { isTagIncluded } from "../../../functions/tags";
@@ -22,6 +22,7 @@ import { v4 } from "uuid";
 import NewsCard from "../../UI/newsCard/NewsCard";
 import TextEditor from "../../UI/textEditor/TextEditor";
 import AppBtn from "../../UI/appBtn/AppBtn";
+import CreateTag from "../../UI/creatTag/CreateTag";
 
 const AddContent = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const AddContent = () => {
   const message = useSelector((state) => state.app.message);
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
+  const allTags = useSelector(state => state.app.allTags);
   const [imageUpload, setImageUpload] = useState(null);
   const textEditor = document.getElementsByClassName("ql-editor");
 
@@ -234,21 +236,23 @@ const AddContent = () => {
           />
         </form>
       </div>
+      <p className={style.isShowTags}>{translate("All tags", currentLang)}:</p>
       <div className={style.tagsArea}>
-        <p className={style.isShowTags}>Tags:</p>
+        
         {allTags &&
-          allTags.map((t, i) => {
+          allTags.map((t) => {
             return (
               <TagBtn
-                name={t}
-                key={i}
-                label={translate(t, currentLang)}
-                fxPrimary={() => addOrDelHandler(t)}
-                isSelected={isTagIncluded(t, tags)}
+                name={translate(t.en, currentLang)}
+                key={t.id}
+                label={translate(t.en, currentLang)}
+                fxPrimary={() => addOrDelHandler(t.en)}
+                isSelected={isTagIncluded(t.en, tags)}
               />
             );
           })}
       </div>
+      <CreateTag />
       <div className={style.panel}>
 
         <AppBtn

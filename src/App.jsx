@@ -17,12 +17,14 @@ import { useDispatch, useSelector } from "react-redux";
 import SettingView from "./components/UI/modals/settingView/SettingView";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setError, setIsAuth, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
+import { setAllTags, setContents, setCurrentLang, setDarkMode, setError, setIsAuth, setIsLoading, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
 import Cookies from "js-cookie";
 import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
 import MessageConfirm from "./components/UI/modals/messageConfirm/MessageConfirm";
 import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
-
+import TermsAndConditions from "./components/views/termsAndConditions/TermsAndConditions";
+import InstallApp from "./components/views/installApp/InstallApp";
+import { getAllTags, getContents } from "./services/firebaseService";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +34,7 @@ function App() {
   const showMoreTags = useSelector((state) => state.app.showMoreTags);
   const showMessage = useSelector((state) => state.app.showMessage);
   const showError = useSelector((state) => state.app.showError);
+  const darkMode = useSelector((state) => state.app.darkMode);
 
   const { cookieValue } = useCookies();
 
@@ -52,6 +55,37 @@ function App() {
     }
   }, [cookieValue, dispatch]);
 
+  useEffect(() => {
+   const pref = JSON.parse( localStorage.getItem('tcs-pref'));
+  
+   if(pref){
+    dispatch(setCurrentLang(pref.currentLang));
+    dispatch(setDarkMode(pref.darkMode));
+   }
+
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.style.backgroundColor = "#252530";
+      document.documentElement.style.color = "white";
+    } else {
+      document.documentElement.style.backgroundColor = "white";
+      document.documentElement.style.color = "#252525";
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
+    dispatch(setIsLoading(true));
+    getContents()
+      .then((data) => dispatch(setContents(data)))
+    getAllTags()
+      .then((data) => dispatch(setAllTags(data)))
+      .then(dispatch(setIsLoading(false)));
+    // eslint-disable-next-line
+  }, []);
+
   const protectedRoutes = () => {
     if (isAuth) {
       return <Route path="addcontent" element={<AddContent />} />;
@@ -64,8 +98,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Content />} />
           <Route path="about" element={<About />} />
+          <Route path="about/:termsandconditions" element={<TermsAndConditions />} />
+          <Route path="about/:installapp" element={<InstallApp />} />
           <Route path="contact" element={<Contact />} />
           <Route path="article/:single" element={<SinglePage />} />
+
           {protectedRoutes()}
         </Route>
         <Route path="*" element={<NotFound />} />

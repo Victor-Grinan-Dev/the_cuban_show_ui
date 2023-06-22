@@ -9,30 +9,13 @@
 - make one
 
 ### Funtionalities:
-- "clear all" tags btn in MoreTags.
-
-- dynamic tags
-
-- adicionar al contenido de la noticia: 
-    - author
-    - source - poner link a las noticias de otros periodicos.
-   
-- imgur helper for secundary images
-    - imgur upload img: https://www.youtube.com/watch?v=uJnf0mKswVA 
-
-- singlePage images onClick open display in new tab.
-- singlePage tags to be displayed as selectect tag btn with no functionality.
-
-- newsCard to show author & source of the nes if any.
-
-- show tags in newsCard.
 
 - buscador por author por fecha fuente.
 
 - ads if there is no ads dont show the empty space or show own ad flag.
 
+- settings memory (darkmode & lang)
 ### Fix ups.
-
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
 
 - la pagina de About y Contact
@@ -109,3 +92,12 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 
 - "clear all" tags btn in MoreTags.
 
+- adicionar al contenido de la noticia: 
+    - author
+
+- singlePage tags to be displayed as TagBtn.
+
+- newsCard to show author & source of the nes if any.
+- show tags in newsCard.
+
+- dynamic tags

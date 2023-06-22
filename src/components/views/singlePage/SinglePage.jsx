@@ -7,6 +7,9 @@ import style from "./singlePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import BackToMain from "../../UI/backToMain/BackToMain";
 //import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
+
+import AdvCard from "../../UI/advCard/AdvCard";
+
 import {
   setAppMemo,
   setDeleteIdMemo,
@@ -51,6 +54,7 @@ const SinglePage = () => {
   };
   return (
     <div className={globalStyle.view}>
+      <AdvCard text={"advertisment"}/>
       <div className={style.single}>
         <div className={style.top}>
           <BackToMain />
@@ -83,6 +87,7 @@ const SinglePage = () => {
             {tags &&
               tags.map((tag, i) => (
                 <TagBtn
+                  key={i}
                   id={i}
                   type={"terceary"}
                   label={translate(`${tag}`, currentLang)}
@@ -113,11 +118,12 @@ const SinglePage = () => {
               /> 
             </div>
           )} */}
-          
+          <AdvCard text={"advertisment"}/>
           <BackToMain />
           
         </div>
       </div>
+
     </div>
   );
 };

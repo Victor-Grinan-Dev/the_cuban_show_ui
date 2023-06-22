@@ -10,11 +10,12 @@ export const appSlice = createSlice({
     search: "",
     error: "",
     message: "",
-    filterTags: [],
+    filterTags: [], 
     currentLang: "en",
     deleteIdMemo:"",
     appMemo:{},
     darkMode:false,
+    allTags : [], //tags from firebase db
 
 
     //Modals
@@ -29,7 +30,7 @@ export const appSlice = createSlice({
     auth: {},
     user: "",
 
-    //content
+    //content, create content to save
     contents: [],
     content: new Content("", "", "", ""),
     tags: [],
@@ -68,6 +69,10 @@ export const appSlice = createSlice({
     setDarkMode(state){
       state.darkMode = !state.darkMode;
     },
+    setAllTags(state, action){
+      state.allTags = action.payload;
+    },
+
 
     //MODALS:
     setShowSettings(state) {
@@ -138,6 +143,7 @@ export const {
   setDeleteIdMemo,
   setAppMemo,
   setDarkMode,
+  setAllTags,
 
   //modals
   setShowSettings,

@@ -29,7 +29,6 @@ const DarkMode = () => {
 
   useEffect(() => {
     if(pref.darkMode !== darkMode){
-      console.log(pref, darkMode)
       setPref({ ...pref, darkMode: darkMode });
     }
     

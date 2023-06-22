@@ -23,7 +23,6 @@ const LangBox = () => {
 
   useEffect(() => {
     if(pref.currentLang !== currentLang){
-      console.log(pref, currentLang)
       setPref({ ...pref, currentLang: currentLang });
     }
     

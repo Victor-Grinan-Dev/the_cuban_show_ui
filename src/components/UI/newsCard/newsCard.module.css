@@ -5,7 +5,7 @@
 
 .advCard,
 .cardContainer{
-    background-color: white;
+    background-color: rgb(240,240,240);
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 5px black;

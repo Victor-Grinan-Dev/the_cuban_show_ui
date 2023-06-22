@@ -1,7 +1,11 @@
-.textEditorContainer{
+.textEditorContainer,
+.darkTextEditorContainer{
     display: flex;
     width: 86vw;
     max-width: 900px;
     flex-direction: column;
     margin-bottom: 10px;
+}
+.darkTextEditorContainer{
+    color:white;
 }

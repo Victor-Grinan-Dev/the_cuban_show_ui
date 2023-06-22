@@ -74,18 +74,18 @@
 }
 
 .dark-terceary-not-selected {
-  border-color: white;
-  color: white;
+  border-color: black;
+  color: black;
 }
 
 .terceary-selected {
   border-color: darkgreen;
   background-color: var(--active);
-  color: white;
+  color: black;
 
 }
 
 .terceary-display {
-  border-color: white;
-  color: white;
+  border-color: black;
+  color: black;
 }

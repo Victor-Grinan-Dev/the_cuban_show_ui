@@ -42,7 +42,7 @@ const NewsCard = ({ props }) => {
             <div className="tags"> 
               {
                 tags && tags.map((tag, i) => (
-                  <TagBtn id={i} key={i} type={"terceary"} label={translate(`${tag}`, currentLang)}/>
+                  <TagBtn id={i} key={i} type={"display"} label={translate(`${tag}`, currentLang)}/>
                 ))
               }
             </div>

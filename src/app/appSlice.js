@@ -66,8 +66,8 @@ export const appSlice = createSlice({
     setDeleteIdMemo(state, action){
       state.deleteIdMemo = action.payload;
     },
-    setDarkMode(state){
-      state.darkMode = !state.darkMode;
+    setDarkMode(state, action){
+      state.darkMode = action.payload;
     },
     setAllTags(state, action){
       state.allTags = action.payload;

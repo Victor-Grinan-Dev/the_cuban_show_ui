@@ -9,12 +9,12 @@
 - make one
 
 ### Funtionalities:
+- borrar contenido?
 
 - buscador por author por fecha fuente.
 
 - ads if there is no ads dont show the empty space or show own ad flag.
 
-- settings memory (darkmode & lang)
 ### Fix ups.
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
 
@@ -37,7 +37,7 @@
 - react-semantic-ui: https://www.geeksforgeeks.org/reactjs-semantic-ui-advertisement-views/
 - consuming the ad component: https://algobook.info/articles/react/react-adsense-component
 
-## Done
+## Done !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ### contenido: 
 development site: https://the-cuban-show-development.netlify.app/
@@ -101,3 +101,5 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - show tags in newsCard.
 
 - dynamic tags
+
+- settings memory (darkmode & lang)

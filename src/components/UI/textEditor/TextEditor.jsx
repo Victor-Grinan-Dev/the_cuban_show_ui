@@ -8,9 +8,9 @@ import { setContent } from '../../../app/appSlice';
 
 const TextEditor = () => {
     const [text, setText] = useState("");
-    // const text = useSelector(state => state.app.text);
     const dispatch = useDispatch();
     const content = useSelector(state => state.app.content);
+    const darkMode = useSelector(state => state.app.darkMode);
 
     useEffect(() => {
         dispatch(setContent({...content, body: text}))
@@ -32,14 +32,14 @@ const TextEditor = () => {
         ]
     }
   return (
-    <div className={style.textEditorContainer}>
+    <div className={darkMode ? style.textEditorContainer : style.darkTextEditorContainer}>
         <div className={style.editor}>
            <ReactQuill 
-           theme="snow" 
+           theme="snow"
            value={text} 
            onChange={setText}
            modules={modules}
-           className={style.editorInput}
+           className={ style.editorInput }
            />
         </div>
     </div>

@@ -48,7 +48,7 @@ const DarkMode = () => {
         }
         type={darkMode ? "active" : "secondary"}
         fx={() => {
-          dispatch(setDarkMode());
+          dispatch(setDarkMode(!darkMode));
         }}
       />
     </div>

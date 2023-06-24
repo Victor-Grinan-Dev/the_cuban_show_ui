@@ -52,7 +52,10 @@
   background-color: var(--warning);
 }
 
-.terceary {
+.terceary,
+.terceary-not-selected,
+.terceary-selected,
+.terceary-display {
   padding: 1px 2px;
   font-size: 12px;
   border-color: white;
@@ -65,19 +68,24 @@
   text-transform: uppercase;
 }
 
-.terceary-not-selected = {
+.terceary-not-selected {
   border-color: black;
   color: black;
-};
+}
 
-.terceary-selected = {
+.dark-terceary-not-selected {
+  border-color: black;
+  color: black;
+}
+
+.terceary-selected {
   border-color: darkgreen;
   background-color: var(--active);
-  color: white;
+  color: black;
 
-};
+}
 
 .terceary-display {
-  border-color: var(--active);
-  color: var(--active);
+  border-color: black;
+  color: black;
 }

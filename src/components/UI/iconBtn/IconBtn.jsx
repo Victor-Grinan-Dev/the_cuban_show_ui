@@ -1,7 +1,7 @@
 import React from "react";
 import "./iconsBtn.css";
 const IconBtn = ({ iconName }) => {
-  const iconBtns = ["delete", "edit", "tune", "settings"];
+  const iconBtns = ["delete", "edit", "tune", "settings", "question_mark"];
 
   const deleteContent = (e) => {
     console.log('hello');
@@ -22,7 +22,7 @@ const IconBtn = ({ iconName }) => {
     );
   }
   return (
-    <span className="material-symbols-rounded iconBtn">question_mark</span>
+    <span className="material-symbols-rounded iconBtn">{iconBtns[iconName]}</span>
   );
 };
 

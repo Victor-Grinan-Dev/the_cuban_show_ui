@@ -25,6 +25,7 @@ import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
 import TermsAndConditions from "./components/views/termsAndConditions/TermsAndConditions";
 import InstallApp from "./components/views/installApp/InstallApp";
 import { getAllTags, getContents } from "./services/firebaseService";
+import Preview from "./components/views/preview/Preview";
 
 function App() {
   const dispatch = useDispatch();

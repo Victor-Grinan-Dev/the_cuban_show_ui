@@ -13,9 +13,11 @@ import AdvCard from "../../UI/advCard/AdvCard";
 import {
   setAppMemo,
   setDeleteIdMemo,
+  setShowConfirm,
 } from "../../../app/appSlice";
 import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
+import AppBtn from "../../UI/appBtn/AppBtn";
 const capitalStart = {
   textTransform: "capitalize",
   width: "80%",
@@ -27,7 +29,7 @@ const SinglePage = () => {
   const location = useLocation();
   const appMemo = useSelector((state) => state.app.appMemo);
   const { id, body, date, heading, image, tags, title, author } = appMemo;
-
+  const isAuth = useSelector(state => state.app.isAuth);
   const currentLang = useSelector((state) => state.app.currentLang);
   const readableDate = getReadableTime(date);
   const darkMode = useSelector(state => state.app.darkMode)
@@ -96,10 +98,9 @@ const SinglePage = () => {
               ))}
           </div>
           {/* TODO: ERASE CONTENT BY SAVING THEM SOME WHERE ELSE */}
-          {/* {isAuth && (
-            Admin
-            <div
-              style={{
+          {isAuth && (
+            
+            <div style={{
                 //TODO: make this a position fixed component
                 backgroundColor: "grey",
                 padding: "20px",
@@ -107,17 +108,17 @@ const SinglePage = () => {
               }}
             >
               <AppBtn
-                caption={"delete"}
-                type={"secundary"}
+                caption={translate("Delete", currentLang)}
+                type={"danger"}
                 fx={() => dispatch(setShowConfirm(true))}
               />
-              <AppBtn
+              {/* <AppBtn
                 caption={"edit"}
                 type={"secundary"}
                 fx={() => console.log("bye!")}
-              /> 
+              />  */}
             </div>
-          )} */}
+          )}
           <AdvCard text={"advertisment"}/>
           <BackToMain />
           

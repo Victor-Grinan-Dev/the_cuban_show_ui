@@ -6,6 +6,9 @@
     flex-direction: column;
     margin-bottom: 10px;
 }
-.darkTextEditorContainer{
+.textEditorContainer{
     color:white;
+}
+.darkTextEditorContainer{
+    color:black;
 }

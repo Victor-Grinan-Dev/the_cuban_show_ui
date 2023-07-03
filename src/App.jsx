@@ -25,6 +25,7 @@ import ErrorConfirm from "./components/UI/modals/errorCopnfirm/ErrorConfirm";
 import TermsAndConditions from "./components/views/termsAndConditions/TermsAndConditions";
 import InstallApp from "./components/views/installApp/InstallApp";
 import { getAllTags, getContents } from "./services/firebaseService";
+import Preview from "./components/views/preview/Preview";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,11 +58,11 @@ function App() {
 
   useEffect(() => {
    const pref = JSON.parse( localStorage.getItem('tcs-pref'));
-  
+
    if(pref){
-    dispatch(setCurrentLang(pref.currentLang));
-    dispatch(setDarkMode(pref.darkMode));
-   }
+      dispatch(setCurrentLang(pref.currentLang));
+      dispatch(setDarkMode(pref.darkMode));
+    }
 
     // eslint-disable-next-line
   }, []);
@@ -88,7 +89,12 @@ function App() {
 
   const protectedRoutes = () => {
     if (isAuth) {
-      return <Route path="addcontent" element={<AddContent />} />;
+      return (
+        <>
+          <Route path="addcontent" element={<AddContent />} />
+          <Route path="addcontent/:preview" element={<Preview />} />
+        </>
+      );
     }
   };
 
@@ -137,8 +143,8 @@ function App() {
         <Modal1
           component={<MessageConfirm />}
           closeFx={() =>{ 
-            dispatch(setShowMessage(false));         
-            dispatch(setMessage(""));         
+            dispatch(setShowMessage(false));
+            dispatch(setMessage(""));
           }}
           message={"Success!"}
         />
@@ -147,8 +153,8 @@ function App() {
         <Modal1
           component={<ErrorConfirm />}
           closeFx={() =>{ 
-            dispatch(setShowError(false));         
-            dispatch(setError(""));         
+            dispatch(setShowError(false));
+            dispatch(setError(""));
           }}
           message={"ERROR!!"}
         />

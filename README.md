@@ -7,10 +7,18 @@ No-Copy License.
 - https://the-cuban-show-development.netlify.app/
 
 ## Table of Contents
+- Dependencies
 - Features
 - Installation
 - Contributing
 - License
+## Dependencies
+- Redux
+- Firebase
+- Js-Cookie
+- React-Quill
+- React-router-dom
+- Uuid
 ## Features
 Crud articles into the content page.
 ## Installation

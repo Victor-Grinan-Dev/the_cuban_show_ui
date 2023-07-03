@@ -7,14 +7,14 @@ import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import TagBtn from "../appBtn/TagBtn";
 
-const NewsCard = ({ props }) => {
+const NewsCard = ({ props, isTest }) => {
   const { id, title, image, date, heading, previewUrl, tags, author } = props;
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
   const isMobile = false;
  
   return (
-    <Link to={`article/${id}`} state={props}>
+    <Link to={isTest ? "preview" :`article/${id}`} state={props}>
       <div className={style.cardContainer}>
         <div className={style.newsCard}>
           <div className={style.newsCardImgContainer}>

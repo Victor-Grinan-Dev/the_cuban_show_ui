@@ -7,7 +7,7 @@ const MessageConfirm = () => {
   return (
     <div className={style.modalContentSize}>
         <SignImage sign="right" />
-        <p style={{color:"white", fontSize: "25px"}}>{message }</p>
+        <p style={{color:"white", fontSize: "25px", margin:'0 auto'}}>{message }</p>
     </div>
   )
 }

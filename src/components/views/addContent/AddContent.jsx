@@ -34,7 +34,7 @@ const AddContent = () => {
   const allTags = useSelector(state => state.app.allTags);
   const [imageUpload, setImageUpload] = useState(null);
   const textEditor = document.getElementsByClassName("ql-editor");
-
+ 
   const panelBtnStyle = {
     padding: "10px",
     margin: "10px 0",
@@ -62,7 +62,8 @@ const AddContent = () => {
       content.title &&
       content.heading &&
       content.body &&
-      content.tags.length !== 0
+      content.tags.length !== 0 &&
+      imageUpload
     ) {
       createContent(content);
 
@@ -158,7 +159,8 @@ const AddContent = () => {
       content.title !== "" &&
       content.body !== "" &&
       content.heading !== "" &&
-      tags.length > 0
+      tags.length > 0 &&
+      imageUpload
     ) {
       uploadImage();
     } else {

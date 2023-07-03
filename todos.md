@@ -20,10 +20,9 @@
 
 ### Fix ups.
 
-
 - la pagina de About y Contact
 
-- borrar contenido?, Make delete not really delete but just move the content to another branch of the json obj.
+- Make delete not really delete but just move the content to another branch of the json obj.
 
 - UNIQUE KEY VALUE ERROR IN CONTENT.
 
@@ -110,3 +109,7 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
 
 - cuando das click en una de las noticias y estando dentro le das reload a la pagina se pierde el contenido de la noticia (404 not found) no deberia pasar.
+
+- addContent submit explain more specific of what is missing,
+
+- borrar contenido?

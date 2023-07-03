@@ -32,7 +32,7 @@ const Preview = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
   const darkMode = useSelector((state) => state.app.darkMode);
   const content = useSelector(state => state.app.content);
-  const { body, date, heading, image, tags, title, author } = content;
+  const { body, date, heading, previewUrl, tags, title, author } = content;
   const readableDate = getReadableTime(date);
   return (
     <div className={globalStyle.view}>
@@ -41,7 +41,7 @@ const Preview = () => {
           {/* <BackToMain /> */}
           <p>Published: {readableDate.toDateString()} </p>
           <img
-            src={image ? image : defaultImage}
+            src={previewUrl ? previewUrl : defaultImage}
             alt="singleImgage"
             className={style.singleImage}
           />

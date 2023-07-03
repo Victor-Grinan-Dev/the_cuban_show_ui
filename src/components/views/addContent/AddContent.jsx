@@ -31,10 +31,10 @@ const AddContent = () => {
   const message = useSelector((state) => state.app.message);
   const tags = useSelector((state) => state.app.tags);
   const currentLang = useSelector((state) => state.app.currentLang);
-  const allTags = useSelector(state => state.app.allTags);
+  const allTags = useSelector((state) => state.app.allTags);
   const [imageUpload, setImageUpload] = useState(null);
   const textEditor = document.getElementsByClassName("ql-editor");
- 
+
   const panelBtnStyle = {
     padding: "10px",
     margin: "10px 0",
@@ -164,12 +164,53 @@ const AddContent = () => {
     ) {
       uploadImage();
     } else {
-      /**
-       * TODO
-       * more specific of what is missing
-       */
-      dispatch(setError("Input fields still empty"));
-      dispatch(setShowError(true))
+      if (content.title === "") {
+        dispatch(
+          setError(
+            translate('Please write a "title" for this content', currentLang)
+          )
+        );
+        
+      }
+      if (content.heading === "") {
+        dispatch(
+          setError(
+            translate('Please write a "heading" for this content', currentLang)
+          )
+        );
+        
+      }
+      if (content.body === "") {
+        dispatch(
+          setError(
+            translate('Please write a "body" for this content', currentLang)
+          )
+        );
+        
+      }
+      if (tags.length === 0) {
+        dispatch(
+          setError(
+            translate(
+              'Please select or create one or more "tags" for this content',
+              currentLang
+            )
+          )
+        );
+        
+      }
+      if (!imageUpload) {
+        dispatch(
+          setError(
+            translate(
+              "please select an image for this content. If an image have been selected and still see this message, try to select the image again",
+              currentLang
+            )
+          )
+        );
+        
+      }
+      dispatch(setShowError(true));
     }
   };
 
@@ -224,13 +265,13 @@ const AddContent = () => {
             </div>
           </span>
           <input
-              name="author"
-              className={style.input}
-              type="text"
-              placeholder={translate("Author", currentLang)}
-              onChange={(e) => changeHandler(e)}
-              value={content.author && content.author}
-            />
+            name="author"
+            className={style.input}
+            type="text"
+            placeholder={translate("Author", currentLang)}
+            onChange={(e) => changeHandler(e)}
+            value={content.author && content.author}
+          />
           <AppBtn
             caption={translate("Publish", currentLang)}
             type={"primary"}
@@ -240,7 +281,6 @@ const AddContent = () => {
       </div>
       <p className={style.isShowTags}>{translate("All tags", currentLang)}:</p>
       <div className={style.tagsArea}>
-        
         {allTags &&
           allTags.map((t) => {
             return (
@@ -256,7 +296,6 @@ const AddContent = () => {
       </div>
       <CreateTag />
       <div className={style.panel}>
-
         <AppBtn
           caption={translate("Clear image, title & heading", currentLang)}
           type={"secondary"}

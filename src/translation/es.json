@@ -59,6 +59,12 @@
   "Off":"Apagado",
   "Clear all":"Despejar",
   "Author":"Autor",
-  "Not specified":"No especificado"
+  "Not specified":"No especificado",
+  "Please write a \"title\" for this content":"Por favor escriba un \"título\" para este contenido",
+  "Please write a \"heading\" for this content":"Por favor escriba un \"encabezado\" para este contenido",
+  "Please write a \"body\" for this content":"Por favor escriba un \"cuerpo\" para este contenido",
+  "Please select or create one or more \"tags\" for this content":"Por favor seleccione o escriba una o más \"etiquetas\" para este contenido",
+  "please select an image for this content. If an image have been selected and still see this message, try to select the image again":"Por favor seleccione una imagen para este contenido. Si ya has seleccionano una imagen y este error persiste, intente seleccionar la imagen nuevamente",
+  "Delete":"Borrar"
 }
 

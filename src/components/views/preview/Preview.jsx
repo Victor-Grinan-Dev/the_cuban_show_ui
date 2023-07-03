@@ -4,15 +4,6 @@ import globalStyle from "../../../style/styleGeneral.module.css";
 import defaultImage from "../../../assets/logo-black.jpg";
 import style from "../singlePage/singlePage.module.css";
 import { useSelector } from "react-redux";
-// import BackToMain from "../../UI/backToMain/BackToMain";
-//import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
-
-import AdvCard from "../../UI/advCard/AdvCard";
-
-// import {
-//   setAppMemo,
-//   setDeleteIdMemo,
-// } from "../../../app/appSlice";
 import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
 
@@ -38,7 +29,7 @@ const Preview = () => {
     <div className={globalStyle.view}>
       <div className={style.single}>
         <div className={style.top}>
-          {/* <BackToMain /> */}
+          {/* TODO: back to create page */}
           <p>Published: {readableDate.toDateString()} </p>
           <img
             src={previewUrl ? previewUrl : defaultImage}
@@ -75,8 +66,7 @@ const Preview = () => {
                 />
               ))}
           </div>
-          <AdvCard text={"advertisment"} />
-          {/* <BackToMain /> */}
+         {/* TODO: back to create page */}
         </div>
       </div>
     </div>

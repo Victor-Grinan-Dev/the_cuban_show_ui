@@ -9,20 +9,23 @@
 - make one
 
 ### Funtionalities:
-- borrar contenido?
+
+- navagate to addcontent page (nav -1)
 
 - buscador por author por fecha fuente.
 
-- ads if there is no ads dont show the empty space or show own ad flag.
+- ads if there is no ads dont show the empty space or show own ad flag?
+
+- if search is on dont show main news card?
 
 ### Fix ups.
-- cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
+
 
 - la pagina de About y Contact
 
-- Make delete not really delete but just move the content to another branch of the json obj.
+- borrar contenido?, Make delete not really delete but just move the content to another branch of the json obj.
 
-- UNIQUE KEY VALUE ERROR IN CONTENT. cuando das click en una de las noticias y estando dentro le das reload a la pagina se pierde el contenido de la noticia (404 not found) no deberia pasar.
+- UNIQUE KEY VALUE ERROR IN CONTENT.
 
 - return to browse pinPoint: (DOESNT HAPPENS CAUSE KEY ERROR)
     - on click in newsCard save scroll value.
@@ -103,3 +106,7 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - dynamic tags
 
 - settings memory (darkmode & lang)
+
+- cuando das click en la tarjeta que está en la pagina de crear contenido deberia salir un preview de la noticia en vez de 404.
+
+- cuando das click en una de las noticias y estando dentro le das reload a la pagina se pierde el contenido de la noticia (404 not found) no deberia pasar.

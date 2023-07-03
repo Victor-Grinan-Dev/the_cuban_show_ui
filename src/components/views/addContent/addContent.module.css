@@ -9,13 +9,9 @@
 .textarea{
     margin-top: 10px;
     margin-bottom: 100px;
-    /* height: 20vh; */
-    /* max-height: 400px; */
+    min-height: 20vh;
 }
-
 .tagsArea{
-    height: 20vh;
-    max-height: 400px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

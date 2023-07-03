@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMessage, setShowConfirm, setShowMessage } from "../../../../app/appSlice";
 import { deleteContent } from "../../../../services/firebaseService";
 import { useNavigate } from "react-router";
+import SignImage from "../../signImage/SignImage";
 
 const ConfirmCancel = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const ConfirmCancel = () => {
 
   return (
     <div className={genStyles.flexCenter}>
+      <SignImage sign="warningRed" />
       <div>
         <AppBtn caption={"Confirm"} type="danger" fx={() => {
             deleteContent(deleteIdMemo);

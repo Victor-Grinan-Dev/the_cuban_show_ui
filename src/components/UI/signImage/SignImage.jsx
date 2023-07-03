@@ -4,6 +4,7 @@ import wrong from '../../../assets/answer-wrong.png';
 import right from '../../../assets/answer-right.png';
 import warningRed from '../../../assets/warning_red.png';
 import warningYellow from '../../../assets/warning_yellow.png';
+import style from './signImage.module.css';
 
 const SignImage = ({sign}) => {
 
@@ -15,7 +16,10 @@ const SignImage = ({sign}) => {
     }
 
   return (
-    <img src={signs[sign]} alt="sign_image"/>
+    <div className={style.signImageContainer}>
+        <img src={signs[sign]} alt="sign_image" className={style.signImage}/>
+    </div>
+   
   )
 }
 

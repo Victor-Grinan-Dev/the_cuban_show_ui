@@ -1,0 +1,13 @@
+
+.signImageContainer{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.signImage{
+    max-width:300px;
+    width:30vw;
+    margin: 50px 0;
+}

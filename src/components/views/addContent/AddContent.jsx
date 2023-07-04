@@ -19,10 +19,10 @@ import { isTagIncluded } from "../../../functions/tags";
 import { storage } from "../../../firebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { v4 } from "uuid";
-import NewsCard from "../../UI/newsCard/NewsCard";
 import TextEditor from "../../UI/textEditor/TextEditor";
 import AppBtn from "../../UI/appBtn/AppBtn";
 import CreateTag from "../../UI/creatTag/CreateTag";
+import NewsCardPreview from "../../UI/newCardPreview/NewsCardPreview";
 
 const AddContent = () => {
   const dispatch = useDispatch();
@@ -228,7 +228,8 @@ const AddContent = () => {
       >
         {message}
       </div>
-      <NewsCard props={content} isTest={true} />
+      {/* <NewsCard {...content} isTest={true} /> */}
+      <NewsCardPreview />
       <div className="formContainer">
         <form
           onSubmit={(e) => submitHandler(e)}

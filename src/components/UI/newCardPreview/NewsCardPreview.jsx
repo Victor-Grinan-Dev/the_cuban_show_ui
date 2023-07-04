@@ -1,48 +1,45 @@
-import React from "react";
-import style from "./newsCard.module.css";
+import React from 'react'
+import style from "../newsCard/newsCard.module.css";
 import testImg from "../../../assets/logo-black.jpg";
 import { Link } from "react-router-dom";
-import { getReadableTime } from "../../../functions/time";
 import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import TagBtn from "../appBtn/TagBtn";
 
-const NewsCard = ( props) => {
-  const { id, title, image, date, heading, previewUrl, tags, author } = props;
-  const readableDate = getReadableTime(date);
-  const currentLang = useSelector((state) => state.app.currentLang);
-  const content = useSelector((state) => state.app.content);
-  const isMobile = false;
- 
+const NewsCardPreview = () => {
+    const content = useSelector((state) => state.app.content); 
+    const currentLang = useSelector((state) => state.app.currentLang);
+    const date = Date()
+
   return (
-    <Link to={`article/${id}`} state={props}>
+    <Link to={"preview"} state={content}>
       <div className={style.cardContainer}>
         <div className={style.newsCard}>
           <div className={style.newsCardImgContainer}>
             <img
               className={style.newsCardImg}
-              src={image || previewUrl || testImg}
+              src={ content.previewUrl || testImg}
               alt="newsImage"
             />
           </div>
 
           <div className={style.contentContainer}>
-            <h3 className={style.newsCardTitle}>{title ? title : content.title ? content.title : "test title"}</h3>
+            <h3 className={style.newsCardTitle}>{content.title || "test title"}</h3>
             <hr className={style.line} />
-            {!isMobile && <div className={style.heading}>{heading}</div>}
+            <div className={style.heading}>{content.heading}</div>
             <div className="date-author">
               <p className={style.date}>
                 {translate("Published", currentLang)}:
-                {readableDate.toDateString()}
+                {date}
               </p>
               <p className={style.author}>
-                Author: {" "}
-                {author ? author : "Not specified" }
+                Author:
+                {content.author || "Not specified" }
               </p>
             </div>
             <div className="tags"> 
               {
-                tags && tags.map((tag, i) => (
+                content.tags && content.tags.map((tag, i) => (
                   <TagBtn id={i} key={i} type={"display"} label={translate(`${tag}`, currentLang)}/>
                 ))
               }
@@ -51,7 +48,7 @@ const NewsCard = ( props) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
-export default NewsCard;
+export default NewsCardPreview;

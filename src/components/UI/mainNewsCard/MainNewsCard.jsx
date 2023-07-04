@@ -7,7 +7,7 @@ import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import TagBtn from "../appBtn/TagBtn";
-const MainNewsCard = ({ props }) => {
+const MainNewsCard = (props) => {
   const { id, title, image, date, heading, tags, author } = props;
   const readableDate = getReadableTime(date);
   const isMobile = false;

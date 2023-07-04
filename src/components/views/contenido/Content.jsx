@@ -28,6 +28,7 @@ const Content = () => {
     }
     return value;
   };
+
   const adsInterval = 5; //every x cards show advertisment
   /**
    * contentsFiltered :
@@ -68,21 +69,23 @@ const Content = () => {
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              (i === 0 && selectedTags.length === 0 ? (
-                <MainNewsCard props={c} key={'mainCard'} />
+              (
+                
+                i === 0 && selectedTags.length === 0 && search === ""? (
+                <MainNewsCard {...c} id={`${i}-${uuidv4()}`} key={'mainCard'} />
               ) : i % adsInterval === 0 ? (
-                <>
+                <span key={uuidv4()}>
                   <AdvCard id={i} key={`${uuidv4()}`} text={advs[nextAdv()]} />
-                  <NewsCard props={c} key={c.id || uuidv4()} />
-                </>
+                  <NewsCard {...c} key={`${uuidv4()}`} />
+                </span>
               ) : (
-                <NewsCard props={c} key={c.id || uuidv4()} />
+                <NewsCard {...c} key={`${uuidv4()}`} />
               ))
             )}
         </div>
       </div>
     
-      <AdvCard id={"lastAdv"} key={`lastAdv`} text={advs[nextAdv()]} dataAdSlot={"9160054892"} />
+      <AdvCard id={"lastAdv"} key={`lastAdv-${uuidv4()}`} text={advs[nextAdv()]} />
   
     </div>
   );

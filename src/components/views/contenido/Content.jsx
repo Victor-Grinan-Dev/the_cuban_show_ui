@@ -69,8 +69,7 @@ const Content = () => {
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              (
-                
+              ( 
                 i === 0 && selectedTags.length === 0 && search === ""? (
                 <MainNewsCard {...c} id={`${i}-${uuidv4()}`} key={'mainCard'} />
               ) : i % adsInterval === 0 ? (

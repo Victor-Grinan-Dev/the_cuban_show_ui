@@ -24,8 +24,6 @@
 
 - Make delete not really delete but just move the content to another branch of the json obj.
 
-- UNIQUE KEY VALUE ERROR IN CONTENT.
-
 - return to browse pinPoint: (DOESNT HAPPENS CAUSE KEY ERROR)
     - on click in newsCard save scroll value.
     - on BackToContents reload scroll value.
@@ -113,3 +111,5 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - addContent submit explain more specific of what is missing,
 
 - borrar contenido?
+
+- UNIQUE KEY VALUE ERROR IN CONTENT.

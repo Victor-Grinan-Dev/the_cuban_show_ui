@@ -10,7 +10,7 @@
 
 ### Funtionalities:
 
-- navagate to addcontent page (nav -1)
+- navagate to addcontent page (nav -1) from preview
 
 - buscador por author por fecha fuente.
 

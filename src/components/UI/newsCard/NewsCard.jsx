@@ -7,7 +7,7 @@ import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import TagBtn from "../appBtn/TagBtn";
 
-const NewsCard = ({ props, isTest }) => {
+const NewsCard = ( props, isTest) => {
   const { id, title, image, date, heading, previewUrl, tags, author } = props;
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);

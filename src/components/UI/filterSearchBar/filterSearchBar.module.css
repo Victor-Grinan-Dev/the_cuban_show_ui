@@ -1,72 +1,71 @@
-.filterSearchBar{
-    width: 100%;
+.filterSearchBar {
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  background-color: rgb(23, 6, 117);
+  z-index: 3;
+  background-image: url("../../../assets/textures/buried.png");
+}
+
+@media screen and (min-width: 767) {
+  .filterSearchBar {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    position: fixed;
+
     background-color: rgb(23, 6, 117);
-    z-index: 3;
-}
-
-@media screen and (min-width: 767){
-    .filterSearchBar{
-        position: fixed;
-        left: 50%;
-        transform: translate(-50%, 0);
-    
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-        background-color: rgb(23, 6, 117);
-        padding: 2px 0;
-    }
+    padding: 2px 0;
+  }
 }
 
 @media only screen and (max-width: 760px) {
-    .filterSearchBar{
-        position: fixed;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-        background-color: rgb(23, 6, 117);
-        padding: 2px 0;
-    }
-}
-
-.filterSearchList{
+  .filterSearchBar {
+    position: fixed;
+    left: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    list-style-type: none;
-    width: 90%;
-    font-size: smaller;
+    width: 100%;
+
+    background-color: rgb(23, 6, 117);
+    padding: 2px 0;
+  }
 }
 
-
-.searchInput{
-    width: 70vw;
-    font-size: smaller; 
+.filterSearchList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  width: 90%;
+  font-size: smaller;
 }
 
-.searchOptions{
-    font-size: smaller; 
+.searchInput {
+  width: 70vw;
+  font-size: smaller;
 }
 
-.filterSearchCriteria{
-    padding: 0 2px;
-    font-size: 14px;
-    /*selected*/
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 5px;
+.searchOptions {
+  font-size: smaller;
+}
 
+.filterSearchCriteria {
+  padding: 0 2px;
+  font-size: 14px;
+  /*selected*/
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
 }

@@ -4,7 +4,8 @@
   padding: 10px;
   box-shadow: 0 0 5px black;
   margin: 5px;
-  width: 75vw;
+  width: 90vw;
+  max-width: 780px;
 }
 .advContent {
   height: 150px;
@@ -13,7 +14,7 @@
   display: flex;
   align-items: center;
   /*background-image: linear-gradient(45deg, #eaafc8, #654ea3);*/
-  background-color:#929099;
+  background-color: #929099;
   padding-right: 20px;
   position: relative;
 }

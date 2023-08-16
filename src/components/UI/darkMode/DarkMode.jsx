@@ -28,11 +28,11 @@ const DarkMode = () => {
   }, [darkMode]);
 
   useEffect(() => {
-    if(pref.darkMode !== darkMode){
+    if (pref.darkMode !== darkMode) {
       setPref({ ...pref, darkMode: darkMode });
     }
-    
-     // eslint-disable-next-line
+
+    // eslint-disable-next-line
   }, [darkMode]);
 
   return (

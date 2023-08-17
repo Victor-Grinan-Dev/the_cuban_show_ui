@@ -5,6 +5,7 @@ import Banner from "../../UI/banner/Banner";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { translate } from "../../../translation/translation";
 
 const aboutPage = {
   backgroundColor: "white",
@@ -18,7 +19,7 @@ const aboutPageDark = {
 
 export default function About() {
   const darkMode = useSelector((state) => state.app.darkMode);
-  // const currentLang = useSelector((state) => state.app.currentLang);
+  const currentLang = useSelector((state) => state.app.currentLang);
   return (
     <div className={genStyle.view} style={darkMode ? aboutPageDark : aboutPage}>
       <Banner />
@@ -28,6 +29,13 @@ export default function About() {
           Make sure to read our{" "}
           <Link to={"termsandconditions"}> Terms & Conditions </Link>
         </p>
+        <div>
+          <Link to={"installapp"}>
+            <p style={{ color: "blue" }}>
+              {translate("Want to install this app?", currentLang)}
+            </p>
+          </Link>
+        </div>
       </div>
       <p className={genStyle.splitParragraph}>
         <span className={style.aboutSubjects}>Who we are?</span>
@@ -61,11 +69,6 @@ export default function About() {
         program. - you could order merchandise from us as a way to support. -
         you can order adverrtisment service from us. - or you could just donate.
       </p>
-      <div>
-        <Link to={"installapp"}>
-          <p style={{ color: "blue" }}>How to install this app in androids</p>
-        </Link>
-      </div>
     </div>
   );
 }

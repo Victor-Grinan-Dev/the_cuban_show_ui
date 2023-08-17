@@ -27,7 +27,7 @@ const TermsAndConditions = () => {
           className={style.termsAndCondStyle}
           style={darkMode ? pageDark : page}
         >
-          <h3>terminos & Condiciones</h3>
+          <h3>Terminos & Condiciones</h3>
           <br />
           <p>Estimado usuario: </p>
           <p>

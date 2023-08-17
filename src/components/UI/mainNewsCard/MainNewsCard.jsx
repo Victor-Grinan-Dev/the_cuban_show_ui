@@ -24,22 +24,26 @@ const MainNewsCard = (props) => {
               <hr className={genStyle.line} />
               {!isMobile && <div className={genStyle.heading}>{heading}</div>}
               <div className="date-author">
-              <p className={style.date}>
-                {translate("Published", currentLang)}:
-                {readableDate.toDateString()}
-              </p>
-              <p className={style.author}>
-                {translate("Author", currentLang)}: {" "}
-                {author ? author : translate("Not specified", currentLang) }
-              </p>
-            </div>
-              <div className="tags"> 
-              {
-                tags && tags.map((tag, i) => (
-                  <TagBtn id={i} key={i} type={"terceary"} label={translate(`${tag}`, currentLang)}/>
-                ))
-              }
-            </div>
+                <p className={style.date}>
+                  {translate("Published", currentLang)}:
+                  {readableDate.toDateString()}
+                </p>
+                <p className={style.author}>
+                  {translate("Author", currentLang)}:{" "}
+                  {author ? author : translate("Not specified", currentLang)}
+                </p>
+              </div>
+              <div className="tags">
+                {tags &&
+                  tags.map((tag, i) => (
+                    <TagBtn
+                      id={i}
+                      key={i}
+                      type={"terceary"}
+                      label={translate(`${tag}`, currentLang)}
+                    />
+                  ))}
+              </div>
             </div>
             <img
               className={style.mainNewsCardImg}

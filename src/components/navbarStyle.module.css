@@ -1,123 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Staatliches&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Staatliches&display=swap");
 
-.navbar{
-    background-color: rgb(206, 3, 3);
+.navbar {
+  background-color: rgb(206, 3, 3);
 
-    height: 12vh;
-    width: 100vw;
+  height: 12vh;
+  width: 100vw;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
 }
 
-.navbarContainer{
-    background-color: rgb(206, 3, 3);
-    display: flex;
-    height: 10vh;
-    width: 100vw;
-    justify-content: space-around;
-    align-items: center;
+.navbarContainer {
+  background-color: rgb(206, 3, 3);
+  display: flex;
+  height: 10vh;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("../assets/textures/buried.png");
 }
 
-.navigator{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    background-color: aliceblue;
-    width: 100%;
-    list-style-type: none;
-    
+.navigator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: aliceblue;
+  width: 100%;
+  list-style-type: none;
 }
 
-.navigator a{
-    text-decoration: none;
-    color:rgb(8, 8, 8);
-    padding: 0 5px;
-    
-    /*
+.navigator a {
+  text-decoration: none;
+  color: rgb(8, 8, 8);
+  padding: 0 5px;
+
+  /*
     border-style: solid;
     border-color: black;
     border-radius: 5px;
     */
 }
 
-.navigator a:hover{
-    background-color:rgb(4, 7, 173);
-    color: aliceblue;
-    text-shadow: 0 0 5 rgb(0, 0, 7);
+.navigator a:hover {
+  background-color: rgb(4, 7, 173);
+  color: aliceblue;
+  text-shadow: 0 0 5 rgb(0, 0, 7);
 }
 
-.logo{
-    /*background*/
-    background-Image: url('../assets/logo-black.jpg');
-    object-fit: cover;
-    background-size: 160%;
-    background-repeat: no-repeat;
-    background-position: center;
+.logo {
+  /*background*/
+  background-image: url("../assets/logo-black.jpg");
+  object-fit: cover;
+  background-size: 160%;
+  background-repeat: no-repeat;
+  background-position: center;
 
-    height: 45px;
-    width: 45px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 5px black;
+  height: 45px;
+  width: 45px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px black;
 }
-.title{
-    font-family: 'Staatliches', cursive;
-    font-family: 'Racing Sans One', cursive;
-    font-size: 11px;
-    color: azure;
-    text-shadow: 0 0 10px black;
+.title {
+  font-family: "Staatliches", cursive;
+  font-family: "Racing Sans One", cursive;
+  font-size: 11px;
+  color: azure;
+  text-shadow: 0 0 10px black;
 }
-@media screen and (min-width: 700px){
-    .title{
-        font-size: 35px;
-    }
-}
-
-@media screen and (min-width: 600px){
-    .title{
-        font-size: 20px;
-    }
+@media screen and (min-width: 700px) {
+  .title {
+    font-size: 35px;
+  }
 }
 
-.menu, 
-.menuOn{
-    
-    height: 45px;
-    width: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /*border*/
-    border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    color: white;
-    box-shadow: 0 0 5px black;
-
-    background-image: url('../assets/gearIcon.png');
-    background-size: 55%;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.menu{
-    background-color: rgb(0, 0, 0);
-}
-.menuOn{
-    background-color: rgb(168, 87, 87);
+@media screen and (min-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
 }
 
-.deactivated{
-    color: darkgray;
+.menu,
+.menuOn {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /*border*/
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  box-shadow: 0 0 5px black;
+
+  background-image: url("../assets/gearIcon.png");
+  background-size: 55%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.menu {
+  background-color: rgb(0, 0, 0);
+}
+.menuOn {
+  background-color: rgb(168, 87, 87);
+}
+
+.deactivated {
+  color: darkgray;
 }

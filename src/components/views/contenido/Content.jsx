@@ -9,7 +9,7 @@ import { filterByTags } from "../../../functions/filter";
 import style from "./styleContent.module.css";
 import AdvCard from "../../UI/advCard/AdvCard";
 import MainNewsCard from "../../UI/mainNewsCard/MainNewsCard";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -46,8 +46,7 @@ const Content = () => {
 
   useEffect(() => {
     dispatch(setIsLoading(true));
-    getContents()
-      .then((data) => dispatch(setContents(data)))
+    getContents().then((data) => dispatch(setContents(data)));
     getAllTags()
       .then((data) => dispatch(setAllTags(data)))
       .then(dispatch(setIsLoading(false)));
@@ -69,9 +68,8 @@ const Content = () => {
         <div className={style.stack}>
           {contents &&
             contentsFiltered.map((c, i) =>
-              ( 
-                i === 0 && selectedTags.length === 0 && search === ""? (
-                <MainNewsCard {...c} id={`${i}-${uuidv4()}`} key={'mainCard'} />
+              i === 0 && selectedTags.length === 0 && search === "" ? (
+                <MainNewsCard {...c} id={`${i}-${uuidv4()}`} key={"mainCard"} />
               ) : i % adsInterval === 0 ? (
                 <span key={uuidv4()}>
                   <AdvCard id={i} key={`${uuidv4()}`} text={advs[nextAdv()]} />
@@ -79,13 +77,16 @@ const Content = () => {
                 </span>
               ) : (
                 <NewsCard {...c} key={`${uuidv4()}`} />
-              ))
+              )
             )}
         </div>
       </div>
-    
-      <AdvCard id={"lastAdv"} key={`lastAdv-${uuidv4()}`} text={advs[nextAdv()]} />
-  
+
+      <AdvCard
+        id={"lastAdv"}
+        key={`lastAdv-${uuidv4()}`}
+        text={advs[nextAdv()]}
+      />
     </div>
   );
 };

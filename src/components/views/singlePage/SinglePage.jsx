@@ -29,10 +29,10 @@ const SinglePage = () => {
   const location = useLocation();
   const appMemo = useSelector((state) => state.app.appMemo);
   const { id, body, date, heading, image, tags, title, author } = appMemo;
-  const isAuth = useSelector(state => state.app.isAuth);
+  const isAuth = useSelector((state) => state.app.isAuth);
   const currentLang = useSelector((state) => state.app.currentLang);
   const readableDate = getReadableTime(date);
-  const darkMode = useSelector(state => state.app.darkMode)
+  const darkMode = useSelector((state) => state.app.darkMode);
 
   useEffect(() => {
     if (location.state) {
@@ -56,75 +56,72 @@ const SinglePage = () => {
   };
   return (
     <div className={globalStyle.view}>
-      <AdvCard text={"advertisment"}/>
-      <div className={style.single}>
-        <div className={style.top}>
-          <BackToMain />
-          <p>Published: {readableDate.toDateString()} </p>
-          <img
-            src={image ? image : defaultImage}
-            alt="singleImgage"
-            className={style.singleImage}
-          />
-          <h2 style={capitalStart} className={style.title}>
-            "{title}"
-          </h2>
-          <h3 style={capitalStart} className={style.heading}>
-            {heading}
-          </h3>
-          <div
-            className={style.singleBody}
-            dangerouslySetInnerHTML={{ __html: body }}
-          />
-                    <div className="author">
-            <p className={style.author}>
-              {translate("Author", currentLang)}:{" "}
-              {author ? author : translate("Not specified", currentLang)}.
-            </p>
-          </div>
+      <div className={darkMode ? style.newsPageDark : style.newsPage}>
+        <AdvCard text={"advertisment"} />
+        <BackToMain />
+        <p>Published: {readableDate.toDateString()} </p>
+        <img
+          src={image ? image : defaultImage}
+          alt="singleImgage"
+          className={style.singleImage}
+        />
+        <h2 style={capitalStart} className={style.title}>
+          "{title}"
+        </h2>
+        <h3 style={capitalStart} className={style.heading}>
+          {heading}
+        </h3>
+        <div
+          className={style.singleBody}
+          dangerouslySetInnerHTML={{ __html: body }}
+        />
+        <div className="author">
+          <p className={style.author}>
+            {translate("Author", currentLang)}:{" "}
+            {author ? author : translate("Not specified", currentLang)}.
+          </p>
         </div>
-        <div className="bottom">
-
-          <div className="tags">
-            {tags &&
-              tags.map((tag, i) => (
-                <TagBtn
-                  key={i}
-                  id={i}
-                  type={"terceary"}
-                  label={translate(`${tag}`, currentLang)}
-                  style={darkMode && singleDarModeTags}
-                />
-              ))}
-          </div>
-          {/* TODO: ERASE CONTENT BY SAVING THEM SOME WHERE ELSE */}
-          {isAuth && (
-            
-            <div style={{
-                //TODO: make this a position fixed component
-                backgroundColor: "grey",
-                padding: "20px",
-                borderRadius: "5px",
-              }}
-            >
-              <AppBtn
-                caption={translate("Delete", currentLang)}
-                type={"danger"}
-                fx={() => dispatch(setShowConfirm(true))}
+        <div className={style.tags}>
+          {tags &&
+            tags.map((tag, i) => (
+              <TagBtn
+                key={i}
+                id={i}
+                type={"terceary"}
+                label={translate(`${tag}`, currentLang)}
+                style={darkMode && singleDarModeTags}
               />
-              {/* <AppBtn
+            ))}
+        </div>
+        {isAuth && (
+          <div
+            style={{
+              backgroundColor: "grey",
+              padding: "20px",
+              borderRadius: "5px",
+            }}
+          >
+            <AppBtn
+              caption={translate("Delete", currentLang)}
+              type={"danger"}
+              fx={() => dispatch(setShowConfirm(true))}
+            />
+            {/* <AppBtn
                 caption={"edit"}
                 type={"secundary"}
                 fx={() => console.log("bye!")}
-              />  */}
-            </div>
-          )}
-          <AdvCard text={"advertisment"}/>
-          <BackToMain />
-          
-        </div>
-      </div>
+            />  */}
+          </div>
+        )}
+        <AdvCard text={"advertisment"} />
+        <BackToMain />
+        {/* <div className={style.top}>
+          <div className="bottom"></div>
+          {/* TODO: ERASE CONTENT BY SAVING THEM SOME WHERE ELSE 
 
+        </div>
+         */}
+      </div>
     </div>
   );
 };

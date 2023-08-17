@@ -1,145 +1,149 @@
-
-:root{
-    --CardContentHeight: 10vh;
+:root {
+  --CardContentHeight: 10vh;
 }
 
 .advCard,
-.cardContainer{
-    background-color: rgb(240,240,240);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 5px black;
-    margin: 5px;
-    width: 90vw;
-    max-width: 895px;
+.cardContainer {
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 5px black;
+  margin: 5px;
+  width: 90vw;
+  max-width: 780px;
 
-    position: relative;
+  position: relative;
 }
 
-.advContent{
-    height: 15vh;
-}
-.newsCard{
-    height: var(--CardContentHeight);
-    overflow: hidden;
-    display: flex;
-    background-image: linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
-    position:relative; 
-}
-.advContent{
-    background-image:none;
-    background-color: grey;
+.advContent {
+  height: 15vh;
 }
 
-a{
-    text-decoration: none;
-    color: black;
+.mainNewsCard,
+.newsCard {
+  background-image: url("../../../assets/textures/light-aluminum.png"),
+    linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
 }
 
-.newsCardImgContainer{
-    background-color: #060606;
-    height: 100%;
-    width: 30%;
-
-    overflow: hidden;
-    position: relative;
+.newsCard {
+  height: var(--CardContentHeight);
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+.advContent {
+  background-image: none;
+  background-color: grey;
 }
 
-.newsCardImg{
-
-    width: 100%;
-    min-height: 100%;
-    /* vertical-align: middle; */
-    object-fit: cover;
-    object-position: center;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-.contentContainer{
-    padding: 10px;
-    width: 70%;
+.newsCardImgContainer {
+  background-color: #060606;
+  height: 100%;
+  width: 30%;
+
+  overflow: hidden;
+  position: relative;
 }
 
-.newsCardTitle{
-    font-size: 2.2vw;
-    color: black;
-    text-shadow: 0 0 5px rgb(252, 252, 252);
-    text-transform: capitalize;
+.newsCardImg {
+  width: 100%;
+  min-height: 100%;
+  /* vertical-align: middle; */
+  object-fit: cover;
+  object-position: center;
+}
+
+.contentContainer {
+  padding: 10px;
+  width: 70%;
+}
+
+.newsCardTitle {
+  font-size: 2.2vw;
+  color: black;
+  text-shadow: 0 0 5px rgb(252, 252, 252);
+  text-transform: capitalize;
 }
 
 @media screen and (min-width: 1600px) {
-    .newsCardTitle {
-       font-size: 30px;
-    }
+  .newsCardTitle {
+    font-size: 30px;
   }
-
-.line{
-    border-style: solid;
-    border-color: rgb(161, 2, 2);
-    border-width: 3px;
-    width: 100%;
-}
-.heading{
-    font-size: 12px;
-    text-transform: capitalize;
-    display: flex;
-}
-.date{
-    font-size:10px;
 }
 
-.author{
-    font-size: 12px;
+.line {
+  border-style: solid;
+  border-color: rgb(161, 2, 2);
+  border-width: 3px;
+  width: 100%;
 }
-.adminTools{
-    width: 70px;
+.heading {
+  font-size: 12px;
+  text-transform: capitalize;
+  display: flex;
+}
+.date {
+  font-size: 10px;
+}
 
-    position: absolute;
-    right:10px;
-    bottom: 10px;
+.author {
+  font-size: 12px;
+}
+.adminTools {
+  width: 70px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {
-    .newsCard{
-        height:  100px;
-    }
-    
-    a{
-        text-decoration: none;
-        color: black;
-    }
+  .newsCard {
+    height: 100px;
+  }
 
-    .newsCardImg{
-        object-fit: cover;
-        object-position: center;
-    }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 
-    .contentContainer{
-        padding: 10px;
-        width: 100%;
-    }
+  .newsCardImg {
+    object-fit: cover;
+    object-position: center;
+  }
 
-    .newsCardTitle{
-        font-size: 14px;
-        color: black;
-        text-shadow: 0 0 5px rgb(252, 252, 252);
-        text-transform: capitalize;
-    }
+  .contentContainer {
+    padding: 10px;
+    width: 100%;
+  }
 
-    .line{
-        border-style: solid;
-        border-color: rgb(161, 2, 2);
-        border-width: 3px;
-    }
-    .heading{
-        font-size: 12px;
-        text-transform: capitalize;
-        display: flex;
-    }
-    .date{
-        font-size:10px;
-    }
+  .newsCardTitle {
+    font-size: 14px;
+    color: black;
+    text-shadow: 0 0 5px rgb(252, 252, 252);
+    text-transform: capitalize;
+  }
+
+  .line {
+    border-style: solid;
+    border-color: rgb(161, 2, 2);
+    border-width: 3px;
+  }
+  .heading {
+    font-size: 12px;
+    text-transform: capitalize;
+    display: flex;
+  }
+  .date {
+    font-size: 10px;
+  }
 }

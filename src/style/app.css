@@ -1,28 +1,29 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    height: 100vh; 
-} 
+body {
+  height: 100vh;
+  background-image: url("../assets/textures/dark-wood.png");
+}
 
-.darkBody{
-    background-color: #333;
+.darkBody {
+  background-color: #333;
 }
 
 .layout,
-.layoutDark{
-    height: 100%;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+.layoutDark {
+  height: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
-.scrollable{
-    overflow-y: scroll;
+.scrollable {
+  overflow-y: scroll;
 }

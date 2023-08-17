@@ -21,7 +21,7 @@ import { translate } from "../../../translation/translation";
 export default function Contact() {
   // const darkMode = useSelector((state) => state.app.darkMode);
   const currentLang = useSelector((state) => state.app.currentLang);
-  const link = { color: "blue" };
+  const link = { color: "blue", cursor: "pointer" };
   return (
     <div className={genStyle.view}>
       <Banner />
@@ -44,7 +44,13 @@ export default function Contact() {
         <br />
         <p>
           {translate("Web app creation and maintenance", currentLang)}:{" "}
-          <span style={link}>Victor Griñán</span>{" "}
+          <a
+            href="https://victor-grinan-dev.github.io/Portfolio/"
+            target="blank"
+            style={link}
+          >
+            Victor Griñán
+          </a>{" "}
         </p>
 
         <br />

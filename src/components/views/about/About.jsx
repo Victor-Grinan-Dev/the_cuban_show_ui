@@ -12,6 +12,7 @@ import complete from "../../../assets/install-app/phone-added-to-home-app.jpg";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { translate } from "../../../translation/translation";
 
 const aboutPage = {
   backgroundColor: "white",
@@ -25,12 +26,13 @@ const aboutPageDark = {
 
 export default function About() {
   const darkMode = useSelector((state) => state.app.darkMode);
+  const currentLang = useSelector((state) => state.app.currentLang);
   return (
     <div className={genStyle.view} style={darkMode ? aboutPageDark : aboutPage}>
       <Banner />
       <h1>The cuban Show</h1>
       <div>
-        <p>
+        <p className={style.termsConditions}>
           Make sure to read our{" "}
           <Link to={"termsandconditions"}> Terms & Conditions </Link>
         </p>
@@ -71,11 +73,16 @@ export default function About() {
       <div>
         {" "}
         <h4 className={style.installingTitle}>
-          Installing the App in your mobile
+          {translate("Installing the App in your mobile", currentLang)}
         </h4>
         <ol className={style.list}>
           <li>
-            1. Open the link of this app in your mobilephone with Google Chrome.
+            1.
+            {translate(
+              "Open the link of this app in your mobilephone with Google Chrome",
+              currentLang
+            )}
+            .
           </li>
           <a href={chromeTcs} target="_blank" rel="noreferrer">
             <img
@@ -85,8 +92,12 @@ export default function About() {
             />
           </a>
           <li>
-            2. Click the settings in the right upper corner of the Chrome
-            browser
+            2.
+            {translate(
+              "Click the settings in the right upper corner of the Chrome browser",
+              currentLang
+            )}
+            .
           </li>
           <a href={zoom} target="_blank" rel="noreferrer">
             <img
@@ -96,8 +107,12 @@ export default function About() {
             />
           </a>
           <li>
-            3. Select "install App". Notice that sometimes appears as "Add to
-            home screen"
+            3.
+            {translate(
+              'Select "install App". Notice that sometimes appears as "Add to home screen"',
+              currentLang
+            )}
+            .
           </li>
           <a href={settings} target="_blank" rel="noreferrer">
             <img
@@ -106,7 +121,14 @@ export default function About() {
               className={style.installImg}
             />
           </a>
-          <li>4. Install or accept the suggested name in the popup modal</li>
+          <li>
+            4.
+            {translate(
+              "Install or accept the suggested name in the popup modal",
+              currentLang
+            )}
+            .
+          </li>
           <a href={modal} target="_blank" rel="noreferrer">
             <img
               src={modal}
@@ -114,7 +136,13 @@ export default function About() {
               className={style.installImg}
             />
           </a>
-          <li>5. (Optional) Add the app to the mobile home screen </li>
+          <li>
+            {translate(
+              "(Optional) Add the app to the mobile home screen",
+              currentLang
+            )}
+            .
+          </li>
           <a href={toHomeSc} target="_blank" rel="noreferrer">
             <img
               src={toHomeSc}
@@ -122,7 +150,7 @@ export default function About() {
               className={style.installImg}
             />
           </a>
-          <li>Enjoy the App from your mobile!</li>
+          <li>{translate("Enjoy the App from your mobile!", currentLang)}</li>
           <a href={complete} target="_blank" rel="noreferrer">
             <img
               src={complete}

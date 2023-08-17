@@ -38,3 +38,10 @@
   background-color: #252525;
   color: white;
 }
+
+.termsConditions a {
+  color: #810032;
+}
+.termsConditions a:hover {
+  color: #ce0303;
+}

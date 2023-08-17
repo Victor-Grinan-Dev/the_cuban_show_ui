@@ -14,7 +14,7 @@ let year = d.getFullYear();
 
 const Footer = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
-  const darkMode = useSelector((state) => state.app.darkMode);
+  // const darkMode = useSelector((state) => state.app.darkMode);
 
   return (
     <div className={style.darkFooter}>

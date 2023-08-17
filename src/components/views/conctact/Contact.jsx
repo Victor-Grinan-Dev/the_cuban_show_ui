@@ -25,9 +25,7 @@ export default function Contact() {
   return (
     <div className={genStyle.view}>
       <Banner />
-      <div
-      // style={darkMode ? pageDark : page}
-      >
+      <div style={{ padding: "10px" }}>
         <h2 style={{ textTransform: "uppercase" }}>
           {translate("contact us", currentLang)}:
         </h2>

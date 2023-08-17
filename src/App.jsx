@@ -11,13 +11,27 @@ import Contact from "./components/views/conctact/Contact";
 import AddContent from "./components/views/addContent/AddContent";
 import SinglePage from "./components/views/singlePage/SinglePage";
 import Modal1 from "./components/UI/modals/Modal1";
-import MoreTags from'./components/UI/moreTags/MoreTags';
+import MoreTags from "./components/UI/moreTags/MoreTags";
 import { useDispatch, useSelector } from "react-redux";
 
 import SettingView from "./components/UI/modals/settingView/SettingView";
 import { useEffect } from "react";
 import useCookies from "./hooks/useCookies";
-import { setAllTags, setContents, setCurrentLang, setDarkMode, setError, setIsAuth, setIsLoading, setMessage, setShowConfirm, setShowError, setShowMessage, setShowMoreTags, setShowSettings } from "./app/appSlice";
+import {
+  setAllTags,
+  setContents,
+  setCurrentLang,
+  setDarkMode,
+  setError,
+  setIsAuth,
+  setIsLoading,
+  setMessage,
+  setShowConfirm,
+  setShowError,
+  setShowMessage,
+  setShowMoreTags,
+  setShowSettings,
+} from "./app/appSlice";
 import Cookies from "js-cookie";
 import ConfirmCancel from "./components/UI/modals/confirmCancel/ConfirmCancel";
 import MessageConfirm from "./components/UI/modals/messageConfirm/MessageConfirm";
@@ -26,6 +40,7 @@ import TermsAndConditions from "./components/views/termsAndConditions/TermsAndCo
 import InstallApp from "./components/views/installApp/InstallApp";
 import { getAllTags, getContents } from "./services/firebaseService";
 import Preview from "./components/views/preview/Preview";
+import { translate } from "./translation/translation";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +51,7 @@ function App() {
   const showMessage = useSelector((state) => state.app.showMessage);
   const showError = useSelector((state) => state.app.showError);
   const darkMode = useSelector((state) => state.app.darkMode);
+  const currentLang = useSelector((state) => state.app.currentLang);
 
   const { cookieValue } = useCookies();
 
@@ -57,9 +73,9 @@ function App() {
   }, [cookieValue, dispatch]);
 
   useEffect(() => {
-   const pref = JSON.parse( localStorage.getItem('tcs-pref'));
+    const pref = JSON.parse(localStorage.getItem("tcs-pref"));
 
-   if(pref){
+    if (pref) {
       dispatch(setCurrentLang(pref.currentLang));
       dispatch(setDarkMode(pref.darkMode));
     }
@@ -79,8 +95,7 @@ function App() {
 
   useEffect(() => {
     dispatch(setIsLoading(true));
-    getContents()
-      .then((data) => dispatch(setContents(data)))
+    getContents().then((data) => dispatch(setContents(data)));
     getAllTags()
       .then((data) => dispatch(setAllTags(data)))
       .then(dispatch(setIsLoading(false)));
@@ -104,7 +119,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Content />} />
           <Route path="about" element={<About />} />
-          <Route path="about/:termsandconditions" element={<TermsAndConditions />} />
+          <Route
+            path="about/:termsandconditions"
+            element={<TermsAndConditions />}
+          />
           <Route path="about/:installapp" element={<InstallApp />} />
           <Route path="contact" element={<Contact />} />
           <Route path="article/:single" element={<SinglePage />} />
@@ -116,16 +134,16 @@ function App() {
       {showSettings && (
         <Modal1
           component={<SettingView />}
-          closeFx={() =>{ 
+          closeFx={() => {
             dispatch(setShowSettings());
           }}
-          message={"settings"}
+          message={translate("settings", currentLang)}
         />
       )}
       {showConfirm && (
         <Modal1
           component={<ConfirmCancel />}
-          closeFx={() =>{ 
+          closeFx={() => {
             dispatch(setShowConfirm(false));
           }}
           message={"Are you sure?"}
@@ -134,7 +152,7 @@ function App() {
       {showMoreTags && (
         <Modal1
           component={<MoreTags />}
-          closeFx={() =>{ 
+          closeFx={() => {
             dispatch(setShowMoreTags(false));
           }}
         />
@@ -142,7 +160,7 @@ function App() {
       {showMessage && (
         <Modal1
           component={<MessageConfirm />}
-          closeFx={() =>{ 
+          closeFx={() => {
             dispatch(setShowMessage(false));
             dispatch(setMessage(""));
           }}
@@ -152,14 +170,13 @@ function App() {
       {showError && (
         <Modal1
           component={<ErrorConfirm />}
-          closeFx={() =>{ 
+          closeFx={() => {
             dispatch(setShowError(false));
             dispatch(setError(""));
           }}
           message={"ERROR!!"}
         />
       )}
-
     </BrowserRouter>
   );
 }

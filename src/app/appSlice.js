@@ -10,13 +10,13 @@ export const appSlice = createSlice({
     search: "",
     error: "",
     message: "",
-    filterTags: [], 
+    filterTags: [],
     currentLang: "en",
-    deleteIdMemo:"",
-    appMemo:{},
-    darkMode:false,
-    allTags : [], //tags from firebase db
-
+    deleteIdMemo: "",
+    appMemo: {},
+    darkMode: false,
+    allTags: [], //tags from firebase db
+    isClipboard: false,
 
     //Modals
     showSettings: false,
@@ -60,37 +60,38 @@ export const appSlice = createSlice({
     setCurrentLang(state, action) {
       state.currentLang = action.payload;
     },
-    setAppMemo(state, action){
+    setAppMemo(state, action) {
       state.appMemo = action.payload;
     },
-    setDeleteIdMemo(state, action){
+    setDeleteIdMemo(state, action) {
       state.deleteIdMemo = action.payload;
     },
-    setDarkMode(state, action){
+    setDarkMode(state, action) {
       state.darkMode = action.payload;
     },
-    setAllTags(state, action){
+    setAllTags(state, action) {
       state.allTags = action.payload;
     },
-
+    setIsClipboard(state) {
+      state.isClipboard = true;
+    },
 
     //MODALS:
     setShowSettings(state) {
       state.showSettings = !state.showSettings;
     },
-    setShowMoreTags(state){
-      state.showMoreTags = !state.showMoreTags
+    setShowMoreTags(state) {
+      state.showMoreTags = !state.showMoreTags;
     },
     setShowConfirm(state, action) {
       state.showConfirm = action.payload;
     },
-    setShowError(state, action){
-      state.showError =action.payload
+    setShowError(state, action) {
+      state.showError = action.payload;
     },
-    setShowMessage(state, action){
-      state.showMessage = action.payload
+    setShowMessage(state, action) {
+      state.showMessage = action.payload;
     },
-
 
     //Auth
     setIsAuth(state, action) {
@@ -144,6 +145,7 @@ export const {
   setAppMemo,
   setDarkMode,
   setAllTags,
+  setIsClipboard,
 
   //modals
   setShowSettings,
@@ -151,7 +153,7 @@ export const {
   setShowConfirm,
   setShowError,
   setShowMessage,
-  
+
   //Auth
   setIsAuth,
   setAuth,

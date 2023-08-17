@@ -120,10 +120,10 @@ function App() {
           <Route index element={<Content />} />
           <Route path="about" element={<About />} />
           <Route
-            path="about/:termsandconditions"
+            path="about/termsandconditions"
             element={<TermsAndConditions />}
           />
-          <Route path="about/:installapp" element={<InstallApp />} />
+          <Route path="about/installapp" element={<InstallApp />} />
           <Route path="contact" element={<Contact />} />
           <Route path="article/:single" element={<SinglePage />} />
 

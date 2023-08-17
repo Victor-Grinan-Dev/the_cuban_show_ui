@@ -18,18 +18,17 @@
 .advContent {
   height: 15vh;
 }
+
+.mainNewsCard,
+.newsCard {
+  background-image: url("../../../assets/textures/light-aluminum.png"),
+    linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
+}
+
 .newsCard {
   height: var(--CardContentHeight);
   overflow: hidden;
   display: flex;
-  background-image: linear-gradient(
-    45deg,
-    #a00101,
-    #ff0505,
-    white,
-    #4502ff,
-    #240283
-  );
   position: relative;
 }
 .advContent {

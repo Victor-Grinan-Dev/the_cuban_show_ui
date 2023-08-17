@@ -3,13 +3,6 @@ import genStyle from "../../../style/styleGeneral.module.css";
 import style from "./styleAbout.module.css";
 import Banner from "../../UI/banner/Banner";
 
-import chromeTcs from "../../../assets/install-app/chorme_tcs_page.jpg";
-import zoom from "../../../assets/install-app/chrome_tcs_zoom.jpg";
-import settings from "../../../assets/install-app/chrome_tcs_settings.jpg";
-import modal from "../../../assets/install-app/chrome-confirm-modal.jpg";
-import toHomeSc from "../../../assets/install-app/phone-installed-app.jpg";
-import complete from "../../../assets/install-app/phone-added-to-home-app.jpg";
-
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { translate } from "../../../translation/translation";
@@ -36,6 +29,13 @@ export default function About() {
           Make sure to read our{" "}
           <Link to={"termsandconditions"}> Terms & Conditions </Link>
         </p>
+        <div>
+          <Link to={"installapp"}>
+            <p style={{ color: "blue" }}>
+              {translate("Want to install this app?", currentLang)}
+            </p>
+          </Link>
+        </div>
       </div>
       <p className={genStyle.splitParragraph}>
         <span className={style.aboutSubjects}>Who we are?</span>
@@ -69,99 +69,6 @@ export default function About() {
         program. - you could order merchandise from us as a way to support. -
         you can order adverrtisment service from us. - or you could just donate.
       </p>
-
-      <div>
-        {" "}
-        <h4 className={style.installingTitle}>
-          {translate("Installing the App in your mobile", currentLang)}
-        </h4>
-        <ol className={style.list}>
-          <li>
-            1.
-            {translate(
-              "Open the link of this app in your mobilephone with Google Chrome",
-              currentLang
-            )}
-            .
-          </li>
-          <a href={chromeTcs} target="_blank" rel="noreferrer">
-            <img
-              src={chromeTcs}
-              alt="chrome settings"
-              className={style.installImg}
-            />
-          </a>
-          <li>
-            2.
-            {translate(
-              "Click the settings in the right upper corner of the Chrome browser",
-              currentLang
-            )}
-            .
-          </li>
-          <a href={zoom} target="_blank" rel="noreferrer">
-            <img
-              src={zoom}
-              alt="chrome settings"
-              className={style.installImg}
-            />
-          </a>
-          <li>
-            3.
-            {translate(
-              'Select "install App". Notice that sometimes appears as "Add to home screen"',
-              currentLang
-            )}
-            .
-          </li>
-          <a href={settings} target="_blank" rel="noreferrer">
-            <img
-              src={settings}
-              alt="chrome settings"
-              className={style.installImg}
-            />
-          </a>
-          <li>
-            4.
-            {translate(
-              "Install or accept the suggested name in the popup modal",
-              currentLang
-            )}
-            .
-          </li>
-          <a href={modal} target="_blank" rel="noreferrer">
-            <img
-              src={modal}
-              alt="chrome settings"
-              className={style.installImg}
-            />
-          </a>
-          <li>
-            {translate(
-              "(Optional) Add the app to the mobile home screen",
-              currentLang
-            )}
-            .
-          </li>
-          <a href={toHomeSc} target="_blank" rel="noreferrer">
-            <img
-              src={toHomeSc}
-              alt="chrome settings"
-              className={style.installImg}
-            />
-          </a>
-          <li>{translate("Enjoy the App from your mobile!", currentLang)}</li>
-          <a href={complete} target="_blank" rel="noreferrer">
-            <img
-              src={complete}
-              alt="chrome settings"
-              className={style.installImg}
-            />
-          </a>
-        </ol>
-      </div>
-
-      {/* <div><Link to={"installapp"}><p>How to install this ap in androids</p></Link></div> */}
     </div>
   );
 }

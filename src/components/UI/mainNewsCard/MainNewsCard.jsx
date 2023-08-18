@@ -7,6 +7,7 @@ import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import TagBtn from "../appBtn/TagBtn";
+import { selectedAppBtnMini } from "../appBtn/standardStyle";
 const MainNewsCard = (props) => {
   const { id, title, image, date, heading, tags, author } = props;
   const readableDate = getReadableTime(date);
@@ -28,21 +29,6 @@ const MainNewsCard = (props) => {
                   {translate("Published", currentLang)}:
                   {readableDate.toDateString()}
                 </p>
-                <p className={style.author}>
-                  {translate("Author", currentLang)}:{" "}
-                  {author ? author : translate("Not specified", currentLang)}
-                </p>
-              </div>
-              <div className="tags">
-                {tags &&
-                  tags.map((tag, i) => (
-                    <TagBtn
-                      id={i}
-                      key={i}
-                      type={"terceary"}
-                      label={translate(`${tag}`, currentLang)}
-                    />
-                  ))}
               </div>
             </div>
             <img
@@ -50,6 +36,22 @@ const MainNewsCard = (props) => {
               src={image || testImg}
               alt="newsImage"
             />
+          </div>
+          <div className="tags">
+            <p className={style.author}>
+              {translate("Author", currentLang)}:{" "}
+              {author ? author : translate("Not specified", currentLang)}
+            </p>
+            {tags &&
+              tags.map((tag, i) => (
+                <TagBtn
+                  id={i}
+                  key={i}
+                  type={"display"}
+                  style={selectedAppBtnMini}
+                  label={translate(`${tag}`, currentLang)}
+                />
+              ))}
           </div>
         </div>
       </div>

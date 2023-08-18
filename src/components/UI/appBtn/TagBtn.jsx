@@ -12,7 +12,7 @@ const darkNotSelected = {
   borderColor: "white",
   color: "white",
   margin: "5px",
-  backgroundColor:"rgb(42,42,42)"
+  backgroundColor: "#495262",
 };
 
 const selected = {
@@ -21,16 +21,18 @@ const selected = {
 };
 
 const TagBtn = ({ fxPrimary, label, style, isSelected }) => {
-  const darkMode = useSelector(state => state.app.darkMode)
+  const darkMode = useSelector((state) => state.app.darkMode);
   return (
     <AppBtn
       type={"terceary"}
       fx={() => {
         fxPrimary();
       }}
-
       caption={label.toUpperCase()}
-      style={isSelected ? selected : !darkMode ? notSelected : darkNotSelected}
+      style={
+        style ||
+        (isSelected ? selected : !darkMode ? notSelected : darkNotSelected)
+      }
     />
   );
 };

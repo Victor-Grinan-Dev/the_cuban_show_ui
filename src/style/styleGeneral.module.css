@@ -1,3 +1,12 @@
+:root {
+  --grey05: #1b212b;
+  --grey04: #212b35;
+  --grey03: #2e3a48;
+  --grey02: #495262;
+  --grey01: #4c5564;
+  --white: white;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -38,12 +47,13 @@
 }
 
 .textPage {
-  background-color: white;
-  color: #252525;
+  background-color: var(--white);
+  color: var(--gray03);
 }
 .textPageDark {
-  background-color: #252525;
-  color: white;
+  /* background-color: #252525; */
+  background-color: var(--grey04);
+  color: var(--white);
 }
 
 @media {

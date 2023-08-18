@@ -23,11 +23,15 @@ export default function About() {
   return (
     <div className={genStyle.view} style={darkMode ? aboutPageDark : aboutPage}>
       <Banner />
-      <h1>The cuban Show</h1>
-      <div>
+      <div className={genStyle.textPage} style={{ paddingBottom: "50px" }}>
+        <h1>The cuban Show</h1>
+        <br />
         <p className={style.termsConditions}>
           Make sure to read our{" "}
-          <Link to={"termsandconditions"}> Terms & Conditions </Link>
+          <Link to={"termsandconditions"} style={{ color: "blue" }}>
+            {" "}
+            Terms & Conditions.{" "}
+          </Link>
         </p>
         <div>
           <Link to={"installapp"}>
@@ -36,39 +40,63 @@ export default function About() {
             </p>
           </Link>
         </div>
+        <br />
+        <p>
+          <span className={style.aboutSubjects}>
+            Who we are?
+            <br />
+          </span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+          reprehenderit beatae ullam quis ex tenetur velit quidem vitae
+          dignissimos iusto necessitatibus deserunt recusandae est totam,
+          voluptate laboriosam quam delectus assumenda doloremque debitis fugit
+          facere nemo. Tempore molestias id incidunt.
+        </p>
+        <br />
+        <br />
+        <p>
+          {" "}
+          <span className={style.aboutSubjects}>
+            What we want?
+            <br />
+          </span>{" "}
+          Iure optio cumque saepe, natus reiciendis delectus. Quisquam autem
+          illo iure sint sed amet temporibus, accusantium reiciendis incidunt ab
+          dicta, necessitatibus ipsam voluptatum numquam nulla similique
+          repudiandae non deserunt illum ullam qui vel eum? Quasi aspernatur
+          quod quidem necessitatibus consequatur libero delectus maxime facere.
+        </p>
+        <br />
+        <br />
+        <p>
+          {" "}
+          <span className={style.aboutSubjects}>
+            {" "}
+            How we will get it?
+            <br />
+          </span>
+          Dolores dolorem totam dicta voluptates hic dolore, at eum saepe, nisi
+          assumenda, earum praesentium quibusdam explicabo quod ea excepturi
+          fugiat minus asperiores magnam enim doloribus.{" "}
+        </p>
+        <br />
+        <br />
+        <p>
+          {" "}
+          <span className={style.aboutSubjects}>
+            {" "}
+            How you can help?
+            <br />
+          </span>{" "}
+          - The easiest way to help us is by following, liking and subscribing
+          in some or all of the social media plattforms. - You could provide
+          topics and info for us to include in our program. - you could order
+          merchandise from us as a way to support. - you can order adverrtisment
+          service from us. - or you could just donate.
+        </p>
+        <br />
+        <br />
       </div>
-      <p className={genStyle.splitParragraph}>
-        <span className={style.aboutSubjects}>Who we are?</span>
-        <br />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-        reprehenderit beatae ullam quis ex tenetur velit quidem vitae
-        dignissimos iusto necessitatibus deserunt recusandae est totam,
-        voluptate laboriosam quam delectus assumenda doloremque debitis fugit
-        facere nemo. Tempore molestias id incidunt. <br /> <br />
-        <span className={style.aboutSubjects}>What we want?</span> <br /> Iure
-        optio cumque saepe, natus reiciendis delectus. Quisquam autem illo iure
-        sint sed amet temporibus, accusantium reiciendis incidunt ab dicta,
-        necessitatibus ipsam voluptatum numquam nulla similique repudiandae non
-        deserunt illum ullam qui vel eum? Quasi aspernatur quod quidem
-        necessitatibus consequatur libero delectus maxime facere. <br />
-        <span className={style.aboutSubjects}>
-          {" "}
-          <br /> How we will get it?
-        </span>{" "}
-        <br /> Dolores dolorem totam dicta voluptates hic dolore, at eum saepe,
-        nisi assumenda, earum praesentium quibusdam explicabo quod ea excepturi
-        fugiat minus asperiores magnam enim doloribus. <br />
-        <span className={style.aboutSubjects}>
-          {" "}
-          <br /> How you can help?
-        </span>{" "}
-        <br />
-        - The easiest way to help us is by following, liking and subscribing in
-        some or all of the social media plattforms.
-        <br />- You could provide topics and info for us to include in our
-        program. - you could order merchandise from us as a way to support. -
-        you can order adverrtisment service from us. - or you could just donate.
-      </p>
     </div>
   );
 }

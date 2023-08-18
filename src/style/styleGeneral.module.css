@@ -19,6 +19,29 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   position: relative;
+  flex: 1;
+}
+
+.textPageDark,
+.textPage {
+  padding: 0 30px;
+  min-height: 75vh;
+  padding-bottom: 50px;
+  z-index: 0;
+}
+
+.textPageDark ul,
+.textPage ul {
+  list-style-type: none;
+}
+
+.textPage {
+  background-color: white;
+  color: #252525;
+}
+.textPageDark {
+  background-color: #252525;
+  color: white;
 }
 
 @media {

@@ -1,7 +1,3 @@
-.termsAndCondStyle {
-}
-.termsAndCondList {
-  list-style-type: square;
-}
-.termsAndCondStyle {
+.termsAndCondStyle ul {
+  list-style-type: none;
 }

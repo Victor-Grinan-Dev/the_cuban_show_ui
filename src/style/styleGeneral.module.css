@@ -1,3 +1,12 @@
+@import "./varibles.css";
+/* :root {
+  --grey05: #1b212b;
+  --grey04: #212b35;
+  --grey03: #2e3a48;
+  --grey02: #495262;
+  --grey01: #4c5564;
+  --white: white;
+}' */
 .main {
   display: flex;
   flex-direction: column;
@@ -8,6 +17,7 @@
   width: -webkit-fill-available;
   max-width: 950px;
   margin: 12vh 0 0 auto;
+  padding-bottom: 50px;
 
   display: flex;
   flex-direction: column;
@@ -19,6 +29,33 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   position: relative;
+
+  flex: 1;
+}
+
+.textPageDark,
+.textPage {
+  padding: 10px 30px 50px 30px;
+  min-height: 75vh;
+  width: 100%;
+  z-index: 0;
+}
+
+.textPageDark ul,
+.textPage ul,
+.textPageDark ol,
+.textPage ol {
+  list-style-type: none;
+}
+
+.textPage {
+  background-color: var(--white);
+  color: var(--gray03);
+}
+.textPageDark {
+  /* background-color: #252525; */
+  background-color: var(--grey04);
+  color: var(--white);
 }
 
 @media {
@@ -81,7 +118,7 @@
 .rocky {
   background-image: url("../assets/textures/buried.png");
 }
-.denin {
+/* .denin {
   background-image: url("../assets/textures/dark-denim.png");
 }
 .wood {
@@ -89,4 +126,4 @@
 }
 .noise {
   background-image: url("../assets/textures/broken-noise.png");
-}
+} */

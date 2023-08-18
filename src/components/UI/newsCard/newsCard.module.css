@@ -1,5 +1,16 @@
+@import "../../../style/varibles.css";
 :root {
-  --CardContentHeight: 10vh;
+  --CardContentHeight: 150px;
+  --alumGradient: url("../../../assets/textures/light-aluminum.png"),
+    linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
+  --plainGradient: linear-gradient(
+    45deg,
+    #a00101,
+    #ff0505,
+    white,
+    #4502ff,
+    #240283
+  );
 }
 
 .advCard,
@@ -21,8 +32,7 @@
 
 .mainNewsCard,
 .newsCard {
-  background-image: url("../../../assets/textures/light-aluminum.png"),
-    linear-gradient(45deg, #a00101, #ff0505, white, #4502ff, #240283);
+  background-image: var(--alumGradient);
 }
 
 .newsCard {
@@ -61,6 +71,9 @@ a {
 .contentContainer {
   padding: 10px;
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .newsCardTitle {
@@ -108,7 +121,7 @@ a {
 
 @media only screen and (max-width: 768px) {
   .newsCard {
-    height: 100px;
+    height: var(--CardContentHeight);
   }
 
   a {

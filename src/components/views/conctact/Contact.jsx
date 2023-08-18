@@ -4,28 +4,14 @@ import Banner from "../../UI/banner/Banner";
 import { useSelector } from "react-redux";
 import { translate } from "../../../translation/translation";
 
-// const page = {
-//   backgroundColor: "white",
-//   color: "#252525",
-//   padding: "0 10px",
-//   // backgroundImage: "none",
-// };
-
-// const pageDark = {
-//   backgroundColor: "#252525",
-//   color: "white",
-//   padding: "0 5px",
-//   // backgroundImage: "none",
-// };
-
 export default function Contact() {
-  // const darkMode = useSelector((state) => state.app.darkMode);
+  const darkMode = useSelector((state) => state.app.darkMode);
   const currentLang = useSelector((state) => state.app.currentLang);
   const link = { color: "blue", cursor: "pointer" };
   return (
     <div className={genStyle.view}>
       <Banner />
-      <div style={{ padding: "10px" }}>
+      <div className={!darkMode ? genStyle.textPage : genStyle.textPageDark}>
         <h2 style={{ textTransform: "uppercase" }}>
           {translate("contact us", currentLang)}:
         </h2>

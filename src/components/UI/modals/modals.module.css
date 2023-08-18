@@ -1,58 +1,59 @@
-.absoluteCenter{ 
-    position: absolute; 
-    left: 50%; 
-    top: 50%; 
-    transform: 
-    translate(-50%,-50%); 
+.absoluteCenter {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-    border-radius: 5px;
-    box-shadow: 0 0 10px black;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
 
-    background-color: rgba(0, 1, 1, 0.895);
+  background-color: rgba(0, 1, 1, 0.895);
 
-    width: 98vw;
-    height: 98vh;
+  width: 98vw;
+  height: 98vh;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
-    overflow-y: scroll;
+  padding-top: 50px;
+  overflow-y: scroll;
 
-    z-index: 5;
+  z-index: 200;
 }
-.sectionName{
-    background-color: rgb(19, 4, 131);
-    color: white;
-    font-size: 30px;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-    border-radius: 10px;
+.sectionName {
+  background-color: rgb(19, 4, 131);
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-radius: 10px;
 }
-.closeX{
-    color: white;
-    position: relative;
+.closeX {
+  color: white;
+  position: fixed;
 
-    font-size: 30px;
-    right: -37%;
-    
-    border-radius: 10px;
-    padding: 0 20px;
-    text-shadow: 0 0 10px rgb(251, 251, 251);
-}
+  font-size: 30px;
+  top: 10px;
+  right: 10px;
 
-.closeX:hover{
-    color: red;
-    cursor: pointer;
+  border-radius: 10px;
+  padding: 0 20px;
+  text-shadow: 0 0 10px rgb(251, 251, 251);
 }
 
-.modalContentSize{
-    width:90%;
-    min-height:90%;
-    display:flex;
-    flex-direction:column;
-    text-aling:center;
+.closeX:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.modalContentSize {
+  width: 90%;
+  min-height: 90%;
+  display: flex;
+  flex-direction: column;
+  text-aling: center;
 }

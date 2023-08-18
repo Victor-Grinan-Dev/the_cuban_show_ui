@@ -6,14 +6,15 @@ import { getReadableTime } from "../../../functions/time";
 import { translate } from "../../../translation/translation";
 import { useSelector } from "react-redux";
 import TagBtn from "../appBtn/TagBtn";
+import { selectedAppBtnMini } from "../appBtn/standardStyle";
 
-const NewsCard = ( props) => {
+const NewsCard = (props) => {
   const { id, title, image, date, heading, previewUrl, tags, author } = props;
   const readableDate = getReadableTime(date);
   const currentLang = useSelector((state) => state.app.currentLang);
   const content = useSelector((state) => state.app.content);
   const isMobile = false;
- 
+
   return (
     <Link to={`article/${id}`} state={props}>
       <div className={style.cardContainer}>
@@ -27,7 +28,9 @@ const NewsCard = ( props) => {
           </div>
 
           <div className={style.contentContainer}>
-            <h3 className={style.newsCardTitle}>{title ? title : content.title ? content.title : "test title"}</h3>
+            <h3 className={style.newsCardTitle}>
+              {title ? title : content.title ? content.title : "test title"}
+            </h3>
             <hr className={style.line} />
             {!isMobile && <div className={style.heading}>{heading}</div>}
             <div className="date-author">
@@ -36,16 +39,20 @@ const NewsCard = ( props) => {
                 {readableDate.toDateString()}
               </p>
               <p className={style.author}>
-                Author: {" "}
-                {author ? author : "Not specified" }
+                Author: {author ? author : "Not specified"}
               </p>
             </div>
-            <div className="tags"> 
-              {
-                tags && tags.map((tag, i) => (
-                  <TagBtn id={i} key={i} type={"display"} label={translate(`${tag}`, currentLang)}/>
-                ))
-              }
+            <div className="tags">
+              {tags &&
+                tags.map((tag, i) => (
+                  <TagBtn
+                    id={i}
+                    key={i}
+                    type={"display"}
+                    style={selectedAppBtnMini}
+                    label={translate(`${tag}`, currentLang)}
+                  />
+                ))}
             </div>
           </div>
         </div>

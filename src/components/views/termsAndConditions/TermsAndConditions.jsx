@@ -1,20 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import genStyle from "../../../style/styleGeneral.module.css";
-import style from "./termsAndCands.module.css";
-const page = {
-  backgroundColor: "white",
-  color: "#252525",
-  padding: "0 10px",
-  // backgroundImage: "none",
-};
-
-const pageDark = {
-  backgroundColor: "#252525",
-  color: "white",
-  padding: "0 5px",
-  // backgroundImage: "none",
-};
 
 const TermsAndConditions = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
@@ -23,10 +9,7 @@ const TermsAndConditions = () => {
   if (currentLang === "es") {
     return (
       <div className={genStyle.view}>
-        <div
-          className={style.termsAndCondStyle}
-          style={darkMode ? pageDark : page}
-        >
+        <div className={!darkMode ? genStyle.textPage : genStyle.textPageDark}>
           <h3>Terminos & Condiciones</h3>
           <br />
           <p>Estimado usuario: </p>
@@ -98,10 +81,7 @@ const TermsAndConditions = () => {
   }
   return (
     <div className={genStyle.view}>
-      <div
-        className={style.termsAndCondStyle}
-        style={darkMode ? pageDark : page}
-      >
+      <div className={!darkMode ? genStyle.textPage : genStyle.textPageDark}>
         <h3>Terms & Conditions</h3>
         <br />
         <p>Dear user: </p>

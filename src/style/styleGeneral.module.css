@@ -1,12 +1,12 @@
-:root {
+@import "./varibles.css";
+/* :root {
   --grey05: #1b212b;
   --grey04: #212b35;
   --grey03: #2e3a48;
   --grey02: #495262;
   --grey01: #4c5564;
   --white: white;
-}
-
+}' */
 .main {
   display: flex;
   flex-direction: column;
@@ -17,6 +17,7 @@
   width: -webkit-fill-available;
   max-width: 950px;
   margin: 12vh 0 0 auto;
+  padding-bottom: 50px;
 
   display: flex;
   flex-direction: column;
@@ -28,6 +29,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   position: relative;
+
   flex: 1;
 }
 

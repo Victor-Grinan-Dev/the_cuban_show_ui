@@ -7,23 +7,13 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { translate } from "../../../translation/translation";
 
-const aboutPage = {
-  backgroundColor: "white",
-  color: "#252525",
-};
-
-const aboutPageDark = {
-  backgroundColor: "#252525",
-  color: "white",
-};
-
 export default function About() {
   const darkMode = useSelector((state) => state.app.darkMode);
   const currentLang = useSelector((state) => state.app.currentLang);
   return (
-    <div className={genStyle.view} style={darkMode ? aboutPageDark : aboutPage}>
+    <div className={genStyle.view}>
       <Banner />
-      <div className={genStyle.textPage} style={{ paddingBottom: "50px" }}>
+      <div className={!darkMode ? genStyle.textPage : genStyle.textPageDark}>
         <h1>The cuban Show</h1>
         <br />
         <p className={style.termsConditions}>

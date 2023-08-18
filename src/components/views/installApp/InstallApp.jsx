@@ -14,6 +14,7 @@ import { setIsClipboard } from "../../../app/appSlice.js";
 
 const InstallApp = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
+  const darkMode = useSelector((state) => state.app.darkMode);
   const copied = useSelector((state) => state.app.isClipboard);
   const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ const InstallApp = () => {
 
   return (
     <div className={genStyle.view}>
-      <div className={genStyle.textPage}>
+      <div className={!darkMode ? genStyle.textPage : genStyle.textPageDark}>
         <h4 className={style.installingTitle}>
           {translate("Installing the App in your mobile", currentLang)}
         </h4>

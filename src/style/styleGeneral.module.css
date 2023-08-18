@@ -26,6 +26,7 @@
 .textPage {
   padding: 10px 30px 50px 30px;
   min-height: 75vh;
+  width: 100%;
   z-index: 0;
 }
 

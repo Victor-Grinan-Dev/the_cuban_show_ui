@@ -1,7 +1,6 @@
 # The Cuban Show Notes:
 ## TODOs
 
-
 ### CRUD.
 - edit news
 
@@ -10,26 +9,22 @@
 
 ### Funtionalities:
 
-- navagate to addcontent page (nav -1) from preview
-
 - buscador por author por fecha fuente.
+
+- sugerir contenidos parecidos o relacionados 
 
 - ads if there is no ads dont show the empty space or show own ad flag?
 
-- if search is on dont show main news card?
+- Make delete not really delete but just move the content to another branch of the json obj.
 
+- tienda online.
 ### Fix ups.
 
 - la pagina de About y Contact
 
-- Make delete not really delete but just move the content to another branch of the json obj.
-
-- return to browse pinPoint: (DOESNT HAPPENS CAUSE KEY ERROR)
-    - on click in newsCard save scroll value.
-    - on BackToContents reload scroll value.
-    - smooth scroll.
-
 - language auto translation;
+
+- if adding content and going for preview, photo/image is lost, cant programatically fix that up. needs to persevere on its own.
 
 ### Ads: (needs bank account linkage, test first in my own portfolio and bank accound first)
 - monetization plan: https://www.youtube.com/watch?v=TlhuljEYBMk
@@ -113,3 +108,13 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 - borrar contenido?
 
 - UNIQUE KEY VALUE ERROR IN CONTENT.
+
+- if search is on, dont show main news card?
+
+- navagate to addcontent page (nav -1) from preview
+
+
+- (fixed) return to browse pinPoint: (DOESNT HAPPENS CAUSE KEY ERROR)
+    - on click in newsCard save scroll value.
+    - on BackToContents reload scroll value.
+    - smooth scroll.

@@ -38,7 +38,7 @@ const MainNewsCard = (props) => {
             />
           </div>
           <div className="tags">
-            <p className={style.author}>
+            <p className={style.date}>
               {translate("Author", currentLang)}:{" "}
               {author ? author : translate("Not specified", currentLang)}
             </p>

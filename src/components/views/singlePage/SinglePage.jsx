@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getReadableTime } from "../../../functions/time";
 import globalStyle from "../../../style/styleGeneral.module.css";
 import defaultImage from "../../../assets/logo-black.jpg";
 import style from "./singlePage.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import BackToMain from "../../UI/backToMain/BackToMain";
+// import BackToMain from "../../UI/backToMain/BackToMain";
 //import EditDeleteBtn from "../../UI/editDeleteBtn/EditDeleteBtn";
 
 import AdvCard from "../../UI/advCard/AdvCard";
@@ -26,6 +26,7 @@ const capitalStart = {
 
 const SinglePage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const appMemo = useSelector((state) => state.app.appMemo);
   const { id, body, date, heading, image, tags, title, author } = appMemo;
@@ -57,7 +58,6 @@ const SinglePage = () => {
 
   useEffect(() => {
     window.scrollTo((0, 0), 200);
-
     // eslint-disable-next-line
   }, [appMemo]);
 
@@ -65,7 +65,11 @@ const SinglePage = () => {
     <div className={globalStyle.view}>
       <div className={darkMode ? style.newsPageDark : style.newsPage}>
         <AdvCard text={"advertisment"} />
-        <BackToMain />
+        <AppBtn
+          caption={"<<< Back to Content"}
+          type="primary"
+          fx={() => navigate(-1)}
+        />
         <p>Published: {readableDate.toDateString()} </p>
         <img
           src={image ? image : defaultImage}
@@ -121,8 +125,15 @@ const SinglePage = () => {
           </div>
         )}
         <AdvCard text={"advertisment"} />
-        <BackToMain />
-        {/* <div className={style.top}>
+        <AppBtn
+          caption={"<<< Back to Content"}
+          type="primary"
+          fx={() => navigate(-1)}
+        />
+
+        {/* 
+          <BackToMain />
+        <div className={style.top}>
           <div className="bottom"></div>
           {/* TODO: ERASE CONTENT BY SAVING THEM SOME WHERE ELSE 
 

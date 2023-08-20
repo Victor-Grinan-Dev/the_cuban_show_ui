@@ -6,6 +6,8 @@ import style from "../singlePage/singlePage.module.css";
 import { useSelector } from "react-redux";
 import TagBtn from "../../UI/appBtn/TagBtn";
 import { translate } from "../../../translation/translation";
+import { useNavigate } from "react-router-dom";
+import AppBtn from "../../UI/appBtn/AppBtn";
 
 const capitalStart = {
   textTransform: "capitalize",
@@ -22,14 +24,20 @@ const singleDarModeTags = {
 const Preview = () => {
   const currentLang = useSelector((state) => state.app.currentLang);
   const darkMode = useSelector((state) => state.app.darkMode);
-  const content = useSelector(state => state.app.content);
+  const content = useSelector((state) => state.app.content);
   const { body, date, heading, previewUrl, tags, title, author } = content;
   const readableDate = getReadableTime(date);
+  const navigate = useNavigate();
   return (
     <div className={globalStyle.view}>
       <div className={style.single}>
         <div className={style.top}>
           {/* TODO: back to create page */}
+          <AppBtn
+            caption={"<<< Back to add content"}
+            type={"primary"}
+            fx={() => navigate(-1)}
+          />
           <p>Published: {readableDate.toDateString()} </p>
           <img
             src={previewUrl ? previewUrl : defaultImage}
@@ -66,7 +74,12 @@ const Preview = () => {
                 />
               ))}
           </div>
-         {/* TODO: back to create page */}
+          {/* TODO: back to create page */}
+          <AppBtn
+            caption={"<<< Back to add content"}
+            type={"primary"}
+            fx={() => navigate(-1)}
+          />
         </div>
       </div>
     </div>

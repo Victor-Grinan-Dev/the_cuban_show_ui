@@ -10,6 +10,7 @@ import style from "./styleContent.module.css";
 import AdvCard from "../../UI/advCard/AdvCard";
 import MainNewsCard from "../../UI/mainNewsCard/MainNewsCard";
 import { v4 as uuidv4 } from "uuid";
+import { getScroll, saveScroll } from "../../../hooks/useScroll";
 
 const Content = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,26 @@ const Content = () => {
   const contentsFilteredByTags = filterByTags(contents, selectedTags);
   const advs = ["advetisments1", "advetisments2", "advetisments3"];
   let value = advs.length - 1;
+
+  useEffect(() => {
+    if (getScroll("Feed")) {
+      let { scrollY } = getScroll("Feed");
+
+      window.scrollTo((0, scrollY), 200);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    const save = () => {
+      saveScroll("Feed", { scrollY: window.pageYOffset });
+    };
+    save();
+    document.addEventListener("scroll", save);
+    return () => document.removeEventListener("scroll", save);
+    // eslint-disable-next-line
+  }, []);
+
   const nextAdv = () => {
     if (value === advs.length - 1) {
       value = 0;

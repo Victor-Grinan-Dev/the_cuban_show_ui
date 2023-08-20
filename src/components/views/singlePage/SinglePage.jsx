@@ -54,6 +54,13 @@ const SinglePage = () => {
     color: "white",
     margin: "0 5px",
   };
+
+  useEffect(() => {
+    window.scrollTo((0, 0), 200);
+
+    // eslint-disable-next-line
+  }, [appMemo]);
+
   return (
     <div className={globalStyle.view}>
       <div className={darkMode ? style.newsPageDark : style.newsPage}>

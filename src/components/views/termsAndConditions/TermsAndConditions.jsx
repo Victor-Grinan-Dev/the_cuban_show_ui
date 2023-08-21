@@ -138,7 +138,7 @@ const TermsAndConditions = () => {
         <br />
         <p>Sincerely,</p>
         <p>The Cuban Show Production Team</p>
-        <p>thecubanshow@gmail.com</p>
+        <p>thecubanshow502@gmail.com</p>
       </div>
     </div>
   );

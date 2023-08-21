@@ -17,10 +17,10 @@ export default function About() {
         <h1>The cuban Show</h1>
         <br />
         <p className={style.termsConditions}>
-          Make sure to read our{" "}
+          {translate("Make sure to read our", currentLang)}
           <Link to={"termsandconditions"} style={{ color: "blue" }}>
             {" "}
-            Terms & Conditions.{" "}
+            {translate("Terms & Conditions", currentLang)}.
           </Link>
         </p>
         <div>
@@ -33,56 +33,89 @@ export default function About() {
         <br />
         <p>
           <span className={style.aboutSubjects}>
-            Who we are?
+            {translate("Who we are?", currentLang)}
+            <br />
             <br />
           </span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+          {translate(
+            `Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
           reprehenderit beatae ullam quis ex tenetur velit quidem vitae
           dignissimos iusto necessitatibus deserunt recusandae est totam,
           voluptate laboriosam quam delectus assumenda doloremque debitis fugit
-          facere nemo. Tempore molestias id incidunt.
+          facere nemo. Tempore molestias id incidunt`,
+            currentLang
+          )}
+          .
         </p>
         <br />
         <br />
         <p>
           {" "}
           <span className={style.aboutSubjects}>
-            What we want?
+            {translate("What we want?", currentLang)}
             <br />
           </span>{" "}
-          Iure optio cumque saepe, natus reiciendis delectus. Quisquam autem
-          illo iure sint sed amet temporibus, accusantium reiciendis incidunt ab
-          dicta, necessitatibus ipsam voluptatum numquam nulla similique
-          repudiandae non deserunt illum ullam qui vel eum? Quasi aspernatur
-          quod quidem necessitatibus consequatur libero delectus maxime facere.
+        </p>
+        <br />
+        <p>
+          {translate(
+            `Aspiramos a construir un espacio en línea donde se promueva contenido
+          noticioso imparcial y libre de sesgo político, fomentando el
+          pensamiento crítico y la reflexión informada. Nuestro propósito es
+          ofrecer una plataforma en la que los individuos puedan acceder a una
+          gama diversa de opiniones, análisis y perspectivas sobre temas
+          relevantes`,
+            currentLang
+          )}
+          .
         </p>
         <br />
         <br />
         <p>
-          {" "}
           <span className={style.aboutSubjects}>
-            {" "}
-            How we will get it?
+            {translate("How we will get it?", currentLang)}
+            <br />
             <br />
           </span>
-          Dolores dolorem totam dicta voluptates hic dolore, at eum saepe, nisi
-          assumenda, earum praesentium quibusdam explicabo quod ea excepturi
-          fugiat minus asperiores magnam enim doloribus.{" "}
+          {translate(
+            `Facilitando el acceso a información equilibrada y objetiva desde
+          diversas perspectivas, con la intención de establecer una plataforma
+          donde las personas puedan explorar y analizar la actualidad
+          socio-política`,
+            currentLang
+          )}
+          .
         </p>
         <br />
         <br />
         <p>
-          {" "}
           <span className={style.aboutSubjects}>
-            {" "}
-            How you can help?
-            <br />
-          </span>{" "}
-          - The easiest way to help us is by following, liking and subscribing
-          in some or all of the social media plattforms. - You could provide
-          topics and info for us to include in our program. - you could order
-          merchandise from us as a way to support. - you can order adverrtisment
-          service from us. - or you could just donate.
+            {translate(`How you can help?`, currentLang)}
+          </span>
+          <br />
+          <br />-
+          {translate(
+            `The easiest way to help us is by following, liking and subscribing in some or all of the social media plattforms`,
+            currentLang
+          )}
+          .
+          <br />-
+          {translate(
+            `You could provide topics and info for us to include in our program`,
+            currentLang
+          )}
+          {/* .<br />-
+          {translate(
+            `You could order merchandise from us as a way to support`,
+            currentLang
+          )}*/}
+          .<br />-
+          {translate(
+            `You can order adverrtisment service from us`,
+            currentLang
+          )}
+          .<br />-{translate(`Or you could just donate`, currentLang)}
+          .<br />
         </p>
         <br />
         <br />

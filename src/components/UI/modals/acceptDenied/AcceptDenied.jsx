@@ -7,7 +7,6 @@ import terms_and_conditions from "../../../../documents/terms_and_conditions.pdf
 import { translate } from "../../../../translation/translation";
 import { setIsAccept } from "../../../../app/appSlice";
 import LangBox from "../../langBox/LangBox";
-import DarkMode from "../../darkMode/DarkMode";
 
 const AcceptDenied = () => {
   const dispatch = useDispatch();

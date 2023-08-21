@@ -84,7 +84,6 @@ function App() {
     if (pref.isAccepted) {
       dispatch(setIsAccept());
     }
-
     // eslint-disable-next-line
   }, []);
 
@@ -122,6 +121,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          {/** show route if conditions were accepted? */}
           <Route index element={<Content />} />
           <Route path="about" element={<About />} />
           <Route

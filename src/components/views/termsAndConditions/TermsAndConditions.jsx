@@ -53,9 +53,9 @@ const TermsAndConditions = () => {
           </ul>
           <br />
           <p>
-            Por nuestra parte, esta aplicación o nuestra organizacion NO recoge
+            Por nuestra parte, esta aplicación o nuestra organización NO recoge
             ningún tipo de datos personales de nuestros usuarios. Si prestamos
-            atención al uso del sitio web a través de los análisys de Google
+            atención al uso del sitio web a través de los análisis de Google
             como dato general.
           </p>
           <br />
@@ -74,7 +74,7 @@ const TermsAndConditions = () => {
           <p>Atentamente,</p>
           <br />
           <p>Equipo de producción: The Cuban Show</p>
-          <p>thecubanshow@gmail.com</p>
+          <p>thecubanshow502@gmail.com</p>
         </div>
       </div>
     );

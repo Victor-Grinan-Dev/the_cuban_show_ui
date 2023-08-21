@@ -7,15 +7,17 @@ const Modal1 = ({ component, message, closeFx }) => {
   const currentLang = useSelector((state) => state.app.currentLang);
   return (
     <div className={css.absoluteCenter}>
-      <p className={css.closeX} onClick={closeFx}>
-        {translate("Close", currentLang)}
-      </p>
+      {closeFx && (
+        <p className={css.closeX} onClick={closeFx}>
+          {translate("Close", currentLang)}
+        </p>
+      )}
       {message && (
         <p
           style={{
             color: "white",
             textTransform: "uppercase",
-            fontSize: "40px",
+            fontSize: "30px",
           }}
         >
           {translate(`${message}`, currentLang)}

@@ -23,6 +23,7 @@ import {
   setCurrentLang,
   setDarkMode,
   setError,
+  setIsAccept,
   setIsAuth,
   setIsLoading,
   setMessage,
@@ -41,6 +42,7 @@ import InstallApp from "./components/views/installApp/InstallApp";
 import { getAllTags, getContents } from "./services/firebaseService";
 import Preview from "./components/views/preview/Preview";
 import { translate } from "./translation/translation";
+import AcceptDenied from "./components/UI/modals/acceptDenied/AcceptDenied";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +56,7 @@ function App() {
   const currentLang = useSelector((state) => state.app.currentLang);
 
   const { cookieValue } = useCookies();
-
+  const isAccepted = useSelector((state) => state.app.isAccept);
   useEffect(() => {
     if (cookieValue) {
       if (
@@ -78,6 +80,9 @@ function App() {
     if (pref) {
       dispatch(setCurrentLang(pref.currentLang));
       dispatch(setDarkMode(pref.darkMode));
+    }
+    if (pref.isAccepted) {
+      dispatch(setIsAccept());
     }
 
     // eslint-disable-next-line
@@ -148,6 +153,9 @@ function App() {
           }}
           message={"Are you sure?"}
         />
+      )}
+      {!isAccepted && (
+        <Modal1 component={<AcceptDenied />} message={"Welcome"} />
       )}
       {showMoreTags && (
         <Modal1

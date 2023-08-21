@@ -1,13 +1,9 @@
-# The Cuban Show Notes:
-## TODOs
-
+# TODOs:
 ### CRUD.
 - edit news
 
-### Loader
-- make one
-
 ### Funtionalities:
+- Loader?
 
 - buscador por author por fecha fuente.
 
@@ -16,6 +12,8 @@
 - ads if there is no ads dont show the empty space or show own ad flag?
 
 - Make delete not really delete but just move the content to another branch of the json obj.
+
+- show route if conditions were accepted?
 
 - tienda online.
 ### Fix ups.
@@ -42,10 +40,9 @@ the cuban show in youtube: https://www.youtube.com/channel/UCzjcr4N5avBbjEcywqVa
 ### Firebase
 - firebase Auth
 - firebase CRUD
-    - - popup modal for accept - cancel before deleting.
+- popup modal for accept - cancel before deleting.
 - firebase: https://www.youtube.com/watch?v=jCY6DH8F4oc&t=930s, https://www.youtube.com/watch?v=jCY6DH8F4oc&t=930s
 custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
-
 
 ### Videos - Images
 - auto embed videos from youtube: https://www.youtube.com/watch?v=Ib1W1nZbzKc
@@ -109,10 +106,10 @@ custom upload file: https://www.youtube.com/watch?v=FtpN8QI9PuA
 
 - UNIQUE KEY VALUE ERROR IN CONTENT.
 
+updates in august
 - if search is on, dont show main news card?
 
 - navagate to addcontent page (nav -1) from preview
-
 
 - (fixed) return to browse pinPoint: (DOESNT HAPPENS CAUSE KEY ERROR)
     - on click in newsCard save scroll value.

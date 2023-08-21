@@ -29,6 +29,7 @@ export const appSlice = createSlice({
     isAuth: false,
     auth: {},
     user: "",
+    isAccept: false,
 
     //content, create content to save
     contents: [],
@@ -103,6 +104,9 @@ export const appSlice = createSlice({
     setUser(state, action) {
       state.user = action.payload;
     },
+    setIsAccept(state) {
+      state.isAccept = true;
+    },
 
     //content
     setContents(state, action) {
@@ -158,6 +162,7 @@ export const {
   setIsAuth,
   setAuth,
   setUser,
+  setIsAccept,
 
   //content
   setContents,

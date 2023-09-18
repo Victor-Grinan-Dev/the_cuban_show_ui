@@ -48,6 +48,11 @@
   text-transform: capitalize;
 }
 
+.author{
+  width: 80%;
+  margin-left: 10%;
+}
+
 .capitalStart {
   text-transform: capitalize;
 }

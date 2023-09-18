@@ -19,7 +19,6 @@ const AdvCard = (props) => {
           data-ad-slot="5470532769"
         ></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-
     </div>
   );
 };
